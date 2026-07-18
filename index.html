@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="伊斯坦布尔四日旅行行程：按天展开，查看景点费用、开放时间、拍照点与注意事项。" />
+    <title>İstanbul · 四日旅行手记</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="data.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="返回首页">
+        <span class="brand-mark">İ</span>
+        <span>ISTANBUL / 04 DAYS</span>
+      </a>
+      <nav class="top-nav" aria-label="主要导航">
+        <a href="#journey">行程</a>
+        <a href="#notes">出发须知</a>
+        <span class="nav-date">OCT 30 — NOV 02 · 2026</span>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">SHANGHAI → ISTANBUL · 2026</p>
+          <h1 id="hero-title">两日深游，四天<br /><em>横跨欧亚</em>的旅程</h1>
+          <p class="hero-intro">
+            10 月 30 日晚抵达，11 月 2 日返程。住在 Taksim 的 Lokalist Istanbul，用两条单向路线串起帝国旧城、当代艺术与博斯普鲁斯。
+          </p>
+          <a class="primary-link" href="#journey">
+            打开行程
+            <span aria-hidden="true">↓</span>
+          </a>
+        </div>
+        <div class="hero-visual">
+          <img src="assets/images/galata-skyline.jpg" alt="从博斯普鲁斯海峡眺望加拉塔塔和伊斯坦布尔天际线" />
+          <div class="hero-stamp" aria-hidden="true">
+            <span>41°01′N</span>
+            <strong>İST</strong>
+            <span>28°58′E</span>
+          </div>
+          <p class="photo-note">A CITY IN MOTION · EUROPE / ASIA</p>
+        </div>
+      </section>
+
+      <section class="journey-section" id="journey" aria-labelledby="journey-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">THE ITINERARY</p>
+            <h2 id="journey-title">旅程总览</h2>
+          </div>
+          <p>2026.10.30—11.02 · 点击任意一天展开精确时间线；点击景点名称进入专属详情页。</p>
+        </div>
+
+        <div class="day-tabs" id="day-tabs" role="tablist" aria-label="按天筛选"></div>
+        <div class="day-list" id="day-list"></div>
+      </section>
+
+      <section class="notes-section" id="notes">
+        <div class="notes-title">
+          <p class="eyebrow">BEFORE YOU GO</p>
+          <h2>先知道，会轻松很多</h2>
+        </div>
+        <div class="notes-grid">
+          <article>
+            <span class="note-number">01</span>
+            <h3>周末顺序已锁定</h3>
+            <p>Day 1 为周六、Day 2 为周日，已避开大奖集市周日休息及多尔玛巴赫切宫周一闭馆。</p>
+          </article>
+          <article>
+            <span class="note-number">02</span>
+            <h3>单向走，不折返</h3>
+            <p>Day 1 向 Sirkeci 推进；Day 2 沿海岸向 Eminönü，再经 Karaköy、独立大街步行回酒店。</p>
+          </article>
+          <article>
+            <span class="note-number">03</span>
+            <h3>复核冬季船班</h3>
+            <p>14:40 市营短线游船为当前官方班次。冬季时刻可能调整，建议 10 月中旬再次确认。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <span class="brand-mark">İ</span>
+        <p>为一场慢一点的伊斯坦布尔旅行而做。</p>
+      </div>
+      <p>照片来自 Pexels，摄影：Mihman、Zmutaqin、Umut Izgi、Alex Azabache、M. Emin Bilir、Zak H、Hatice Baran、_feyzzza_、Beyzanur、Emin Bozyokuş、Yaşar Başkurt。</p>
+    </footer>
+  </body>
+</html>

@@ -45,14 +45,29 @@
     };
   }
 
-  function getHighlightDescription(title, index) {
-    const descriptions = [
-      `这是进入${attraction.name}后最值得先建立整体印象的一处。先稍微拉开距离观察轮廓，再靠近寻找${title}的关键细节。`,
-      `${title}最适合慢下来近距离观看。留意材质、装饰与光线的变化，往往比快速拍一张照片更有记忆点。`,
-      `把${title}放进参观动线的中段，先寻找现场视线最开阔的位置，再从不同角度比较空间层次。`,
-      `${title}适合作为离开前的重点停留。回看一路经过的建筑与展陈，会更容易理解它在${attraction.name}中的位置。`
-    ];
-    return descriptions[index % descriptions.length];
+  function normalizeMedia(media) {
+    if (media?.image) return media;
+    return {
+      image: attraction.image,
+      credit: attraction.photoCredit
+    };
+  }
+
+  function renderMediaSource(media, className = "") {
+    if (!media?.source) return "";
+    return `
+      <a class="media-source ${className}" href="${media.source}" target="_blank" rel="noreferrer">
+        图片来源 <span aria-hidden="true">↗</span>
+      </a>
+    `;
+  }
+
+  function renderHeroCredit(media, className) {
+    const tag = media.source ? "a" : "span";
+    const linkAttributes = media.source
+      ? ` href="${media.source}" target="_blank" rel="noreferrer"`
+      : "";
+    return `<${tag} class="image-credit ${className}"${linkAttributes}>${media.credit || attraction.photoCredit}</${tag}>`;
   }
 
   const previousStop = getPreviousStop(id);
@@ -62,12 +77,25 @@
   routeUrl.searchParams.set("destination", `${attraction.localName} Istanbul`);
   routeUrl.searchParams.set("travelmode", "transit");
 
-  const factItems = `
-    <article><span>门票</span><strong>${attraction.fee}</strong></article>
-    <article><span>开放</span><strong>${attraction.hours}</strong></article>
-    <article><span>建议停留</span><strong>${attraction.duration}</strong></article>
-    <article><span>最佳时间</span><strong>${attraction.bestTime}</strong></article>
-  `;
+  const facts = [
+    ["门票", attraction.fee],
+    ["开放", attraction.hours],
+    ["建议停留", attraction.duration],
+    ["最佳时间", attraction.bestTime]
+  ];
+
+  const factItems = facts.map(([label, value], index) => `
+    <article class="fact-item">
+      <span class="fact-index">${String(index + 1).padStart(2, "0")}</span>
+      <div>
+        <span class="fact-label">${label}</span>
+        <strong class="fact-value">${value}</strong>
+      </div>
+    </article>
+  `).join("");
+
+  const desktopHero = normalizeMedia(attraction.heroImages?.desktop);
+  const mobileHero = normalizeMedia(attraction.heroImages?.mobile || attraction.heroImages?.desktop);
 
   const routeCard = `
     <div class="route-card">
@@ -86,8 +114,12 @@
   root.innerHTML = `
     <section class="detail-hero">
       <div class="detail-image-wrap">
-        <img src="${attraction.image}" alt="${attraction.name}完整实景" />
-        <span class="image-credit">${attraction.photoCredit}</span>
+        <picture>
+          <source media="(min-width: 981px)" srcset="${desktopHero.image}" />
+          <img src="${mobileHero.image}" alt="${attraction.name}实景" />
+        </picture>
+        ${renderHeroCredit(desktopHero, "desktop-image-credit")}
+        ${renderHeroCredit(mobileHero, "mobile-image-credit")}
       </div>
       <div class="detail-title">
         <p class="eyebrow">${attraction.kicker}</p>
@@ -117,24 +149,42 @@
           <p class="eyebrow">WHAT TO SEE</p>
           <h2>不要错过</h2>
           <div class="highlight-accordion">
-            ${attraction.highlights.map((item, index) => `
+            ${attraction.highlights.map((item, index) => {
+              const highlight = typeof item === "string"
+                ? {
+                    title: item,
+                    history: `这是${attraction.name}中值得重点停留的一处。`,
+                    lookFor: "放慢脚步观察建筑、材质与光线的变化。",
+                    image: attraction.image
+                  }
+                : item;
+              const media = normalizeMedia(highlight);
+              return `
               <article class="highlight-item">
                 <button class="highlight-trigger" type="button" aria-expanded="false" aria-controls="highlight-${index}">
                   <span class="highlight-number">${String(index + 1).padStart(2, "0")}</span>
-                  <span class="highlight-title">${item}</span>
+                  <span class="highlight-title">${highlight.title}</span>
                   <span class="highlight-toggle" aria-hidden="true"></span>
                 </button>
                 <div class="highlight-panel" id="highlight-${index}" hidden>
                   <div class="highlight-image">
-                    <img src="${attraction.image}" alt="${attraction.name}的${item}参考画面" style="object-position: ${["50% 42%", "30% 50%", "70% 48%", "50% 70%"][index % 4]}" />
+                    <img src="${media.image}" alt="${highlight.title}实景" loading="lazy" />
+                    ${renderMediaSource(media)}
                   </div>
                   <div class="highlight-copy">
-                    <p>${getHighlightDescription(item, index)}</p>
-                    <span>点击图片区域前先在现场确认开放范围与拍摄规定。</span>
+                    <div>
+                      <p class="copy-label">历史与价值</p>
+                      <p class="highlight-history">${highlight.history}</p>
+                    </div>
+                    <div class="highlight-look">
+                      <p class="copy-label">现场看什么</p>
+                      <p>${highlight.lookFor}</p>
+                    </div>
                   </div>
                 </div>
               </article>
-            `).join("")}
+            `;
+            }).join("")}
           </div>
         </section>
 
@@ -143,12 +193,15 @@
         <section class="content-block photo-notes-block">
           <p class="eyebrow">PHOTO NOTES</p>
           <h2>最佳拍照点</h2>
-          <div class="photo-spots">
-            ${attraction.photoSpots.map((spot, index) => `
+          <div class="photo-spots photo-spots-${attraction.photoSpots.length}">
+            ${attraction.photoSpots.map((spot, index) => {
+              const media = normalizeMedia(spot);
+              return `
               <article>
                 <div class="spot-image">
-                  <img src="${attraction.image}" alt="${spot.title}构图参考" style="object-position: ${["50% 36%", "28% 54%", "72% 50%"][index % 3]}" />
+                  <img src="${media.image}" alt="${spot.title}现场构图参考" loading="lazy" />
                   <span>现场识别 · ${String(index + 1).padStart(2, "0")}</span>
+                  ${renderMediaSource(media)}
                 </div>
                 <div class="spot-copy">
                   <span class="spot-number">${index + 1}</span>
@@ -156,25 +209,9 @@
                   <p>${spot.text}</p>
                 </div>
               </article>
-            `).join("")}
+            `;
+            }).join("")}
           </div>
-
-          <article class="pose-demo">
-            <div class="pose-scene">
-              <img src="${attraction.image}" alt="${attraction.photoSpots[0].title}人物站位示意背景" />
-              <span class="model-marker" aria-hidden="true">
-                <i class="model-head"></i>
-                <i class="model-body"></i>
-                <i class="model-shadow"></i>
-              </span>
-              <span class="pose-caption">人物站位示意</span>
-            </div>
-            <div class="pose-copy">
-              <p class="eyebrow">POSE PREVIEW</p>
-              <h3>${attraction.photoSpots[0].title}</h3>
-              <p>让人物站在画面下方三分之一处，主体建筑保留完整轮廓。摄影者稍微后退，用环境交代地点，人物只负责提供尺度和旅行感。</p>
-            </div>
-          </article>
         </section>
       </div>
 

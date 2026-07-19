@@ -378,8 +378,27 @@ const TRIP_DATA = {
   }
 };
 
+const commonsAssetName = (file) => {
+  const stem = file
+    .replace(/\.[^.]+$/, "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 54) || "image";
+
+  let hash = 2166136261;
+  for (let index = 0; index < file.length; index += 1) {
+    hash ^= file.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return `${stem}-${(hash >>> 0).toString(36)}.jpg`;
+};
+
 const commonsPhoto = (file) => ({
-  image: `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(file)}?width=1600`,
+  image: `assets/images/attractions/${commonsAssetName(file)}`,
   source: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}`,
   credit: "Wikimedia Commons · 作者与许可"
 });

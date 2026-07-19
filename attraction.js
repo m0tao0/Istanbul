@@ -147,6 +147,17 @@
 
   const desktopHero = normalizeMedia(attraction.heroImages?.desktop);
   const mobileHero = normalizeMedia(attraction.heroImages?.mobile || attraction.heroImages?.desktop);
+  const overviewLink = `
+    <a class="overview-inline-link attraction-overview-link" href="index.html#day-${attractionDay}">
+      <span class="overview-inline-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path d="M14.5 6.5 9 12l5.5 5.5"></path>
+          <path d="M9.5 12H18"></path>
+        </svg>
+      </span>
+      <strong>返回行程总览</strong>
+    </a>
+  `;
 
   const routeCard = `
     <div class="route-card">
@@ -165,10 +176,6 @@
   root.innerHTML = `
     <section class="detail-hero">
       <div class="detail-image-wrap">
-        <a class="hero-overview-link" href="index.html#day-${attractionDay}">
-          <span aria-hidden="true">←</span>
-          <strong>返回行程总览</strong>
-        </a>
         <picture>
           <source media="(min-width: 981px)" srcset="${desktopHero.image}" />
           <img src="${mobileHero.image}" alt="${attraction.name}实景" />
@@ -193,6 +200,7 @@
         <div class="desktop-quick-info">
           <div class="hero-facts" aria-label="实用信息">${factItems}</div>
           ${routeCard}
+          ${overviewLink}
         </div>
       </div>
     </section>
@@ -200,7 +208,10 @@
     <section class="facts-strip mobile-quick-info" aria-label="实用信息">
       ${factItems}
     </section>
-    <div class="mobile-route-card">${routeCard}</div>
+    <div class="mobile-route-card">
+      ${routeCard}
+      ${overviewLink}
+    </div>
 
     <section class="detail-body">
       <div class="detail-primary">

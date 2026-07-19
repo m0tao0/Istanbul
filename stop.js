@@ -27,6 +27,7 @@
   const next = sequence[sequenceIndex + 1];
   const detail = TRIP_DATA.stopDetails[key] || buildFallback(item);
   document.querySelector(".back-link").href = `index.html#day-${day.id}`;
+  document.querySelector(".floating-overview").href = `index.html#day-${day.id}`;
 
   function entryUrl(entry) {
     if (!entry) return "index.html#journey";
@@ -34,6 +35,57 @@
     return useStopDetail
       ? `stop.html?day=${entry.day.id}&stop=${entry.index}`
       : `attraction.html?id=${entry.item.attraction}&day=${entry.day.id}&stop=${entry.index}`;
+  }
+
+  function formatAmount(value) {
+    return new Intl.NumberFormat("zh-CN", { maximumFractionDigits: 0 }).format(Math.round(value));
+  }
+
+  function withEquivalents(text) {
+    if (!text || /免费/.test(text)) return text;
+    const match = text.match(/([\d,.]+)(?:\s*[–-]\s*([\d,.]+))?\s*(TL|₺|€|US\$|\$)/i);
+    if (!match) return text;
+
+    const values = [match[1], match[2]].filter(Boolean).map((value) => Number(value.replace(/,/g, "")));
+    const currency = match[3].toUpperCase();
+    const rates = TRIP_DATA.exchangeRates;
+    let cnyRate;
+    let usdRate;
+
+    if (currency === "TL" || currency === "₺") {
+      cnyRate = rates.tryToCny;
+      usdRate = rates.tryToUsd;
+    } else if (currency === "€") {
+      cnyRate = rates.eurToCny;
+      usdRate = rates.eurToUsd;
+    } else {
+      cnyRate = rates.eurToCny / rates.eurToUsd;
+      usdRate = 1;
+    }
+
+    const cny = values.map((value) => formatAmount(value * cnyRate)).join("–");
+    const usd = values.map((value) => formatAmount(value * usdRate)).join("–");
+    return `${text}<span class="currency-equivalent">约 ¥${cny} / US$${usd}</span>`;
+  }
+
+  function routeMapUrl(origin, destination, mode = "transit") {
+    const directionFlags = { transit: "r", walking: "w", driving: "d" };
+    const query = new URLSearchParams({
+      saddr: origin,
+      daddr: destination,
+      dirflg: directionFlags[mode] || "r",
+      output: "embed"
+    });
+    return `https://maps.google.com/maps?${query.toString()}`;
+  }
+
+  function liveDirectionsUrl(origin, destination, mode = "transit") {
+    const url = new URL("https://www.google.com/maps/dir/");
+    url.searchParams.set("api", "1");
+    url.searchParams.set("origin", origin);
+    url.searchParams.set("destination", destination);
+    url.searchParams.set("travelmode", mode);
+    return url;
   }
 
   function buildFallback(entry) {
@@ -89,7 +141,7 @@
         <p class="option-label">${label}</p>
         <div class="option-metrics">
           <span><small>预计时间</small><strong>${option.time}</strong></span>
-          <span><small>预计费用</small><strong>${option.cost}</strong></span>
+          <span><small>预计费用</small><strong>${withEquivalents(option.cost)}</strong></span>
         </div>
         <p>${option.summary}</p>
         ${steps}
@@ -101,18 +153,14 @@
     const origin = detailData.origin || previous?.item.title || "上一站";
     const destination = detailData.destination || item.title;
     const route = detailData.route || [origin, destination];
-    const directionsUrl = new URL("https://www.google.com/maps/dir/");
-    directionsUrl.searchParams.set("api", "1");
-    directionsUrl.searchParams.set("origin", origin);
-    directionsUrl.searchParams.set("destination", destination);
-    directionsUrl.searchParams.set("travelmode", "transit");
+    const directionsUrl = liveDirectionsUrl(origin, destination, "transit");
 
     return `
       <section class="stop-map-section">
         <div class="stop-map-frame">
           <iframe
-            title="${item.title}地图定位"
-            src="https://maps.google.com/maps?q=${encodeURIComponent(detailData.mapQuery || `${destination} Istanbul`)}&t=m&z=14&output=embed&iwloc=near"
+            title="${origin}到${destination}的公共交通路线"
+            src="${routeMapUrl(origin, destination, "transit")}"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -147,11 +195,101 @@
     `;
   }
 
+  function renderRestaurant(restaurant, index) {
+    const route = restaurant.route || {};
+    const routeOrigin = route.origin || previous?.item.title || "上一站";
+    const routeDestination = route.destination || restaurant.name;
+    const routeMode = route.mode || "walking";
+    const liveRoute = liveDirectionsUrl(routeOrigin, routeDestination, routeMode);
+    const fallbackAttribute = restaurant.imageFallback
+      ? ` onerror="this.onerror=null;this.src='${restaurant.imageFallback}'"`
+      : "";
+
+    return `
+      <article class="restaurant-card">
+        <div class="restaurant-media">
+          <img src="${restaurant.image}" alt="${restaurant.imageAlt || restaurant.name}" loading="lazy"${fallbackAttribute} />
+          <span>${String(index + 1).padStart(2, "0")}</span>
+          ${restaurant.imageSource ? `<a href="${restaurant.imageSource}" target="_blank" rel="noreferrer">餐厅图片来源 ↗</a>` : ""}
+        </div>
+        <div class="restaurant-content">
+          <p class="restaurant-badge">${restaurant.badge || "用餐推荐"}</p>
+          <h2>${restaurant.name}</h2>
+          <p class="restaurant-local-name">${restaurant.localName || ""}</p>
+          <p class="restaurant-environment">${restaurant.environment}</p>
+          <p class="restaurant-address">${restaurant.address}</p>
+
+          <div class="restaurant-budget">
+            <span>每人预算</span>
+            <strong>${withEquivalents(restaurant.budget)}</strong>
+            <small>${restaurant.priceNote || "价格为计划估算，请以现场菜单为准。"}</small>
+          </div>
+
+          <div class="dish-list">
+            ${restaurant.dishes.map((dish) => `
+              <article>
+                <div>
+                  <h3>${dish.name}</h3>
+                  <strong>${withEquivalents(dish.price)}</strong>
+                </div>
+                <p>${dish.text}</p>
+              </article>
+            `).join("")}
+          </div>
+
+          <div class="restaurant-links">
+            ${restaurant.official ? `<a href="${restaurant.official}" target="_blank" rel="noreferrer">餐厅官网 ↗</a>` : ""}
+            ${restaurant.menu ? `<a href="${restaurant.menu}" target="_blank" rel="noreferrer">查看菜单 ↗</a>` : ""}
+            ${restaurant.reviews ? `<a href="${restaurant.reviews}" target="_blank" rel="noreferrer">查看评价 ↗</a>` : ""}
+          </div>
+        </div>
+
+        <div class="restaurant-route-copy">
+          <p class="eyebrow">从上一站前往 · ROUTE</p>
+          <h3>${routeOrigin} <span>→</span> ${restaurant.name}</h3>
+          <div>
+            <strong>${route.time}</strong>
+            <strong>${withEquivalents(route.cost)}</strong>
+          </div>
+          <p>${route.summary}</p>
+          <a href="${liveRoute}" target="_blank" rel="noreferrer">打开实时路线 <span>↗</span></a>
+        </div>
+        <div class="restaurant-route-map">
+          <iframe
+            title="${routeOrigin}到${restaurant.name}的路线"
+            src="${routeMapUrl(routeOrigin, routeDestination, routeMode)}"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+      </article>
+    `;
+  }
+
   function renderFood(detailData) {
+    if (detailData.restaurants?.length) {
+      return `
+        <section class="food-guide restaurant-guide">
+          <div class="food-facts">
+            <article><span>预订建议</span><strong>${detailData.reservation}</strong></article>
+            <article>
+              <span>汇率参考</span>
+              <strong>价格同时显示 TL、人民币与美元</strong>
+              <small>按 ${TRIP_DATA.exchangeRates.asOf} 参考汇率换算，仅用于预算。</small>
+            </article>
+          </div>
+          <div class="restaurant-list">
+            ${detailData.restaurants.map(renderRestaurant).join("")}
+          </div>
+          <a class="exchange-source" href="${TRIP_DATA.exchangeRates.source}" target="_blank" rel="noreferrer">查看汇率参考来源 ↗</a>
+        </section>
+      `;
+    }
+
     return `
       <section class="food-guide">
         <div class="food-facts">
-          <article><span>预算</span><strong>${detailData.budget}</strong></article>
+          <article><span>预算</span><strong>${withEquivalents(detailData.budget)}</strong></article>
           <article><span>预订建议</span><strong>${detailData.reservation}</strong></article>
         </div>
         <div class="recommendation-grid">
@@ -181,7 +319,7 @@
     `;
   }
 
-  const mapOnly = detail.mapQuery && detail.kind !== "transport"
+  const mapOnly = detail.mapQuery && detail.kind !== "transport" && detail.kind !== "food"
     ? `
       <section class="compact-map">
         <iframe

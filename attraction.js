@@ -34,6 +34,7 @@
   const nextEntry = sequence[currentSequenceIndex + 1];
   if (currentContext) {
     document.querySelector(".back-link").href = `index.html#day-${currentContext.day.id}`;
+    document.querySelector(".floating-overview").href = `index.html#day-${currentContext.day.id}`;
   }
 
   function entryUrl(entry) {

@@ -1004,10 +1004,19 @@ Object.entries(richAttractionMedia).forEach(([id, media]) => {
 });
 
 TRIP_DATA.fareReference = {
-  transit: "匿名 Istanbulkart 市内轨道交通按每次刷卡 42 TL 估算；换乘通常需要再次刷卡。",
-  taxi: "黄色出租车按 2026-02-16 官方基准估算：起步 65.40 TL、43.56 TL/公里、短途最低 210 TL；网约车平台费、拥堵等待和过路费另计。",
+  transit: "匿名 Istanbulkart 市内轨道交通按每次刷卡 42 TL（约 ¥6 / US$1）估算；换乘通常需要再次刷卡。",
+  taxi: "黄色出租车按 2026-02-16 官方基准估算：起步 65.40 TL（约 ¥9 / US$1）、43.56 TL/公里（约 ¥6 / US$1）、短途最低 210 TL（约 ¥30 / US$4）；网约车平台费、拥堵等待和过路费另计。",
   transitSource: "https://www.metro.istanbul/SeferDurumlari/BiletUcretleri",
   taxiSource: "https://tuhim.ibb.gov.tr/media/27431/taksi-ta%C5%9F%C4%B1mac%C4%B1l%C4%B1%C4%9F%C4%B1-%C3%BCcret-tarifesi.pdf"
+};
+
+TRIP_DATA.exchangeRates = {
+  asOf: "2026-07-02",
+  source: "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=OJ%3AC_202603582",
+  tryToCny: 0.1454,
+  tryToUsd: 0.0214,
+  eurToCny: 7.7388,
+  eurToUsd: 1.1399
 };
 
 TRIP_DATA.stopDetails = {
@@ -1085,8 +1094,38 @@ TRIP_DATA.stopDetails = {
     kind: "food",
     mapQuery: "Deraliye Restaurant Sultanahmet",
     intro: "午餐只有约 40 分钟，重点是上菜稳定、距离近，不安排完整品鉴套餐。",
-    budget: "约 700–1,200 TL / 人",
+    budget: "约 1,700–3,100 TL / 人",
     reservation: "建议预约 13:05，并注明需要在 13:45 前离席。",
+    restaurants: [
+      {
+        name: "Deraliye Restaurant",
+        localName: "Deraliye Ottoman Palace Cuisine",
+        badge: "本行程首选 · 奥斯曼宫廷菜",
+        image: "assets/images/restaurants/deraliye.jpg",
+        imageAlt: "Deraliye Restaurant 室内环境",
+        imageSource: "https://deraliyerestaurant.com/gallery/",
+        environment: "红金色调、吊灯与奥斯曼装饰构成较正式的宫廷餐厅氛围；位于 Sultanahmet 老城核心，适合在景点之间安排一顿有主题但时间可控的午餐。",
+        address: "Alemdar Mah. Ticarethane Sk. No:10, Sultanahmet",
+        budget: "约 1,700–3,100 TL / 人",
+        priceNote: "按一道主菜加一杯无酒精饮品估算；采用 2026 官网菜单价。",
+        dishes: [
+          { name: "烟熏茄泥烤鸡", price: "1,400 TL", text: "鸡肉配烟熏茄泥，出餐节奏比完整套餐更容易控制。" },
+          { name: "Lamb Shank 羊膝", price: "2,300 TL", text: "肉桂与黑胡椒调味，搭配烤茄泥。" },
+          { name: "Terkib-i Mutancana", price: "2,300 TL", text: "蜂蜜、醋、杏干和葡萄烹制的经典奥斯曼羊肉菜。" }
+        ],
+        route: {
+          origin: "Hagia Sophia, Sultanahmet",
+          destination: "Deraliye Restaurant, Sultanahmet",
+          mode: "walking",
+          time: "步行约 6–8 分钟",
+          cost: "免费",
+          summary: "从圣索菲亚西侧沿 Divan Yolu 方向步行，餐厅位于 Ticarethane Sokak。"
+        },
+        official: "https://deraliyerestaurant.com/",
+        menu: "https://deraliyerestaurant.com/wp-content/uploads/2026/02/deraliye-menu-2026.pdf",
+        reviews: "https://www.tripadvisor.com/Restaurant_Review-g293974-d7042346-Reviews-Deraliye_Restaurant-Istanbul.html"
+      }
+    ],
     recommendations: [
       { name: "Hünkâr Beğendi", text: "慢炖肉配烟熏茄泥，最能代表奥斯曼宫廷风味。" },
       { name: "İç Pilavlı Tavuk", text: "香料米饭与鸡肉，出餐通常比炖锅和套餐更快。" },
@@ -1139,8 +1178,38 @@ TRIP_DATA.stopDetails = {
     kind: "food",
     mapQuery: "Olden 1772 Istanbul",
     intro: "这是演出前的提前晚餐，核心要求是 18:20 前结账离席。",
-    budget: "约 900–1,600 TL / 人",
+    budget: "约 2,000–3,500 TL / 人",
     reservation: "必须预约 17:05，并在备注中写明 18:30 前需要到 Hodjapasha。",
+    restaurants: [
+      {
+        name: "Olden 1772",
+        localName: "Historic Sirkeci Dining",
+        badge: "已排入行程 · 历史建筑",
+        image: "assets/images/restaurants/olden-1772.jpg",
+        imageAlt: "Olden 1772 历史中庭与水晶吊灯",
+        imageSource: "https://olden1772.com/",
+        environment: "餐厅位于修复后的十八世纪建筑内，石墙、中庭喷泉、旋转楼梯和水晶吊灯保留历史感，整体比传统老城餐馆更现代、正式。",
+        address: "Mimar Vedat Sk. No:3, Sirkeci",
+        budget: "约 2,000–3,500 TL / 人",
+        priceNote: "按一道主菜或前菜加主菜估算；菜单另收 10% 服务费及每人 190 TL（约 ¥28 / US$4）cover fee。",
+        dishes: [
+          { name: "Çıtır Mantı 脆皮曼特", price: "1,450 TL", text: "薄荷酸奶、牛里脊肉馅与番茄辣油。" },
+          { name: "Kuzu İncik 羊膝", price: "2,540 TL", text: "慢炖羊膝配 keşkek、香草碎与羊肉汁。" },
+          { name: "Çipura 海鲷", price: "1,940 TL", text: "配安塔基亚橄榄、酸豆、香茅与白葡萄酒。" }
+        ],
+        route: {
+          origin: "Sirkeci Tramvay Durağı",
+          destination: "Olden 1772, Sirkeci",
+          mode: "walking",
+          time: "步行约 4–6 分钟",
+          cost: "免费",
+          summary: "从 Sirkeci T1 站沿 Mimar Vedat Sokak 步行；不要让车辆进入狭窄街巷接送。"
+        },
+        official: "https://olden1772.com/",
+        menu: "https://olden1772.com/newmenus/yemek.pdf",
+        reviews: "https://www.tripadvisor.com/Restaurant_Review-g293974-d25065802-Reviews-Olden_1772-Istanbul.html"
+      }
+    ],
     recommendations: [
       { name: "冷前菜组合", text: "可共享、上菜快，适合控制用餐节奏。" },
       { name: "烤鱼或烤羊肉主菜", text: "每人只点一道主菜，避免需要长时间烹制的套餐。" },
@@ -1209,14 +1278,43 @@ TRIP_DATA.stopDetails = {
   },
   "d2-4": {
     kind: "food",
-    mapQuery: "Galataport Istanbul restaurants",
-    intro: "午餐控制在 55 分钟，优先选择有海景但出餐快速的单点餐厅。",
-    budget: "约 650–1,200 TL / 人",
-    reservation: "周日中午建议预约 12:40；备注靠近 Istanbul Modern 一侧。",
+    mapQuery: "Gizia Brasserie Galataport",
+    intro: "午餐控制在 55 分钟，首选靠近 Istanbul Modern、路线不绕行且可以提前点单的海滨餐厅。",
+    budget: "约 1,400–2,800 TL / 人",
+    reservation: "周日中午建议预约 12:40；备注需要在 13:25 前结账。",
+    restaurants: [
+      {
+        name: "Gizia Brasserie Galataport",
+        localName: "Contemporary Brasserie · Galataport",
+        badge: "海滨首选 · 国际风味",
+        image: "assets/images/restaurants/gizia-3.jpg",
+        imageAlt: "Gizia Brasserie 的餐桌与室内环境",
+        imageSource: "https://www.giziabrasserie.com/en/about-us/",
+        environment: "Galataport 分店以白色餐桌、弧形软包座椅与暖色木饰构成精致但不拘谨的现代 brasserie 氛围；官网将其定位为融合世界风味的丰富菜单，午餐宜选择室内座位以控制出餐节奏。",
+        address: "Galataport, Kılıçali Paşa Mah., Beyoğlu",
+        budget: "约 1,400–2,800 TL / 人",
+        priceNote: "按一道主菜加无酒精饮品估算；现场菜单、服务费和当日供应需在点单前确认。",
+        dishes: [
+          { name: "Ravioli / 手工意面", price: "约 900–1,400 TL", text: "官网形象菜以精致意面和现代摆盘为主，适合时间有限时单点。" },
+          { name: "烤鱼或鸡肉主菜", price: "约 1,200–2,000 TL", text: "下单时直接询问出餐最快的当日主菜，并确认配菜。" },
+          { name: "沙拉或共享前菜", price: "约 550–950 TL", text: "两人共享一份即可，避免多轮上菜拖慢行程。" }
+        ],
+        route: {
+          origin: "Istanbul Modern",
+          destination: "Gizia Brasserie Galataport",
+          mode: "walking",
+          time: "步行约 5–8 分钟",
+          cost: "免费",
+          summary: "从 Istanbul Modern 出口进入 Galataport，沿海滨商业区向 Karaköy 方向步行即可到达。"
+        },
+        official: "https://www.giziabrasserie.com/en/about-us/",
+        reviews: "https://www.tripadvisor.com/Restaurant_Review-g293974-d24165297-Reviews-Gizia_Brasserie-Istanbul.html"
+      }
+    ],
     recommendations: [
-      { name: "烤鱼或鱼三明治", text: "呼应海港环境，单点速度通常稳定。" },
-      { name: "Pide / Lahmacun", text: "适合时间紧时共享，避免完整多道式套餐。" },
-      { name: "Meze 拼盘", text: "2–3 人共享一份，再搭配一道主菜即可。" }
+      { name: "手工意面", text: "单点一份主菜最容易把用餐控制在 45 分钟以内。" },
+      { name: "烤鱼或鸡肉", text: "预约时询问当天出餐最快的主菜，不等候复杂慢烤菜。" },
+      { name: "沙拉或共享前菜", text: "2–3 人共享一份即可，不安排完整多道式套餐。" }
     ],
     tips: ["13:25 前结账，给前往码头留出缓冲。", "不要选择需要排队的网红甜品店。"]
   },
@@ -1246,10 +1344,39 @@ TRIP_DATA.stopDetails = {
   },
   "d2-9": {
     kind: "food",
-    mapQuery: "Karakoy Istanbul coffee",
-    intro: "这里只安排 30 分钟咖啡休息，不为了特定网红店绕路或排队。",
-    budget: "约 180–400 TL / 人",
-    reservation: "无需预约；选择从加拉塔桥通往 F2 Karaköy 站的顺路店铺。",
+    mapQuery: "Coffee Sapiens Karakoy",
+    intro: "这里只安排 30 分钟咖啡休息。Coffee Sapiens 位于前往 F2 Karaköy 站的街区内，路线顺、专业咖啡选择清晰。",
+    budget: "约 250–550 TL / 人",
+    reservation: "无需预约；若座位已满，直接外带，不为等位压缩后续行程。",
+    restaurants: [
+      {
+        name: "Coffee Sapiens Karaköy",
+        localName: "Independent Coffee Roasters · Est. 2014",
+        badge: "咖啡休息 · 顺路",
+        image: "assets/images/restaurants/coffee-sapiens.jpg",
+        imageAlt: "Coffee Sapiens Karaköy 街边座位与门店",
+        imageSource: "https://www.coffeesapiens.com/pages/karakoy",
+        environment: "小型街角咖啡馆，开放式咖啡吧能直接看到冲煮过程；空间紧凑、街边座位较多，适合短暂停留而非长时间用餐。",
+        address: "Kılıç Ali Paşa Mescidi Sokak, Karaköy",
+        budget: "约 250–550 TL / 人",
+        priceNote: "咖啡加一份轻甜点的计划估算，现场菜单与豆种会变化。",
+        dishes: [
+          { name: "Espresso 系列", price: "约 180–300 TL", text: "适合时间紧时选择，点单和出杯都较快。" },
+          { name: "手冲 / 过滤咖啡", price: "约 220–350 TL", text: "可询问当日豆单与风味，预留约 8–10 分钟制作。" },
+          { name: "当日蛋糕", price: "约 220–350 TL", text: "两人共享一份即可，避免影响晚餐。" }
+        ],
+        route: {
+          origin: "Karaköy Sahil Parkı",
+          destination: "Coffee Sapiens Karaköy",
+          mode: "walking",
+          time: "步行约 5–8 分钟",
+          cost: "免费",
+          summary: "从海滨穿过 Karaköy 街区前往 Kılıç Ali Paşa Mescidi Sokak，之后继续步行至 F2 站。"
+        },
+        official: "https://www.coffeesapiens.com/pages/karakoy",
+        reviews: "https://www.tripadvisor.com.tr/Restaurant_Review-g293974-d7045355-Reviews-Coffee_Sapiens-Istanbul.html"
+      }
+    ],
     recommendations: [
       { name: "Türk Kahvesi", text: "份量小、节奏快，适合作为后半程提神。" },
       { name: "过滤咖啡", text: "对土耳其咖啡不适应时更稳妥。" },
@@ -1282,10 +1409,40 @@ TRIP_DATA.stopDetails = {
   },
   "d2-12": {
     kind: "food",
-    mapQuery: "Pera Istanbul restaurants",
-    intro: "这是两天完整行程的最后一顿正餐，可以放慢节奏，但仍建议提前预约。",
-    budget: "约 1,000–2,000 TL / 人",
-    reservation: "建议预约 19:15；若选择屋顶餐厅，备注室内靠窗座位以应对风雨。",
+    mapQuery: "Eleos Restaurant Beyoglu",
+    intro: "这是两天完整行程的最后一顿正餐。Eleos 位于 İstiklal 大街南段，能够在不额外折返的情况下安排海景晚餐。",
+    budget: "约 1,800–3,200 TL / 人",
+    reservation: "建议预约 19:15，并明确需要 Beyoğlu 店、室内靠窗座位。",
+    restaurants: [
+      {
+        name: "Eleos Restaurant Beyoğlu",
+        localName: "Hıdivyal Palas · İstiklal Caddesi",
+        badge: "Pera 晚餐 · 海景希腊小酒馆",
+        image: "assets/images/restaurants/eleos-environment.jpg",
+        imageAlt: "Eleos Restaurant Beyoğlu 海景餐桌",
+        imageSource: "https://www.eleosrestaurant.com/beyoglu/",
+        environment: "位于历史建筑 Hıdivyal Palas 二层，以白色爱琴海风格、海鲜餐桌和面向博斯普鲁斯的高处景观为特色；入口不显眼，需留意楼层指示。",
+        address: "İstiklal Cd. No:231, Hıdivyal Palas Kat 2, Beyoğlu",
+        budget: "约 1,800–3,200 TL / 人",
+        priceNote: "按共享 meze、单人鱼类主菜及无酒精饮品估算；鱼类可能按重量或时价。",
+        dishes: [
+          { name: "爱琴海 Meze", price: "约 600–1,200 TL", text: "时令香草、茄泥、酸奶和海鲜冷前菜，适合 2–3 人共享。" },
+          { name: "烤海鲈鱼", price: "约 1,400–2,400 TL", text: "先确认计价单位、重量及是否含配菜。" },
+          { name: "章鱼与海鲜", price: "约 1,000–1,700 TL", text: "适合作为共享热前菜，避免同时点过多主菜。" }
+        ],
+        route: {
+          origin: "Tünel Meydanı, Beyoğlu",
+          destination: "Eleos Restaurant Beyoglu",
+          mode: "walking",
+          time: "步行约 10–15 分钟",
+          cost: "免费",
+          summary: "从 Tünel 沿 İstiklal Caddesi 向北步行，餐厅入口位于 Hıdivyal Palas 内。"
+        },
+        official: "https://www.eleosrestaurant.com/beyoglu/",
+        menu: "https://www.eleosrestaurant.com/beyoglu/menu/",
+        reviews: "https://www.tripadvisor.com.tr/Restaurant_Review-g293974-d3369800-Reviews-Eleos_Restaurant-Istanbul.html"
+      }
+    ],
     recommendations: [
       { name: "Meze + 烤肉组合", text: "适合共享，也能覆盖经典土耳其风味。" },
       { name: "时令鱼类", text: "秋季可询问当天鱼获与按重量计价方式。" },

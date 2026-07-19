@@ -34,7 +34,6 @@
   const nextEntry = sequence[currentSequenceIndex + 1];
   if (currentContext) {
     document.querySelector(".back-link").href = `index.html#day-${currentContext.day.id}`;
-    document.querySelector(".floating-overview").href = `index.html#day-${currentContext.day.id}`;
   }
 
   function entryUrl(entry) {
@@ -48,13 +47,17 @@
   function getPreviousStop(currentId) {
     if (previousEntry) {
       const detail = TRIP_DATA.stopDetails?.[`d${previousEntry.day.id}-${previousEntry.index}`];
+      const isTransfer = detail?.kind === "transport";
       return {
         id: previousEntry.item.attraction,
-        name: previousEntry.item.title,
-        query: detail?.destination ||
+        name: isTransfer
+          ? (detail.origin || previousEntry.item.title)
+          : previousEntry.item.title,
+        query: (isTransfer ? detail.origin : detail?.destination) ||
           detail?.mapQuery ||
           TRIP_DATA.attractions[previousEntry.item.attraction]?.localName ||
-          `${previousEntry.item.title} Istanbul`
+          `${previousEntry.item.title} Istanbul`,
+        mode: isTransfer && detail?.public ? "transit" : "walking"
       };
     }
 
@@ -66,7 +69,8 @@
         if (item.attraction === currentId) {
           return previous || {
             name: "Lokalist Istanbul（Taksim）",
-            query: "Lokalist Istanbul Taksim"
+            query: "Lokalist Istanbul Taksim",
+            mode: "transit"
           };
         }
 
@@ -74,7 +78,8 @@
           previous = {
             id: item.attraction,
             name: TRIP_DATA.attractions[item.attraction]?.name || item.title,
-            query: `${TRIP_DATA.attractions[item.attraction]?.localName || item.title} Istanbul`
+            query: `${TRIP_DATA.attractions[item.attraction]?.localName || item.title} Istanbul`,
+            mode: "walking"
           };
         }
       }
@@ -82,7 +87,8 @@
 
     return {
       name: "Lokalist Istanbul（Taksim）",
-      query: "Lokalist Istanbul Taksim"
+      query: "Lokalist Istanbul Taksim",
+      mode: "transit"
     };
   }
 
@@ -119,7 +125,7 @@
   routeUrl.searchParams.set("api", "1");
   routeUrl.searchParams.set("origin", previousStop.query);
   routeUrl.searchParams.set("destination", `${attraction.localName} Istanbul`);
-  routeUrl.searchParams.set("travelmode", "transit");
+  routeUrl.searchParams.set("travelmode", previousStop.mode || "walking");
 
   const facts = [
     ["门票", attraction.fee, attraction.feeEquivalent],
@@ -159,6 +165,10 @@
   root.innerHTML = `
     <section class="detail-hero">
       <div class="detail-image-wrap">
+        <a class="hero-overview-link" href="index.html#day-${attractionDay}">
+          <span aria-hidden="true">←</span>
+          <strong>返回行程总览</strong>
+        </a>
         <picture>
           <source media="(min-width: 981px)" srcset="${desktopHero.image}" />
           <img src="${mobileHero.image}" alt="${attraction.name}实景" />
@@ -270,7 +280,7 @@
           <h2>注意事项</h2>
           <ul>${attraction.tips.map((tip) => `<li>${tip}</li>`).join("")}</ul>
         </div>
-        <p class="data-note">票价与开放信息更新于 2026-07-18。等值换算按欧洲央行 2026-07-17 参考汇率估算，不含银行费用；现场价格以官网及售票处为准。</p>
+        <p class="data-note">票价与开放信息更新于 2026-07-18。等值换算按欧洲央行 ${TRIP_DATA.exchangeRates?.date || "2026-07-02"} 参考汇率估算，不含银行费用；现场价格以官网及售票处为准。</p>
       </aside>
     </section>
 

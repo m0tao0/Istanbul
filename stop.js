@@ -356,15 +356,6 @@
         <p class="stop-area">${day.area}</p>
         <h1>${item.title}</h1>
         <p class="stop-meta">${item.meta}</p>
-        <a class="overview-inline-link stop-overview-link" href="index.html#day-${day.id}">
-          <span class="overview-inline-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path d="M14.5 6.5 9 12l5.5 5.5"></path>
-              <path d="M9.5 12H18"></path>
-            </svg>
-          </span>
-          <strong>返回行程总览</strong>
-        </a>
       </div>
       <div class="stop-index" aria-hidden="true">
         <span>STOP</span>

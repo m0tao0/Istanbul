@@ -465,7 +465,7 @@ const richAttractionMedia = {
         title: "悬浮般的中央穹顶",
         history: "现存主体在查士丁尼一世时期于 537 年落成。建筑师以帆拱把圆形穹顶过渡到方形大厅，改变了此后拜占庭和奥斯曼建筑的发展方向。",
         lookFor: "站在中殿抬头，留意穹顶脚下的窗带如何削弱实体感，让穹顶在光线中显得近乎悬浮。",
-        ...commonsPhoto("Hagia Sophia Interior Panorama.jpg")
+        ...commonsPhoto("Central nave - Hagia Sophia (8291196158).jpg")
       },
       {
         title: "上层廊道马赛克",
@@ -495,7 +495,7 @@ const richAttractionMedia = {
       {
         title: "上层廊道拱门",
         text: "利用厚重门洞框住中殿与吊灯，人物只占画面很小比例，更容易表现建筑尺度。",
-        ...commonsPhoto("Hagia Sophia Interior Panorama.jpg")
+        ...commonsPhoto("Calligraphy Hagia Sophia.jpg")
       },
       {
         title: "西南侧街角",

@@ -7,7 +7,7 @@
   if (!attraction) {
     root.innerHTML = `
       <section class="not-found">
-        <p class="eyebrow">404 / LOST IN ISTANBUL</p>
+        <p class="eyebrow">404 · 在伊斯坦布尔迷路了</p>
         <h1>没有找到这个景点</h1>
         <p>链接可能不完整，返回行程首页重新选择吧。</p>
         <a class="primary-link" href="index.html#journey">返回行程 <span>→</span></a>
@@ -71,6 +71,7 @@
   }
 
   const previousStop = getPreviousStop(id);
+  const attractionDay = TRIP_DATA.days.find((day) => day.items.some((item) => item.attraction === id))?.id ?? 1;
   const routeUrl = new URL("https://www.google.com/maps/dir/");
   routeUrl.searchParams.set("api", "1");
   routeUrl.searchParams.set("origin", previousStop.query);
@@ -122,7 +123,7 @@
         ${renderHeroCredit(mobileHero, "mobile-image-credit")}
       </div>
       <div class="detail-title">
-        <p class="eyebrow">${attraction.kicker}</p>
+        <p class="eyebrow">伊斯坦布尔景点档案</p>
         <p class="detail-district">${attraction.district}</p>
         <h1>${attraction.name}</h1>
         <p class="local-name">${attraction.localName}</p>
@@ -130,6 +131,10 @@
         <div class="detail-actions">
           <a class="primary-link" href="${attraction.map}" target="_blank" rel="noreferrer">打开地图 <span>↗</span></a>
           <a class="text-link" href="${attraction.official}" target="_blank" rel="noreferrer">访问官网 <span>↗</span></a>
+        </div>
+        <div class="day-seal" aria-label="第 ${attractionDay} 日景点">
+          <span>DAY</span>
+          <strong>${String(attractionDay).padStart(2, "0")}</strong>
         </div>
         <div class="desktop-quick-info">
           <div class="hero-facts" aria-label="实用信息">${factItems}</div>
@@ -146,7 +151,7 @@
     <section class="detail-body">
       <div class="detail-primary">
         <section class="content-block">
-          <p class="eyebrow">WHAT TO SEE</p>
+          <p class="eyebrow">参观重点</p>
           <h2>不要错过</h2>
           <div class="highlight-accordion">
             ${attraction.highlights.map((item, index) => {
@@ -161,12 +166,12 @@
               const media = normalizeMedia(highlight);
               return `
               <article class="highlight-item">
-                <button class="highlight-trigger" type="button" aria-expanded="false" aria-controls="highlight-${index}">
+                <button class="highlight-trigger" type="button" aria-expanded="${index === 0}" aria-controls="highlight-${index}">
                   <span class="highlight-number">${String(index + 1).padStart(2, "0")}</span>
                   <span class="highlight-title">${highlight.title}</span>
                   <span class="highlight-toggle" aria-hidden="true"></span>
                 </button>
-                <div class="highlight-panel" id="highlight-${index}" hidden>
+                <div class="highlight-panel" id="highlight-${index}" ${index === 0 ? "" : "hidden"}>
                   <div class="highlight-image">
                     <img src="${media.image}" alt="${highlight.title}实景" loading="lazy" />
                     ${renderMediaSource(media)}
@@ -191,7 +196,7 @@
         <blockquote>${attraction.quote}</blockquote>
 
         <section class="content-block photo-notes-block">
-          <p class="eyebrow">PHOTO NOTES</p>
+          <p class="eyebrow">构图参考</p>
           <h2>最佳拍照点</h2>
           <div class="photo-spots photo-spots-${attraction.photoSpots.length}">
             ${attraction.photoSpots.map((spot, index) => {
@@ -217,7 +222,7 @@
 
       <aside class="detail-aside">
         <div class="aside-card">
-          <p class="eyebrow">GOOD TO KNOW</p>
+          <p class="eyebrow">参观须知</p>
           <h2>注意事项</h2>
           <ul>${attraction.tips.map((tip) => `<li>${tip}</li>`).join("")}</ul>
         </div>
@@ -226,7 +231,7 @@
     </section>
 
     <section class="next-stop">
-      <p class="eyebrow">CONTINUE THE JOURNEY</p>
+      <p class="eyebrow">继续行程</p>
       <h2>回到时间线，继续下一站</h2>
       <a class="primary-link" href="index.html#journey">返回每日行程 <span>→</span></a>
     </section>

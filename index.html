@@ -8,52 +8,75 @@
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260719-1" />
-    <script src="data.js?v=20260719-1" defer></script>
-    <script src="app.js?v=20260719-1" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css?v=20260719-2" />
+    <script src="data.js?v=20260719-2" defer></script>
+    <script src="app.js?v=20260719-2" defer></script>
   </head>
-  <body>
+  <body class="home-page">
+    <div class="book-spine" aria-hidden="true">
+      <span>佩拉 · 1890</span>
+      <i></i>
+    </div>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="返回首页">
         <span class="brand-mark">İ</span>
-        <span>ISTANBUL / 04 DAYS</span>
+        <span>伊斯坦布尔 / 四日旅行手记</span>
       </a>
       <nav class="top-nav" aria-label="主要导航">
         <a href="#journey">行程</a>
         <a href="#notes">出发须知</a>
-        <span class="nav-date">OCT 30 — NOV 02 · 2026</span>
+        <span class="nav-date">2026.10.30 — 11.02</span>
       </nav>
     </header>
 
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">SHANGHAI → ISTANBUL · 2026</p>
-          <h1 id="hero-title">两日深游，四天<br /><em>横跨欧亚</em>的旅程</h1>
+          <p class="eyebrow">上海 → 伊斯坦布尔 · 2026</p>
+          <h1 id="hero-title">两日深游，四天<br /><em>横跨欧亚的旅程</em></h1>
+          <p class="hero-subtitle">CONSTANTINOPLE / İSTANBUL</p>
           <p class="hero-intro">
-            10 月 30 日晚抵达，11 月 2 日返程。住在 Taksim 的 Lokalist Istanbul，用两条单向路线串起帝国旧城、当代艺术与博斯普鲁斯。
+            10 月 30 日晚抵达，11 月 2 日返程。住在塔克西姆，用两条单向路线串起帝国旧城、当代艺术与博斯普鲁斯。
           </p>
           <a class="primary-link" href="#journey">
             打开行程
-            <span aria-hidden="true">↓</span>
+            <span aria-hidden="true">→</span>
           </a>
+          <div class="trip-ticket" aria-label="行程日期">
+            <strong>四日<br />三夜</strong>
+            <span><b>2026</b>10 月 30 日—11 月 2 日</span>
+            <i aria-hidden="true">✦</i>
+          </div>
         </div>
         <div class="hero-visual">
-          <img src="assets/images/galata-skyline.jpg" alt="从博斯普鲁斯海峡眺望加拉塔塔和伊斯坦布尔天际线" />
-          <div class="hero-stamp" aria-hidden="true">
-            <span>41°01′N</span>
-            <strong>İST</strong>
-            <span>28°58′E</span>
+          <figure class="hero-photo hero-photo-history">
+            <img src="assets/images/attractions/agia-sofia-seen-from-southwest-47-3-7zhrlq.jpg" alt="历史照片质感的圣索菲亚与伊斯坦布尔旧城区" />
+            <figcaption>历史半岛 · 帝国旧城</figcaption>
+          </figure>
+          <figure class="hero-photo hero-photo-modern">
+            <img src="assets/images/galata-skyline.jpg" alt="从博斯普鲁斯海峡眺望加拉塔与现代伊斯坦布尔" />
+            <figcaption>加拉塔 · 当代城区</figcaption>
+          </figure>
+          <div class="coordinate-stamp" aria-hidden="true">
+            <span>41.011° N</span>
+            <span>28.978° E</span>
+            <b>佩拉</b>
           </div>
-          <p class="photo-note">A CITY IN MOTION · EUROPE / ASIA</p>
+          <div class="hero-coin" aria-hidden="true">İST</div>
         </div>
+        <nav class="hero-day-strip" aria-label="行程速览">
+          <a href="#journey"><b>00</b><span>抵达</span></a>
+          <a href="#journey"><b>01</b><span>历史半岛</span></a>
+          <a href="#journey"><b>02</b><span>海峡与艺术</span></a>
+          <a href="#journey"><b>03</b><span>返回上海</span></a>
+        </nav>
       </section>
 
       <section class="journey-section" id="journey" aria-labelledby="journey-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">THE ITINERARY</p>
+            <p class="eyebrow">四日行程 · THE ITINERARY</p>
             <h2 id="journey-title">旅程总览</h2>
           </div>
           <p>2026.10.30—11.02 · 点击任意一天展开精确时间线；点击景点名称进入专属详情页。</p>
@@ -65,7 +88,7 @@
 
       <section class="notes-section" id="notes">
         <div class="notes-title">
-          <p class="eyebrow">BEFORE YOU GO</p>
+          <p class="eyebrow">出发须知 · BEFORE YOU GO</p>
           <h2>先知道，会轻松很多</h2>
         </div>
         <div class="notes-grid">

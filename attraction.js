@@ -3,6 +3,8 @@
   const params = new URLSearchParams(window.location.search);
   const id = params.get("id");
   const attraction = TRIP_DATA.attractions[id];
+  const requestedDay = Number(params.get("day"));
+  const requestedStop = Number(params.get("stop"));
 
   if (!attraction) {
     root.innerHTML = `
@@ -16,7 +18,45 @@
     return;
   }
 
+  const sequence = TRIP_DATA.days.flatMap((entryDay) =>
+    entryDay.items.map((entryItem, index) => ({ day: entryDay, item: entryItem, index }))
+  );
+  let currentSequenceIndex = sequence.findIndex((entry) =>
+    entry.day.id === requestedDay &&
+    entry.index === requestedStop &&
+    entry.item.attraction === id
+  );
+  if (currentSequenceIndex < 0) {
+    currentSequenceIndex = sequence.findIndex((entry) => entry.item.attraction === id);
+  }
+  const currentContext = sequence[currentSequenceIndex];
+  const previousEntry = sequence[currentSequenceIndex - 1];
+  const nextEntry = sequence[currentSequenceIndex + 1];
+  if (currentContext) {
+    document.querySelector(".back-link").href = `index.html#day-${currentContext.day.id}`;
+  }
+
+  function entryUrl(entry) {
+    if (!entry) return "index.html#journey";
+    const useStopDetail = !entry.item.attraction || entry.item.type === "food" || entry.item.type === "leisure";
+    return useStopDetail
+      ? `stop.html?day=${entry.day.id}&stop=${entry.index}`
+      : `attraction.html?id=${entry.item.attraction}&day=${entry.day.id}&stop=${entry.index}`;
+  }
+
   function getPreviousStop(currentId) {
+    if (previousEntry) {
+      const detail = TRIP_DATA.stopDetails?.[`d${previousEntry.day.id}-${previousEntry.index}`];
+      return {
+        id: previousEntry.item.attraction,
+        name: previousEntry.item.title,
+        query: detail?.destination ||
+          detail?.mapQuery ||
+          TRIP_DATA.attractions[previousEntry.item.attraction]?.localName ||
+          `${previousEntry.item.title} Istanbul`
+      };
+    }
+
     let previous = null;
 
     for (const day of TRIP_DATA.days) {
@@ -71,7 +111,9 @@
   }
 
   const previousStop = getPreviousStop(id);
-  const attractionDay = TRIP_DATA.days.find((day) => day.items.some((item) => item.attraction === id))?.id ?? 1;
+  const attractionDay = currentContext?.day.id ??
+    TRIP_DATA.days.find((day) => day.items.some((item) => item.attraction === id))?.id ??
+    1;
   const routeUrl = new URL("https://www.google.com/maps/dir/");
   routeUrl.searchParams.set("api", "1");
   routeUrl.searchParams.set("origin", previousStop.query);
@@ -233,8 +275,11 @@
 
     <section class="next-stop">
       <p class="eyebrow">继续行程</p>
-      <h2>回到时间线，继续下一站</h2>
-      <a class="primary-link" href="index.html#journey">返回每日行程 <span>→</span></a>
+      <h2>${nextEntry ? `下一站：${nextEntry.item.title}` : "四日行程已完成"}</h2>
+      <div class="next-actions">
+        <a class="text-link next-back" href="index.html#day-${attractionDay}">← 返回时间线</a>
+        ${nextEntry ? `<a class="primary-link" href="${entryUrl(nextEntry)}">进入下一站 <span>→</span></a>` : ""}
+      </div>
     </section>
   `;
 

@@ -1002,3 +1002,350 @@ const richAttractionMedia = {
 Object.entries(richAttractionMedia).forEach(([id, media]) => {
   Object.assign(TRIP_DATA.attractions[id], media);
 });
+
+TRIP_DATA.fareReference = {
+  transit: "匿名 Istanbulkart 市内轨道交通按每次刷卡 42 TL 估算；换乘通常需要再次刷卡。",
+  taxi: "黄色出租车按 2026-02-16 官方基准估算：起步 65.40 TL、43.56 TL/公里、短途最低 210 TL；网约车平台费、拥堵等待和过路费另计。",
+  transitSource: "https://www.metro.istanbul/SeferDurumlari/BiletUcretleri",
+  taxiSource: "https://tuhim.ibb.gov.tr/media/27431/taksi-ta%C5%9F%C4%B1mac%C4%B1l%C4%B1%C4%9F%C4%B1-%C3%BCcret-tarifesi.pdf"
+};
+
+TRIP_DATA.stopDetails = {
+  "d0-0": {
+    kind: "transport",
+    origin: "IST 国际到达层",
+    destination: "Lokalist Istanbul · Taksim",
+    mapQuery: "Istanbul Airport",
+    intro: "落地后的目标不是赶路，而是稳定完成入境、取行李、联网和进城。把酒店地址与接送司机信息提前截图。",
+    route: ["IST 到达层", "M11 Gayrettepe", "M2 Taksim", "Lokalist Istanbul"],
+    public: {
+      time: "约 70–90 分钟",
+      cost: "约 84 TL / 人",
+      summary: "M11 至 Gayrettepe，换乘 M2 至 Taksim，再步行到酒店。",
+      steps: ["在机场地铁层购买或充值 Istanbulkart", "M11 往 Gayrettepe 方向", "换乘 M2 往 Yenikapı，Taksim 下车", "携大件行李时预留较长换乘距离"]
+    },
+    ride: {
+      time: "约 50–90 分钟",
+      cost: "约 1,800–2,600 TL / 车",
+      summary: "黄色出租车或平台叫车直达；拥堵、过路费和平台服务费会使价格上浮。"
+    },
+    tips: ["在官方上车区核对车牌，不接受揽客者的口头一口价。", "如果航班延误，优先通知酒店接送方，不要边走边临时改方案。"]
+  },
+  "d0-1": {
+    kind: "transport",
+    origin: "IST 机场到达层",
+    destination: "Lokalist Istanbul · Taksim",
+    mapQuery: "Lokalist Istanbul Taksim",
+    intro: "预约接送是晚间抵达最省体力的方案。上车前确认司机姓名、车牌、包含的等待时间及是否另收过路费。",
+    route: ["到达大厅会合点", "机场高速", "Taksim", "酒店前台"],
+    public: {
+      time: "约 70–90 分钟",
+      cost: "约 84 TL / 人",
+      summary: "备选方案为 M11 → Gayrettepe → M2 → Taksim。"
+    },
+    ride: {
+      time: "约 50–90 分钟",
+      cost: "预约车约 1,800–2,600 TL / 车",
+      summary: "让司机把你送到酒店门口；晚高峰和降雨会明显拉长时间。"
+    },
+    tips: ["把酒店土耳其语地址和电话离线保存。", "超过免费等待时间前主动联系司机。"]
+  },
+  "d0-2": {
+    kind: "stay",
+    mapQuery: "Lokalist Istanbul Taksim",
+    intro: "三晚不换酒店。入住时一次确认早餐时间、退房时间、机场接送和前台夜间联系方式。",
+    checklist: ["索取一张写有酒店地址和电话的名片", "确认早餐地点与 11 月 2 日能否提前用餐", "请前台再次核对返程车辆时间", "房间内把票券、护照和充电设备集中放置"]
+  },
+  "d0-3": {
+    kind: "checklist",
+    intro: "睡前只做会影响第二天执行的检查，不再临时增加景点。",
+    checklist: ["托普卡帕宫、地下水宫与 Hodjapasha 二维码离线保存", "确认次日礼拜时段、降雨和体感温度", "Istanbulkart 余额至少覆盖 4–6 次刷卡", "设置 07:30 与 07:40 两个闹钟"]
+  },
+  "d1-0": {
+    kind: "transport",
+    origin: "Lokalist Istanbul · Taksim",
+    destination: "Gülhane 站 / 托普卡帕宫",
+    mapQuery: "Gülhane Tram Station Istanbul",
+    intro: "公共交通比早高峰打车更稳定。路线包含一次步行、F1 缆车和 T1 电车，抵达 Gülhane 后从公园一侧进入老城。",
+    route: ["酒店", "Taksim F1", "Kabataş T1", "Gülhane", "托普卡帕宫"],
+    public: {
+      time: "约 45–55 分钟",
+      cost: "约 84 TL / 人",
+      summary: "步行至 Taksim，F1 到 Kabataş，换乘 T1 至 Gülhane。",
+      steps: ["08:55 前离开酒店", "F1 下车后跟随 Tramvay 指示", "T1 乘往 Bağcılar 方向", "Gülhane 下车后步行约 8 分钟"]
+    },
+    ride: {
+      time: "约 25–45 分钟",
+      cost: "约 500–900 TL / 车",
+      summary: "适合降雨或行李较多时；老城限行和拥堵可能使最后一段变慢。"
+    },
+    tips: ["早高峰不要把打车当成一定更快。", "电车车厢拥挤时把背包放在身前。"]
+  },
+  "d1-3": {
+    kind: "food",
+    mapQuery: "Deraliye Restaurant Sultanahmet",
+    intro: "午餐只有约 40 分钟，重点是上菜稳定、距离近，不安排完整品鉴套餐。",
+    budget: "约 700–1,200 TL / 人",
+    reservation: "建议预约 13:05，并注明需要在 13:45 前离席。",
+    recommendations: [
+      { name: "Hünkâr Beğendi", text: "慢炖肉配烟熏茄泥，最能代表奥斯曼宫廷风味。" },
+      { name: "İç Pilavlı Tavuk", text: "香料米饭与鸡肉，出餐通常比炖锅和套餐更快。" },
+      { name: "Şerbet 或 Ayran", text: "选择一杯即可，不点耗时的多轮甜品与咖啡服务。" }
+    ],
+    tips: ["入座即说明结账时间。", "下午仍有大量步行，避免酒精和过量甜点。"]
+  },
+  "d1-6": {
+    kind: "transport",
+    origin: "Sultanahmet 站",
+    destination: "Beyazıt–Kapalıçarşı 站",
+    mapQuery: "Beyazit Kapalicarsi Tram Station",
+    intro: "这段只有两站，乘 T1 比步行节省体力；下车后从 Beyazıt 一侧进入大奖集市。",
+    route: ["Sultanahmet T1", "Çemberlitaş", "Beyazıt–Kapalıçarşı", "大奖集市"],
+    public: {
+      time: "约 8–12 分钟",
+      cost: "约 42 TL / 人",
+      summary: "T1 往 Bağcılar 方向，Beyazıt–Kapalıçarşı 下车。"
+    },
+    ride: {
+      time: "约 8–18 分钟",
+      cost: "约 210–320 TL / 车",
+      summary: "距离很短，通常会触发出租车最低消费；遇拥堵不一定比电车快。"
+    },
+    walk: {
+      time: "约 22–28 分钟",
+      cost: "免费",
+      summary: "沿 Divan Yolu 向西，路线简单但会消耗后续逛市场的体力。"
+    }
+  },
+  "d1-8": {
+    kind: "transport",
+    origin: "Beyazıt–Kapalıçarşı 站",
+    destination: "Sirkeci 站 / Olden 1772",
+    mapQuery: "Sirkeci Tram Station Istanbul",
+    intro: "从大奖集市返回 T1 后向东前往 Sirkeci，避免在晚餐和演出前继续长距离步行。",
+    route: ["Beyazıt T1", "Sultanahmet", "Gülhane", "Sirkeci", "Olden 1772"],
+    public: {
+      time: "约 15–20 分钟",
+      cost: "约 42 TL / 人",
+      summary: "T1 往 Kabataş 方向，Sirkeci 下车后步行至餐厅。"
+    },
+    ride: {
+      time: "约 12–25 分钟",
+      cost: "约 280–480 TL / 车",
+      summary: "市场周边上车点混乱，建议走到主路再叫车。"
+    }
+  },
+  "d1-9": {
+    kind: "food",
+    mapQuery: "Olden 1772 Istanbul",
+    intro: "这是演出前的提前晚餐，核心要求是 18:20 前结账离席。",
+    budget: "约 900–1,600 TL / 人",
+    reservation: "必须预约 17:05，并在备注中写明 18:30 前需要到 Hodjapasha。",
+    recommendations: [
+      { name: "冷前菜组合", text: "可共享、上菜快，适合控制用餐节奏。" },
+      { name: "烤鱼或烤羊肉主菜", text: "每人只点一道主菜，避免需要长时间烹制的套餐。" },
+      { name: "土耳其茶", text: "甜点视出餐速度决定，17:55 后不要再加单。" }
+    ],
+    tips: ["入座时再次提醒服务员离席时间。", "18:10 主动索取账单。"]
+  },
+  "d1-12": {
+    kind: "transport",
+    origin: "Hodjapasha / Sirkeci",
+    destination: "Lokalist Istanbul · Taksim",
+    mapQuery: "Lokalist Istanbul Taksim",
+    intro: "演出结束后原路返回最稳妥。若明显疲劳或下雨，可直接在主路通过平台叫车。",
+    route: ["Sirkeci T1", "Kabataş", "F1 Taksim", "酒店"],
+    public: {
+      time: "约 35–45 分钟",
+      cost: "约 84 TL / 人",
+      summary: "T1 至 Kabataş，换乘 F1 至 Taksim，再步行回酒店。"
+    },
+    ride: {
+      time: "约 20–35 分钟",
+      cost: "约 450–750 TL / 车",
+      summary: "从 Sirkeci 主路上车，避免司机进入狭窄街巷寻找。"
+    }
+  },
+  "d2-0": {
+    kind: "transport",
+    origin: "Lokalist Istanbul · Taksim",
+    destination: "多尔玛巴赫切宫",
+    mapQuery: "Dolmabahce Palace Istanbul",
+    intro: "早上直达宫殿可节省步行；若叫车等待过久，立即改走 F1。",
+    route: ["酒店", "Taksim F1", "Kabataş", "多尔玛巴赫切宫"],
+    public: {
+      time: "约 25–35 分钟",
+      cost: "约 42 TL / 人",
+      summary: "步行至 Taksim，乘 F1 到 Kabataş，再沿海步行约 8 分钟。"
+    },
+    ride: {
+      time: "约 10–20 分钟",
+      cost: "约 210–350 TL / 车",
+      summary: "短途通常按最低消费起计；目的地填写 Dolmabahçe Sarayı Saat Kulesi。"
+    }
+  },
+  "d2-2": {
+    kind: "transport",
+    origin: "多尔玛巴赫切宫",
+    destination: "Tophane / 伊斯坦布尔现代",
+    mapQuery: "Istanbul Modern",
+    intro: "先沿海走到 Kabataş，再乘一小段 T1；体力充足也可沿海步行到 Tophane。",
+    route: ["宫殿出口", "Kabataş T1", "Tophane", "Istanbul Modern"],
+    public: {
+      time: "约 20–30 分钟",
+      cost: "约 42 TL / 人",
+      summary: "Kabataş 乘 T1 至 Tophane，步行进入 Galataport。"
+    },
+    ride: {
+      time: "约 8–18 分钟",
+      cost: "约 210–330 TL / 车",
+      summary: "路程短且沿海常堵，只有下雨时明显更有价值。"
+    },
+    walk: {
+      time: "约 25–35 分钟",
+      cost: "免费",
+      summary: "沿 Meclis-i Mebusan Caddesi 向南，路线平缓。"
+    }
+  },
+  "d2-4": {
+    kind: "food",
+    mapQuery: "Galataport Istanbul restaurants",
+    intro: "午餐控制在 55 分钟，优先选择有海景但出餐快速的单点餐厅。",
+    budget: "约 650–1,200 TL / 人",
+    reservation: "周日中午建议预约 12:40；备注靠近 Istanbul Modern 一侧。",
+    recommendations: [
+      { name: "烤鱼或鱼三明治", text: "呼应海港环境，单点速度通常稳定。" },
+      { name: "Pide / Lahmacun", text: "适合时间紧时共享，避免完整多道式套餐。" },
+      { name: "Meze 拼盘", text: "2–3 人共享一份，再搭配一道主菜即可。" }
+    ],
+    tips: ["13:25 前结账，给前往码头留出缓冲。", "不要选择需要排队的网红甜品店。"]
+  },
+  "d2-5": {
+    kind: "transport",
+    origin: "Tophane 站",
+    destination: "Eminönü Şehir Hatları 码头",
+    mapQuery: "Eminonu Sehir Hatlari Bosphorus Tours",
+    intro: "沿 T1 前往 Eminönü 最稳定。到站后先找 Şehir Hatları 官方标识，不跟随私人游船揽客者。",
+    route: ["Tophane T1", "Karaköy", "Eminönü", "Şehir Hatları 售票处"],
+    public: {
+      time: "约 15–20 分钟",
+      cost: "约 42 TL / 人",
+      summary: "T1 往 Bağcılar 方向，Eminönü 下车后步行到官方码头。"
+    },
+    ride: {
+      time: "约 10–25 分钟",
+      cost: "约 250–450 TL / 车",
+      summary: "加拉塔桥经常拥堵，通常不比电车更快。"
+    }
+  },
+  "d2-6": {
+    kind: "checklist",
+    mapQuery: "Eminonu Sehir Hatlari Bosphorus Tours",
+    intro: "候船阶段只做三件事：确认官方窗口、确认船名与返航时间、提前选择上层甲板位置。",
+    checklist: ["只在 Şehir Hatları 官方窗口或官方渠道购票", "确认是短线 Bosphorus Tour 而非单程渡轮", "保留返航时间和下船码头截图", "14:25 前完成洗手间和饮水准备"]
+  },
+  "d2-9": {
+    kind: "food",
+    mapQuery: "Karakoy Istanbul coffee",
+    intro: "这里只安排 30 分钟咖啡休息，不为了特定网红店绕路或排队。",
+    budget: "约 180–400 TL / 人",
+    reservation: "无需预约；选择从加拉塔桥通往 F2 Karaköy 站的顺路店铺。",
+    recommendations: [
+      { name: "Türk Kahvesi", text: "份量小、节奏快，适合作为后半程提神。" },
+      { name: "过滤咖啡", text: "对土耳其咖啡不适应时更稳妥。" },
+      { name: "轻量甜点", text: "可共享一份 San Sebastian cheesecake 或本地烘焙点心。" }
+    ],
+    tips: ["17:30 前离店。", "避免酒精饮品，后面仍有坡道和长距离步行。"]
+  },
+  "d2-10": {
+    kind: "transport",
+    origin: "Karaköy F2 站",
+    destination: "Tünel 广场",
+    mapQuery: "Tunel Funicular Beyoglu",
+    intro: "F2 地下缆车是避开加拉塔陡坡的最佳方式，车程很短但能明显节省体力。",
+    route: ["Karaköy F2", "地下缆车", "Tünel", "独立大街南端"],
+    public: {
+      time: "乘车约 3 分钟；含等候约 8–12 分钟",
+      cost: "约 42 TL / 人",
+      summary: "进站刷 Istanbulkart，Tünel 站出站即到独立大街南端。"
+    },
+    ride: {
+      time: "约 8–20 分钟",
+      cost: "约 210–320 TL / 车",
+      summary: "不推荐：距离短、坡道拥堵且会触发最低消费。"
+    },
+    walk: {
+      time: "约 18–25 分钟",
+      cost: "免费",
+      summary: "持续陡坡上行，只建议体力充足且天气凉爽时选择。"
+    }
+  },
+  "d2-12": {
+    kind: "food",
+    mapQuery: "Pera Istanbul restaurants",
+    intro: "这是两天完整行程的最后一顿正餐，可以放慢节奏，但仍建议提前预约。",
+    budget: "约 1,000–2,000 TL / 人",
+    reservation: "建议预约 19:15；若选择屋顶餐厅，备注室内靠窗座位以应对风雨。",
+    recommendations: [
+      { name: "Meze + 烤肉组合", text: "适合共享，也能覆盖经典土耳其风味。" },
+      { name: "时令鱼类", text: "秋季可询问当天鱼获与按重量计价方式。" },
+      { name: "Rakı 或本地葡萄酒", text: "若饮酒只点一轮，餐后仍需步行回酒店。" }
+    ],
+    tips: ["确认账单是否已含服务费。", "保留步行回 Taksim 的体力。"]
+  },
+  "d3-0": {
+    kind: "checklist",
+    intro: "返程日不再安排景点。整理行李时按“证件—电子设备—退税—托运”四组检查。",
+    checklist: ["护照、登机牌、银行卡放入随身包固定夹层", "充电宝和锂电池不得托运", "液体与纪念品完成托运行李分配", "退税单据、购物小票和商品保持可取"]
+  },
+  "d3-1": {
+    kind: "food",
+    mapQuery: "Lokalist Istanbul Taksim",
+    intro: "早餐以稳定、快速和不过量为原则，不离开酒店范围。",
+    budget: "若房费不含早餐，约 350–650 TL / 人",
+    reservation: "前一晚向前台确认 08:00 是否准时开放。",
+    recommendations: [
+      { name: "鸡蛋、奶酪与面包", text: "兼顾饱腹和稳定，不尝试过多生冷食物。" },
+      { name: "水果与酸奶", text: "少量补充即可，避免影响长途飞行舒适度。" },
+      { name: "水与咖啡", text: "离店前补水，但不要摄入过量咖啡因。" }
+    ],
+    tips: ["08:35 前结束早餐。", "随身留一份机场途中可吃的小点心。"]
+  },
+  "d3-2": {
+    kind: "checklist",
+    mapQuery: "Lokalist Istanbul Taksim",
+    intro: "退房前完成房间、保险箱、充电插座和行李件数的四次确认。",
+    checklist: ["检查保险箱、床下、浴室和全部插座", "结清迷你吧与城市税并保存账单", "确认接送车辆车牌与司机电话", "同行人和行李全部到齐后再交房卡"]
+  },
+  "d3-3": {
+    kind: "transport",
+    origin: "Lokalist Istanbul · Taksim",
+    destination: "IST 国际出发层",
+    mapQuery: "Istanbul Airport International Departures",
+    intro: "周一早高峰必须把拥堵作为常态。预约车是主方案，M2 + M11 是车辆失约时的备选。",
+    route: ["酒店", "机场高速", "IST 出发层", "入口安检"],
+    public: {
+      time: "约 70–90 分钟",
+      cost: "约 84 TL / 人",
+      summary: "M2 Taksim 至 Gayrettepe，换乘 M11 至 Istanbul Airport；携大件行李不优先。"
+    },
+    ride: {
+      time: "约 55–90 分钟",
+      cost: "约 1,800–2,600 TL / 车",
+      summary: "08:55 前上车；下雨、事故或早高峰时应提前到 08:30。"
+    },
+    tips: ["目的地明确填写 International Departures。", "过路费和平台服务费可能另计。"]
+  },
+  "d3-4": {
+    kind: "checklist",
+    mapQuery: "Istanbul Airport International Departures",
+    intro: "IST 航站楼步行距离很长，抵达机场不等于抵达登机口。",
+    checklist: ["先完成入口安检，再查值机柜台区域", "如需退税，先确认海关盖章与退税柜台顺序", "完成出境后再次查看登机口是否变更", "最迟起飞前 60 分钟抵达登机口区域"]
+  },
+  "d3-5": {
+    kind: "checklist",
+    mapQuery: "Istanbul Airport",
+    intro: "13:30 起飞。登机前只保留护照、登机牌、手机和随身药品在最容易取用的位置。",
+    checklist: ["登机口可能临时调整，持续关注屏幕", "把充电宝、耳机和转接头留在随身包", "起飞前把酒店和接送收据归档", "开启目的地时区并关闭数据漫游"]
+  }
+};

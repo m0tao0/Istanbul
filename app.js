@@ -1,9 +1,7 @@
 (() => {
   const dayList = document.querySelector("#day-list");
-  const tabs = document.querySelector("#day-tabs");
   const storageKey = "istanbul-trip-checks-2026-oct-final";
   const saved = JSON.parse(localStorage.getItem(storageKey) || "{}");
-  let activeDay = "all";
 
   const icons = {
     attraction: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h16M6 20v-7h12v7M8 13V9h8v4M10 9V6h4v3M12 3v3"/></svg>',
@@ -35,22 +33,18 @@
     return "note";
   }
 
-  function renderTabs() {
-    const options = [{ id: "all", label: "全部" }, ...TRIP_DATA.days.map((day) => ({ id: String(day.id), label: day.label }))];
-    tabs.innerHTML = options.map((option) => `
-      <button class="day-tab ${activeDay === option.id ? "active" : ""}" data-day="${option.id}" role="tab" aria-selected="${activeDay === option.id}">
-        ${option.label}
-      </button>
-    `).join("");
+  function stopUrl(dayId, itemIndex, item) {
+    const useStopDetail = !item.attraction || item.type === "food" || item.type === "leisure";
+    return useStopDetail
+      ? `stop.html?day=${dayId}&stop=${itemIndex}`
+      : `attraction.html?id=${item.attraction}&day=${dayId}&stop=${itemIndex}`;
   }
 
   function itemMarkup(item, dayId, index) {
     const key = `${dayId}-${item.time}-${item.title}`;
     const checked = Boolean(saved[key]);
     const kind = getItemKind(item);
-    const title = item.attraction
-      ? `<a class="attraction-link" href="attraction.html?id=${item.attraction}">${item.title}<span aria-hidden="true">↗</span></a>`
-      : `<span class="plain-title">${item.title}</span>`;
+    const title = `<a class="attraction-link" href="${stopUrl(dayId, index, item)}">${item.title}<span aria-hidden="true">↗</span></a>`;
     return `
       <li class="timeline-item ${checked ? "completed" : ""}">
         <label class="check-wrap" aria-label="标记 ${item.title} 为已完成">
@@ -71,7 +65,7 @@
     const splitAt = Math.ceil(day.items.length / 2);
     const columns = [day.items.slice(0, splitAt), day.items.slice(splitAt)];
     return `
-      <article class="day-card day-${day.color}" data-day-card="${day.id}">
+      <article class="day-card day-${day.color}" id="day-${day.id}" data-day-card="${day.id}">
         <button class="day-summary" aria-expanded="${isExpanded}" aria-controls="day-content-${day.id}">
           <div class="day-index">
             <span>${String(day.id).padStart(2, "0")}</span>
@@ -101,8 +95,7 @@
   }
 
   function renderDays() {
-    const days = activeDay === "all" ? TRIP_DATA.days : TRIP_DATA.days.filter((day) => String(day.id) === activeDay);
-    dayList.innerHTML = days.map(dayMarkup).join("");
+    dayList.innerHTML = TRIP_DATA.days.map(dayMarkup).join("");
     bindCards();
   }
 
@@ -125,14 +118,5 @@
     });
   }
 
-  tabs.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-day]");
-    if (!button) return;
-    activeDay = button.dataset.day;
-    renderTabs();
-    renderDays();
-  });
-
-  renderTabs();
   renderDays();
 })();

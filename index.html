@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260719-3" />
-    <script src="data.js?v=20260719-3" defer></script>
-    <script src="app.js?v=20260719-3" defer></script>
+    <link rel="stylesheet" href="styles.css?v=20260719-4" />
+    <script src="data.js?v=20260719-4" defer></script>
+    <script src="app.js?v=20260719-4" defer></script>
   </head>
-  <body class="home-page">
+  <body class="home-page" id="top">
     <div class="book-spine" aria-hidden="true">
       <span>伊斯坦布尔 · 旅行计划</span>
       <i></i>
@@ -66,10 +66,10 @@
           <div class="hero-coin" aria-hidden="true">İST</div>
         </div>
         <nav class="hero-day-strip" aria-label="行程速览">
-          <a href="#journey"><b>00</b><span>抵达</span></a>
-          <a href="#journey"><b>01</b><span>历史半岛</span></a>
-          <a href="#journey"><b>02</b><span>海峡与艺术</span></a>
-          <a href="#journey"><b>03</b><span>返回上海</span></a>
+          <a href="#day-0"><b>00</b><span>抵达</span></a>
+          <a href="#day-1"><b>01</b><span>历史半岛</span></a>
+          <a href="#day-2"><b>02</b><span>海峡与艺术</span></a>
+          <a href="#day-3"><b>03</b><span>返回上海</span></a>
         </nav>
       </section>
 
@@ -82,7 +82,6 @@
           <p>2026.10.30—11.02 · 点击任意一天展开精确时间线；点击景点名称进入专属详情页。</p>
         </div>
 
-        <div class="day-tabs" id="day-tabs" role="tablist" aria-label="按天筛选"></div>
         <div class="day-list" id="day-list"></div>
       </section>
 
@@ -110,6 +109,10 @@
         </div>
       </section>
     </main>
+
+    <a class="back-to-top" href="#top" aria-label="返回页面顶部" title="返回顶部">
+      <span aria-hidden="true">↑</span>
+    </a>
 
     <footer class="site-footer">
       <div>

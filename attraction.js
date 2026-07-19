@@ -79,18 +79,19 @@
   routeUrl.searchParams.set("travelmode", "transit");
 
   const facts = [
-    ["门票", attraction.fee],
+    ["门票", attraction.fee, attraction.feeEquivalent],
     ["开放", attraction.hours],
     ["建议停留", attraction.duration],
     ["最佳时间", attraction.bestTime]
   ];
 
-  const factItems = facts.map(([label, value], index) => `
+  const factItems = facts.map(([label, value, equivalent], index) => `
     <article class="fact-item">
       <span class="fact-index">${String(index + 1).padStart(2, "0")}</span>
       <div>
         <span class="fact-label">${label}</span>
         <strong class="fact-value">${value}</strong>
+        ${equivalent ? `<span class="fee-equivalent">${equivalent}</span>` : ""}
       </div>
     </article>
   `).join("");
@@ -166,12 +167,12 @@
               const media = normalizeMedia(highlight);
               return `
               <article class="highlight-item">
-                <button class="highlight-trigger" type="button" aria-expanded="${index === 0}" aria-controls="highlight-${index}">
+                <button class="highlight-trigger" type="button" aria-expanded="false" aria-controls="highlight-${index}">
                   <span class="highlight-number">${String(index + 1).padStart(2, "0")}</span>
                   <span class="highlight-title">${highlight.title}</span>
                   <span class="highlight-toggle" aria-hidden="true"></span>
                 </button>
-                <div class="highlight-panel" id="highlight-${index}" ${index === 0 ? "" : "hidden"}>
+                <div class="highlight-panel" id="highlight-${index}" hidden>
                   <div class="highlight-image">
                     <img src="${media.image}" alt="${highlight.title}实景" loading="lazy" />
                     ${renderMediaSource(media)}
@@ -226,7 +227,7 @@
           <h2>注意事项</h2>
           <ul>${attraction.tips.map((tip) => `<li>${tip}</li>`).join("")}</ul>
         </div>
-        <p class="data-note">票价与开放信息更新于 2026-07-18。宗教活动、修复工程与节假日可能导致临时变化。</p>
+        <p class="data-note">票价与开放信息更新于 2026-07-18。等值换算按欧洲央行 2026-07-17 参考汇率估算，不含银行费用；现场价格以官网及售票处为准。</p>
       </aside>
     </section>
 

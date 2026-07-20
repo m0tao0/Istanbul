@@ -180,7 +180,7 @@
         <p class="detail-intro">${attraction.intro}</p>
         <div class="detail-actions">
           <a class="primary-link" href="${attraction.map}" target="_blank" rel="noreferrer">打开地图 <span>↗</span></a>
-          <a class="text-link" href="${attraction.official}" target="_blank" rel="noreferrer">访问官网 <span>↗</span></a>
+          <a class="text-link" href="${attraction.official}" target="_blank" rel="noreferrer">${attraction.officialLabel || "查询开放时间"} <span>↗</span></a>
         </div>
         <div class="day-seal" aria-label="第 ${attractionDay} 日景点">
           <span>DAY</span>

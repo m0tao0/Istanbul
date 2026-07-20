@@ -106,7 +106,8 @@ const TRIP_DATA = {
         { title: "竞技场南端", text: "稍微拉远，可拍下六座宣礼塔完整展开的城市天际线。" }
       ],
       tips: ["进入祈祷大厅前需脱鞋；肩膀和膝盖需遮盖，女性需戴头巾。", "禁止闪光灯，不要拍摄正在祈祷的人。", "礼拜前后会暂停游客进入，实际开放窗口以现场管控为准。"],
-      official: "https://namazvakitleri.diyanet.gov.tr/tr-tr/9541/istanbul-icin-namaz-vakti",
+      official: "https://namazvakitleri.diyanet.gov.tr/en-US/9541/istanbul-prayer-times",
+      officialLabel: "查询礼拜时间",
       map: "https://www.google.com/maps/search/?api=1&query=Blue+Mosque+Istanbul"
     },
     "istanbul-archaeology-museums": {
@@ -131,6 +132,7 @@ const TRIP_DATA = {
       ],
       tips: ["这是托普卡帕宫短线的备选，不与完整宫殿路线叠加；11:30 左右离开宫殿后再决定是否进入。", "只看亚历山大石棺、塔布尼特石棺和瓷砖亭，约 12:30 离馆前往午餐。", "官方当前注明主馆部分编号展厅、楼上展厅及部分附楼展厅关闭，现场开放范围可能继续调整。", "展品摄影规则以现场标识为准；隔着玻璃拍摄时关闭闪光灯并贴近玻璃减少反光。"],
       official: "https://muze.gov.tr/muze-detay?DistId=IAR&SectionId=IAR01",
+      officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Istanbul+Archaeological+Museums"
     },
     "hagia-sophia": {
@@ -156,6 +158,7 @@ const TRIP_DATA = {
       ],
       tips: ["仍是宗教场所，请穿着得体并保持安静。", "大型修复工程可能出现脚手架，部分视角会临时受限。", "安检和购票队伍分开，旺季预留至少 30 分钟排队。", "不要从非官方兜售者处购买所谓免排队票。"],
       official: "https://www.ayasofyacamii.gov.tr/",
+      officialLabel: "查看游客开放信息",
       map: "https://www.google.com/maps/search/?api=1&query=Hagia+Sophia+Istanbul"
     },
     "basilica-cistern": {
@@ -181,6 +184,7 @@ const TRIP_DATA = {
       ],
       tips: ["仅接受银行卡或 İstanbulkart，现场不收现金。", "Museum Pass 不适用；这里由伊斯坦布尔市属机构运营。", "地面潮湿且光线低，穿防滑鞋并放慢脚步。", "三脚架通常不便使用，拍照时不要阻挡狭窄步道。"],
       official: "https://yerebatan.com/en/basilica-cistern/visit-info/",
+      officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Basilica+Cistern+Istanbul"
     },
     "topkapi": {
@@ -206,6 +210,7 @@ const TRIP_DATA = {
       ],
       tips: ["本次安排在周六，闭馆日没有冲突。", "默认路线：第二庭院 → 后宫 → 珍宝馆 → 圣物馆 → 第四庭院，12:45 离开。", "若团队兴趣一般，11:30 左右结束后宫与珍宝馆后离开，步行去紧邻宫殿的伊斯坦布尔考古博物馆；不要到了 12:00 才决定。", "联票当日有效；选择短线分支意味着主动放弃圣物馆、第四庭院和圣伊莲娜。"],
       official: "https://www.millisaraylar.gov.tr/Lokasyon/2/topkapi-sarayi",
+      officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Topkapi+Palace+Istanbul"
     },
     "dolmabahce": {
@@ -231,6 +236,7 @@ const TRIP_DATA = {
       ],
       tips: ["本次安排在周日，周一闭馆不会影响行程。", "只走主宫、水晶楼梯、仪式大厅、阿塔图尔克房间与海峡宫门。", "跳过后宫大部分普通房间及绘画博物馆，10:45 准时离开。", "内部通常禁止摄影，按现场规定收起手机和相机。"],
       official: "https://www.millisaraylar.gov.tr/Lokasyon/3/Dolmabahce-Sarayi",
+      officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Dolmabahce+Palace+Istanbul"
     },
     "istiklal": {
@@ -255,6 +261,7 @@ const TRIP_DATA = {
       ],
       tips: ["周日晚人流密集，手机和钱包放在身体前侧。", "晚餐前只逛 Tünel 与南段支路，不要提前走到 Taksim。", "18:40 在靠近 Tünel 的 Eleos 用餐，餐后再一路向北回酒店。", "Hacı Bekir Beyoğlu 店位于 İstiklal Cd. No.83/A；若仍营业，可买密封 lokum、akide 硬糖或杏仁糖，若已关门不另绕路。"],
       official: "https://visit.istanbul/istiklal-street",
+      officialLabel: "查看官方信息",
       map: "https://www.google.com/maps/search/?api=1&query=Istiklal+Avenue+Istanbul"
     },
     "galata-tower": {
@@ -280,6 +287,7 @@ const TRIP_DATA = {
       ],
       tips: ["观景台狭窄且风大，帽子和轻物要收好。", "日落前常排长队，至少提前 45–60 分钟到达。", "Museum Pass 只适用于规定日间时段，夜场不适用。", "18 岁以下需由监护人陪同。"],
       official: "https://www.muze.gov.tr/muze-detay?DistId=MRK&SectionId=GLT04",
+      officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Galata+Tower+Istanbul"
     },
     "bosphorus-cruise": {
@@ -305,6 +313,7 @@ const TRIP_DATA = {
       ],
       tips: ["只在 Şehir Hatları 官方售票处购票，不接受私人游船揽客。", "11 月海上体感温度可能比陆地低约 5℃，准备防风外套。", "去程优先欧洲岸一侧，返程换另一侧或船尾。", "正式冬季时刻表可能调整，10 月中旬必须再确认一次。"],
       official: "https://sehirhatlari.istanbul/en/timetables/bosphorus-tours/short-bosphorus-tour-181",
+      officialLabel: "查询当天船班",
       map: "https://www.google.com/maps/search/?api=1&query=Eminonu+Bosphorus+Cruise+Pier"
     },
     "grand-bazaar": {
@@ -329,6 +338,7 @@ const TRIP_DATA = {
       ],
       tips: ["本次只能周六游览，周日市场关闭；若前段延误，可把购物缩短到约 30 分钟。", "70 分钟内重点看小件伊兹尼克风格陶瓷、咖啡器具、浴巾或小皮具，不为购买地毯和珠宝做仓促决定。", "高价商品要求发票、产地与材质证明，并至少比较三家价格。", "18:20 准时从 Beyazıt 一侧离开；市场内手机与钱包放在身体前侧。"],
       official: "https://visit.istanbul/grand-bazaar",
+      officialLabel: "查看官方信息",
       map: "https://www.google.com/maps/search/?api=1&query=Grand+Bazaar+Istanbul"
     },
     "hodjapasha": {
@@ -354,6 +364,7 @@ const TRIP_DATA = {
       ],
       tips: ["当前两日宽松版未排入演出；若临时想看，需要另行压缩晚餐并提前购票。", "参加时须在 18:30 前签到，迟到可能无法入场。", "仪式中禁止摄影、录像和交谈，手机全程静音。", "7 岁以下儿童不得入场；场地不适合轮椅。"],
       official: "https://hodjapasha.com/en/",
+      officialLabel: "查询场次与购票",
       map: "https://www.google.com/maps/search/?api=1&query=Hodjapasha+Culture+Center+Istanbul"
     },
     "istanbul-modern": {
@@ -379,6 +390,7 @@ const TRIP_DATA = {
       ],
       tips: ["这是第二天唯一备选；宫殿延误、想购物或体力不足时可直接跳过。", "参加时只看常设展与当天最感兴趣的一个临时展。", "12:20 准时离馆，给 Paket Postanesi 和午餐留足时间。", "大型行李需寄存，展厅摄影规则以现场标识为准。"],
       official: "https://www.istanbulmodern.org/en/visit/museum",
+      officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Istanbul+Modern"
     },
     "karakoy-galataport": {
@@ -403,6 +415,7 @@ const TRIP_DATA = {
       ],
       tips: ["游船后直接步行过加拉塔桥，不返回 Eminönü 乘车。", "17:40 左右抵达 F2 入口，避免步行爬坡消耗体力。", "13:45 离开 Galataport，为前往官方码头留出约 20 分钟缓冲。", "邮轮靠港时 Galataport 安检与人流可能增加。"],
       official: "https://galataport.com/en/",
+      officialLabel: "查看官方信息",
       map: "https://www.google.com/maps/search/?api=1&query=Galataport+Istanbul"
     }
   }

@@ -131,6 +131,15 @@ const TRIP_DATA = {
         { title: "亚历山大石棺展柜侧前方", text: "避开玻璃正面反光，从侧前方拍战斗浮雕与屋脊雕塑；室内不要使用闪光灯。" }
       ],
       tips: ["这是托普卡帕宫短线的备选，不与完整宫殿路线叠加；11:30 左右离开宫殿后再决定是否进入。", "只看亚历山大石棺、塔布尼特石棺和瓷砖亭，约 12:30 离馆前往午餐。", "官方当前注明主馆部分编号展厅、楼上展厅及部分附楼展厅关闭，现场开放范围可能继续调整。", "展品摄影规则以现场标识为准；隔着玻璃拍摄时关闭闪光灯并贴近玻璃减少反光。"],
+      apps: [
+        {
+          name: "MüzeKart: Türkiye'nin Müzeleri",
+          meta: "英文 · iOS / Android",
+          description: "文化部官方 App，可查看场馆信息、保存电子 MuseumPass，并使用本馆当日提供的语音内容。出发前连接 Wi-Fi 打开本馆页面；票种及开放展厅仍以官网和现场为准。",
+          ios: "https://apps.apple.com/app/id1511527605",
+          android: "https://play.google.com/store/apps/details?id=com.muzekart.app"
+        }
+      ],
       official: "https://muze.gov.tr/muze-detay?DistId=IAR&SectionId=IAR01",
       officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Istanbul+Archaeological+Museums"
@@ -286,6 +295,15 @@ const TRIP_DATA = {
         { title: "Serdar-ı Ekrem 坡道", text: "石板路、旧公寓与塔顶共同入镜，适合街头感构图。" }
       ],
       tips: ["观景台狭窄且风大，帽子和轻物要收好。", "日落前常排长队，至少提前 45–60 分钟到达。", "Museum Pass 只适用于规定日间时段，夜场不适用。", "18 岁以下需由监护人陪同。"],
+      apps: [
+        {
+          name: "MüzeKart: Türkiye'nin Müzeleri",
+          meta: "英文 · iOS / Android",
+          description: "用于查看文化部场馆信息和保存电子 MuseumPass。它不能替代夜场适用范围核对；准备傍晚登塔时，仍要从本页的官方入口确认日场、夜场和末次售票时间。",
+          ios: "https://apps.apple.com/app/id1511527605",
+          android: "https://play.google.com/store/apps/details?id=com.muzekart.app"
+        }
+      ],
       official: "https://www.muze.gov.tr/muze-detay?DistId=MRK&SectionId=GLT04",
       officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Galata+Tower+Istanbul"
@@ -389,6 +407,15 @@ const TRIP_DATA = {
         { title: "透明首层", text: "室内外视线贯通，可把人群、港口和建筑结构同时纳入。" }
       ],
       tips: ["这是第二天唯一备选；宫殿延误、想购物或体力不足时可直接跳过。", "参加时只看常设展与当天最感兴趣的一个临时展。", "12:20 准时离馆，给 Paket Postanesi 和午餐留足时间。", "大型行李需寄存，展厅摄影规则以现场标识为准。"],
+      apps: [
+        {
+          name: "Connects: Arts+Culture",
+          meta: "Bloomberg Connects · 英文等多语言 · iOS / Android",
+          description: "伊斯坦布尔现代艺术博物馆官方推荐的免费数字导览，包含展览重点、音频内容和互动地图。出发前连接 Wi-Fi 搜索“İstanbul Modern”并打开导览，现场网络不稳时也更从容。",
+          ios: "https://apps.apple.com/app/id1476456847",
+          android: "https://play.google.com/store/apps/details?id=org.bloomberg.connects.docent"
+        }
+      ],
       official: "https://www.istanbulmodern.org/en/visit/museum",
       officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Istanbul+Modern"

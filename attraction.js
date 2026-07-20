@@ -159,6 +159,26 @@
     </div>
   `;
 
+  const appGuide = attraction.apps?.length ? `
+    <div class="aside-card attraction-app-guide">
+      <p class="eyebrow">现场数字工具</p>
+      <h2>推荐 App</h2>
+      <div class="attraction-app-list">
+        ${attraction.apps.map((app) => `
+          <article>
+            <span>${app.meta}</span>
+            <h3>${app.name}</h3>
+            <p>${app.description}</p>
+            <div class="app-store-links">
+              <a href="${app.ios}" target="_blank" rel="noreferrer">iOS App Store ↗</a>
+              <a href="${app.android}" target="_blank" rel="noreferrer">Android Google Play ↗</a>
+            </div>
+          </article>
+        `).join("")}
+      </div>
+    </div>
+  ` : "";
+
   document.title = `${attraction.name} · İstanbul 景点指南`;
   document.querySelector('meta[name="description"]').content = `${attraction.name}详细指南：费用、开放时间、拍照点与注意事项。`;
 
@@ -276,6 +296,7 @@
           <h2>注意事项</h2>
           <ul>${attraction.tips.map((tip) => `<li>${tip}</li>`).join("")}</ul>
         </div>
+        ${appGuide}
         <p class="data-note">票价与开放信息更新于 2026-07-18。等值换算按欧洲央行 ${TRIP_DATA.exchangeRates?.date || "2026-07-02"} 参考汇率估算，不含银行费用；现场价格以官网及售票处为准。</p>
       </aside>
     </section>

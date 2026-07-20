@@ -717,7 +717,8 @@ button { color: inherit; }
   padding: 100px 4vw;
   display: grid;
   grid-template-columns: .7fr 1.3fr;
-  gap: 7vw;
+  column-gap: 7vw;
+  row-gap: 3.5vw;
   border-top: 1px solid var(--line);
 }
 .notes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
@@ -760,6 +761,22 @@ button { color: inherit; }
 
 /* Detailed travel notes */
 
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.notes-page-seal svg,
+.notes-toc svg,
+.notes-chapter h2 svg {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
 .notes-hero {
   position: relative;
   min-height: 520px;
@@ -822,6 +839,10 @@ button { color: inherit; }
   color: #f3dfb8;
   box-shadow: 4px 7px 14px rgba(62, 18, 20, .2);
   transform: rotate(4deg);
+}
+.notes-page-seal svg {
+  width: 43px;
+  height: 43px;
 }
 .notes-page-seal span { font-family: Georgia, serif; font-size: 34px; line-height: 1; }
 .notes-page-seal small { margin-top: 6px; font-size: 8px; letter-spacing: .15em; }
@@ -907,7 +928,7 @@ button { color: inherit; }
 }
 .notes-guide-layout {
   display: grid;
-  grid-template-columns: minmax(230px, .32fr) minmax(0, 1fr);
+  grid-template-columns: minmax(270px, .34fr) minmax(0, 1fr);
   gap: 5vw;
   align-items: start;
 }
@@ -920,7 +941,7 @@ button { color: inherit; }
   min-height: 56px;
   padding: 0 7px;
   display: grid;
-  grid-template-columns: 36px minmax(0, 1fr);
+  grid-template-columns: 32px 28px minmax(0, 1fr);
   align-items: center;
   gap: 10px;
   border-bottom: 1px solid var(--line);
@@ -936,6 +957,12 @@ button { color: inherit; }
   background: rgba(251, 246, 236, .52);
 }
 .notes-toc span { color: var(--oxblood); font-family: Georgia, serif; font-size: 13px; }
+.notes-toc svg {
+  width: 22px;
+  height: 22px;
+  color: var(--gold);
+}
+.notes-toc b { font-weight: 500; }
 .notes-chapters { min-width: 0; }
 .notes-chapter {
   scroll-margin-top: 24px;
@@ -966,9 +993,18 @@ button { color: inherit; }
 }
 .notes-chapter > header h2 {
   margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
   font-family: var(--serif);
   font-size: 28px;
   font-weight: 500;
+}
+.notes-chapter > header h2 svg {
+  width: 27px;
+  height: 27px;
+  flex: 0 0 auto;
+  color: var(--gold);
 }
 .notes-chapter > article {
   padding: 27px 10px;
@@ -1093,6 +1129,7 @@ button { color: inherit; }
   grid-template-columns: 1fr 1fr;
 }
 .emergency-list article {
+  position: relative;
   min-width: 0;
   padding: 31px;
   border-right: 1px solid rgba(247, 234, 212, .18);
@@ -1100,6 +1137,21 @@ button { color: inherit; }
 }
 .emergency-list article:nth-child(even) { border-right: 0; }
 .emergency-list article:nth-last-child(-n+2) { border-bottom: 0; }
+.emergency-order {
+  position: absolute;
+  top: 25px;
+  right: 26px;
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(242, 201, 142, .58);
+  border-radius: 50%;
+  color: #f2c98e;
+  font-family: Georgia, var(--serif);
+  font-size: 14px;
+  font-weight: 400;
+}
 .emergency-list article > span {
   color: #d9ad70;
   font-size: 8px;
@@ -1163,17 +1215,38 @@ button { color: inherit; }
   font-size: 18px;
 }
 .consular-addresses address {
-  margin-top: 25px;
+  margin: 0;
   color: var(--ink);
   font-family: Georgia, var(--serif);
   font-size: 12px;
   font-style: normal;
   line-height: 1.8;
 }
-.consular-addresses p {
-  margin: 10px 0 22px;
-  color: var(--muted);
-  font-size: 10px;
+.consular-addresses dl {
+  margin: 25px 0 22px;
+}
+.consular-addresses dl > div {
+  padding: 9px 0;
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 15px;
+  border-bottom: 1px solid rgba(108, 91, 72, .13);
+}
+.consular-addresses dl > div:last-child { border-bottom: 0; }
+.consular-addresses dt {
+  color: var(--oxblood);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+}
+.consular-addresses dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 11px;
+  line-height: 1.75;
+  overflow-wrap: anywhere;
 }
 .consular-addresses article > div:last-child {
   display: flex;
@@ -1189,6 +1262,7 @@ button { color: inherit; }
   font-weight: 600;
   text-decoration: none;
 }
+
 .phrasebook {
   margin-top: 72px;
   padding-top: 65px;
@@ -2437,6 +2511,37 @@ blockquote::after { content: "”"; right: 20px; bottom: 4px; }
 
 @media (max-width: 1400px) and (min-width: 1181px) {
   .hero h1 { font-size: clamp(50px, 4.6vw, 60px); }
+}
+
+@media (min-width: 901px) {
+  .notes-section-heading > p { font-size: 13.5px; }
+  .notes-toc a {
+    min-height: 64px;
+    font-size: 14px;
+  }
+  .notes-toc span { font-size: 14px; }
+  .notes-chapter h3 { font-size: 17.5px; }
+  .notes-chapter article p { font-size: 14px; }
+  .notes-chapter aside strong { font-size: 13px; }
+  .notes-chapter aside span { font-size: 11.5px; }
+  .official-links span { font-size: 10px; }
+  .official-links strong { font-size: 19px; }
+  .official-links p { font-size: 13px; }
+  .official-links small { font-size: 11px; }
+  .emergency-intro > p:last-child { font-size: 13.5px; }
+  .emergency-list article > span { font-size: 9.5px; }
+  .emergency-list p { font-size: 12.5px; }
+  .emergency-list a { font-size: 12px; }
+  .consular-addresses article > div:first-child span { font-size: 9px; }
+  .consular-addresses h3 { font-size: 20px; }
+  .consular-addresses address { font-size: 13.5px; }
+  .consular-addresses dt { font-size: 10px; }
+  .consular-addresses dd,
+  .consular-addresses a { font-size: 12px; }
+  .phrasebook-heading > p:last-child { font-size: 13px; }
+  .phrase-grid span { font-size: 9.5px; }
+  .phrase-grid strong { font-size: 18px; }
+  .phrase-grid p { font-size: 13px; }
 }
 
 @media (max-width: 1180px) {

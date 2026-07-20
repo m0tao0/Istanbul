@@ -9,9 +9,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20260720-15" />
+    <link rel="stylesheet" href="styles.css?v=20260720-16" />
   </head>
   <body class="notes-page" id="top">
+    <svg class="icon-sprite" aria-hidden="true">
+      <symbol id="icon-checklist" viewBox="0 0 24 24">
+        <rect x="5" y="3.5" width="14" height="17" rx="2"></rect>
+        <path d="M9 3.5V2.5h6v1M8 9l1.4 1.4L12 7.8M13.5 10H16M8 15l1.4 1.4L12 13.8M13.5 16H16"></path>
+      </symbol>
+      <symbol id="icon-ticket" viewBox="0 0 24 24">
+        <path d="M4 6h16v4a2 2 0 0 0 0 4v4H4v-4a2 2 0 0 0 0-4V6Z"></path>
+        <path d="M9 6v12"></path>
+      </symbol>
+      <symbol id="icon-transit" viewBox="0 0 24 24">
+        <rect x="4" y="5" width="16" height="14" rx="2"></rect>
+        <path d="M4 10h16M8 15h3M16 14v2M7 19v2M17 19v2"></path>
+      </symbol>
+      <symbol id="icon-prayer" viewBox="0 0 24 24">
+        <path d="M14.7 4.4A7.2 7.2 0 1 0 19.6 15 6.2 6.2 0 0 1 14.7 4.4Z"></path>
+        <path d="M17.8 5.2v3M16.3 6.7h3"></path>
+      </symbol>
+      <symbol id="icon-map" viewBox="0 0 24 24">
+        <path d="m3.5 6 5-2 7 2 5-2v14l-5 2-7-2-5 2V6Z"></path>
+        <path d="M8.5 4v14M15.5 6v14"></path>
+      </symbol>
+      <symbol id="icon-safety" viewBox="0 0 24 24">
+        <path d="M12 3 19 6v5c0 4.5-2.7 7.8-7 10-4.3-2.2-7-5.5-7-10V6l7-3Z"></path>
+        <path d="M12 8v7M8.5 11.5h7"></path>
+      </symbol>
+      <symbol id="icon-luggage" viewBox="0 0 24 24">
+        <rect x="5" y="6" width="14" height="14" rx="2"></rect>
+        <path d="M9 6V4h6v2M9 10v6M15 10v6M8 22h.01M16 22h.01"></path>
+      </symbol>
+    </svg>
+
     <div class="book-spine" aria-hidden="true">
       <span>伊斯坦布尔 · 旅行计划</span>
       <i></i>
@@ -32,47 +63,14 @@
       <section class="notes-hero" aria-labelledby="notes-page-title">
         <div class="notes-hero-copy">
           <p class="eyebrow">BEFORE YOU GO · 出发须知</p>
-          <h1 id="notes-page-title">把容易出错的事，<br />提前处理清楚</h1>
-          <p>
-            按重要程度与使用场景整理票券、交通、支付、礼拜、天气、网络、安全和返程信息。
-            首页只保留最关键的三项，这里负责完整说明与临行核对。
-          </p>
+          <h1 id="notes-page-title">别让一个遗漏，<br />打乱整趟行程</h1>
         </div>
         <div class="notes-hero-summary">
           <div class="notes-page-seal" aria-hidden="true">
-            <span>06</span>
-            <small>分类</small>
+            <svg><use href="#icon-checklist"></use></svg>
           </div>
-          <strong>六类注意事项 · 一页查清</strong>
-          <p>建议分别在出发前 7 天、24 小时与当天早晨完成复核。</p>
-        </div>
-      </section>
-
-      <section class="notes-priority" aria-labelledby="priority-title">
-        <div class="notes-section-heading">
-          <div>
-            <p class="eyebrow">MOST IMPORTANT</p>
-            <h2 id="priority-title">最重要的三件事</h2>
-          </div>
-          <p>这三项同时保留在首页；完整页面继续说明操作步骤、复核时间和现场应对方式。</p>
-        </div>
-
-        <div class="notes-priority-grid">
-          <article>
-            <div><span>01</span><small>票券</small></div>
-            <h3>核心票券离线保存</h3>
-            <p>托普卡帕宫、圣索菲亚和地下水宫的二维码、预约时间与护照姓名页，必须能在无网络状态下打开。</p>
-          </article>
-          <article>
-            <div><span>02</span><small>交通 · 支付</small></div>
-            <h3>准备双重备份</h3>
-            <p>Istanbulkart、境外支付实体卡和少量里拉现金分开携带；保存酒店土耳其语地址与返程车辆信息。</p>
-          </article>
-          <article>
-            <div><span>03</span><small>实时复核</small></div>
-            <h3>礼拜、天气与船班</h3>
-            <p>出发前一周和当天早晨分别核对开放时间、礼拜管控、博斯普鲁斯船班与降雨情况。</p>
-          </article>
+          <strong>六类风险 · 出发前逐项排除</strong>
+          <p>针对 2026 年 10 月 30 日至 11 月 2 日行程，按 7 天前、24 小时前与当天早晨完成复核。</p>
         </div>
       </section>
 
@@ -87,12 +85,12 @@
 
         <div class="notes-guide-layout">
           <nav class="notes-toc" aria-label="注意事项分类">
-            <a href="#tickets"><span>01</span>票券与开放时间</a>
-            <a href="#transport"><span>02</span>交通与支付</a>
-            <a href="#religion"><span>03</span>礼拜、穿着与天气</a>
-            <a href="#network"><span>04</span>网络与地图</a>
-            <a href="#safety"><span>05</span>健康与安全</a>
-            <a href="#return"><span>06</span>行李与返程</a>
+            <a href="#tickets"><span>01</span><svg aria-hidden="true"><use href="#icon-ticket"></use></svg><b>票券与开放时间</b></a>
+            <a href="#transport"><span>02</span><svg aria-hidden="true"><use href="#icon-transit"></use></svg><b>交通与支付</b></a>
+            <a href="#religion"><span>03</span><svg aria-hidden="true"><use href="#icon-prayer"></use></svg><b>礼拜、穿着与天气</b></a>
+            <a href="#network"><span>04</span><svg aria-hidden="true"><use href="#icon-map"></use></svg><b>网络与地图</b></a>
+            <a href="#safety"><span>05</span><svg aria-hidden="true"><use href="#icon-safety"></use></svg><b>健康与安全</b></a>
+            <a href="#return"><span>06</span><svg aria-hidden="true"><use href="#icon-luggage"></use></svg><b>行李与返程</b></a>
           </nav>
 
           <div class="notes-chapters">
@@ -101,7 +99,7 @@
                 <span>01</span>
                 <div>
                   <p>ENTRY &amp; OPENING HOURS</p>
-                  <h2>票券与开放时间</h2>
+                  <h2><svg aria-hidden="true"><use href="#icon-ticket"></use></svg>票券与开放时间</h2>
                 </div>
               </header>
               <article>
@@ -132,7 +130,7 @@
                 <span>02</span>
                 <div>
                   <p>TRANSIT &amp; PAYMENT</p>
-                  <h2>交通与支付</h2>
+                  <h2><svg aria-hidden="true"><use href="#icon-transit"></use></svg>交通与支付</h2>
                 </div>
               </header>
               <article>
@@ -163,7 +161,7 @@
                 <span>03</span>
                 <div>
                   <p>PRAYER, DRESS &amp; WEATHER</p>
-                  <h2>礼拜、穿着与天气</h2>
+                  <h2><svg aria-hidden="true"><use href="#icon-prayer"></use></svg>礼拜、穿着与天气</h2>
                 </div>
               </header>
               <article>
@@ -175,10 +173,10 @@
               </article>
               <article>
                 <div>
-                  <h3>雨天优先调整交通，不压缩正餐</h3>
-                  <p>携带轻便雨具和防滑鞋；沿海步行可改乘 T1，但午餐与晚餐仍保留原定时间，避免一路追赶。</p>
+                  <h3>10 月底按湿冷、阵雨与较早天黑准备</h3>
+                  <p>采用可增减的分层穿衣，随身带防水外套、轻便雨具和防滑鞋。下午拍照与沿海步行尽量提前，雨势明显时改乘 T1，不压缩正餐与休息。</p>
                 </div>
-                <aside><strong>当天早晨</strong><span>查看降雨、风力与体感温度</span></aside>
+                <aside><strong>出发前 5 天＋当天</strong><span>查看降雨、风力、体感温度与日落时间</span></aside>
               </article>
               <article>
                 <div>
@@ -194,7 +192,7 @@
                 <span>04</span>
                 <div>
                   <p>CONNECTION &amp; MAPS</p>
-                  <h2>网络与地图</h2>
+                  <h2><svg aria-hidden="true"><use href="#icon-map"></use></svg>网络与地图</h2>
                 </div>
               </header>
               <article>
@@ -225,7 +223,7 @@
                 <span>05</span>
                 <div>
                   <p>HEALTH &amp; SAFETY</p>
-                  <h2>健康与安全</h2>
+                  <h2><svg aria-hidden="true"><use href="#icon-safety"></use></svg>健康与安全</h2>
                 </div>
               </header>
               <article>
@@ -256,7 +254,7 @@
                 <span>06</span>
                 <div>
                   <p>LUGGAGE &amp; DEPARTURE</p>
-                  <h2>行李与返程</h2>
+                  <h2><svg aria-hidden="true"><use href="#icon-luggage"></use></svg>行李与返程</h2>
                 </div>
               </header>
               <article>
@@ -291,45 +289,45 @@
             <p class="eyebrow">PRACTICAL TOOLKIT</p>
             <h2 id="toolkit-title">实用链接与紧急信息</h2>
           </div>
-          <p>出发前把这一部分截图并离线保存。号码与地址核对于 2026 年 7 月 20 日，临行前仍应打开官方页面再次确认。</p>
+          <p>以下入口优先使用中文官方页面；没有中文版本时使用官方英文页面。内容针对 2026 年 10 月 30 日出发复核，临行前仍应再次确认。</p>
         </div>
 
         <div class="official-links" aria-label="官方实用链接">
-          <a href="https://istanbul.china-consulate.gov.cn/lsfw/lsbh/202607/t20260717_11985417.htm" target="_blank" rel="noopener noreferrer">
-            <span>01 · 中国官方提醒</span>
-            <strong>暑假旅行温馨提示及常见案例</strong>
-            <p>驻土使领馆整理的近期真实案例，涉及护照有效期、公交卡调换、出租车额外收费、医疗保险和风俗禁忌。</p>
-            <small>驻伊斯坦布尔总领馆 ↗</small>
+          <a href="https://istanbul.china-consulate.gov.cn/lsfw/lsbh/202601/t20260112_11810960.htm" target="_blank" rel="noopener noreferrer">
+            <span>01 · 入境准备</span>
+            <strong>免签政策与入境材料清单</strong>
+            <p>核对护照剩余有效期和空白页，并准备纸质往返机票、酒店订单、行程单、实体信用卡或资金证明。</p>
+            <small>中文 · 驻伊斯坦布尔总领馆 ↗</small>
           </a>
           <a href="https://tr.china-embassy.gov.cn/chn/lsfw/lb/202511/t20251111_11751104.htm" target="_blank" rel="noopener noreferrer">
             <span>02 · 中国官方手册</span>
             <strong>中国公民安全文明土耳其行</strong>
             <p>包含入境材料、医疗、交通、宗教习俗、突发事件处理和紧急联系方式，是行前阅读的主资料。</p>
-            <small>中国驻土耳其使馆 ↗</small>
+            <small>中文 · 中国驻土耳其使馆 ↗</small>
           </a>
-          <a href="https://namazvakitleri.diyanet.gov.tr/tr-TR/9541/istanbul-icin-" target="_blank" rel="noopener noreferrer">
+          <a href="https://namazvakitleri.diyanet.gov.tr/en-US/9541/istanbul-prayer-times" target="_blank" rel="noopener noreferrer">
             <span>03 · 礼拜时间</span>
             <strong>伊斯坦布尔每日礼拜时间</strong>
             <p>查询 İmsak、Öğle、İkindi、Akşam 与 Yatsı。清真寺游客暂停进入的时间通常会围绕礼拜前后调整。</p>
-            <small>土耳其宗教事务局 Diyanet ↗</small>
+            <small>English · 土耳其宗教事务局 ↗</small>
+          </a>
+          <a href="https://mgm.gov.tr/eng/forecast-cities.aspx?m=istanbul" target="_blank" rel="noopener noreferrer">
+            <span>04 · 晚秋天气</span>
+            <strong>伊斯坦布尔官方天气预报</strong>
+            <p>10 月底应重点查看降雨、风力与体感温度；出发前 5 天开始复核，并据此确认船班与沿海步行安排。</p>
+            <small>English · 土耳其国家气象局 ↗</small>
           </a>
           <a href="https://ihbar.ng112.gov.tr/en" target="_blank" rel="noopener noreferrer">
-            <span>04 · 在线报案</span>
+            <span>05 · 在线报案</span>
             <strong>112 紧急呼叫中心在线入口</strong>
-            <p>无法顺畅说明情况时，可查看官方英文在线报案入口。真正紧急时仍应优先直接拨打 112。</p>
-            <small>土耳其 112 官方服务 ↗</small>
+            <p>无法顺畅说明情况时，可使用官方英文在线报案入口。真正紧急时仍应优先直接拨打 112。</p>
+            <small>English · 土耳其 112 官方服务 ↗</small>
           </a>
           <a href="https://istanbul.china-consulate.gov.cn/lsfw/lsbh/" target="_blank" rel="noopener noreferrer">
-            <span>05 · 领事提醒</span>
-            <strong>驻伊斯坦布尔总领馆领事保护栏目</strong>
-            <p>集中查看最新旅行提示、安全案例、护照遗失处理及领事保护联系方式。</p>
-            <small>出发前一周再次查看 ↗</small>
-          </a>
-          <a href="https://cs.mfa.gov.cn/gyls/lsgz/ztzl/lsbhyfwyjzx/202111/t20211101_10438739.shtml" target="_blank" rel="noopener noreferrer">
-            <span>06 · 领事保护</span>
-            <strong>外交部 12308 热线说明</strong>
-            <p>了解 24 小时领事保护热线的使用范围，以及通过“中国领事”APP或微信小程序网络拨号的方式。</p>
-            <small>中国领事服务网 ↗</small>
+            <span>06 · 临行复核</span>
+            <strong>最新领事提醒与安全案例</strong>
+            <p>出发前 7 天和 24 小时分别打开一次，查看临时安全提醒、护照遗失处理及领事保护更新。</p>
+            <small>中文 · 驻伊斯坦布尔总领馆 ↗</small>
           </a>
         </div>
 
@@ -342,18 +340,21 @@
 
           <div class="emergency-list">
             <article class="emergency-primary">
+              <b class="emergency-order">1</b>
               <span>当地紧急服务</span>
               <h3>112</h3>
               <p>急救、报警、火警等统一号码。24 小时服务，可使用英语，无中文服务；说明所在位置、发生了什么和需要哪种帮助。</p>
               <a href="tel:112">拨打 112</a>
             </article>
             <article>
+              <b class="emergency-order">2</b>
               <span>伊斯坦布尔首要联系</span>
               <h3>+90 531 338 9459</h3>
               <p>中国驻伊斯坦布尔总领馆领事保护与协助电话，仅限中国公民紧急求助；非工作时间会转接外交部 12308。</p>
               <a href="tel:+905313389459">拨打总领馆领保电话</a>
             </article>
             <article>
+              <b class="emergency-order">3</b>
               <span>中国外交部 · 24 小时</span>
               <h3>+86 10 12308</h3>
               <p>全球领事保护与服务应急热线。若短号码无法接通，可改拨备用号码 +86 10 65612308。</p>
@@ -363,6 +364,7 @@
               </div>
             </article>
             <article>
+              <b class="emergency-order">4</b>
               <span>安卡拉备用联系</span>
               <h3>+90 538 821 5530</h3>
               <p>中国驻土耳其使馆领事保护与协助电话；本行程在伊斯坦布尔时，优先联系伊斯坦布尔总领馆。</p>
@@ -377,10 +379,15 @@
               <span>PRIMARY · ISTANBUL</span>
               <h3>中国驻伊斯坦布尔总领馆</h3>
             </div>
-            <address>Ahi Çelebi Caddesi, Çoban Çeşme Sokak No:4, Tarabya, Sarıyer/İstanbul</address>
-            <p>非紧急领事咨询：istanbul@csm.mfa.gov.cn</p>
+            <dl>
+              <div><dt>地址</dt><dd><address>Ahi Çelebi Caddesi, Çoban Çeşme Sokak No:4, Tarabya, Sarıyer/İstanbul</address></dd></div>
+              <div><dt>总机</dt><dd><a href="tel:+902122992634">+90 212 299 2634</a> / <a href="tel:+902122622721">262 2721</a></dd></div>
+              <div><dt>证件咨询</dt><dd><a href="tel:+902122992855">+90 212 299 2855</a></dd></div>
+              <div><dt>紧急领保</dt><dd><a href="tel:+905313389459">+90 531 338 9459</a></dd></div>
+              <div><dt>领事邮箱</dt><dd><a href="mailto:istanbul@csm.mfa.gov.cn">istanbul@csm.mfa.gov.cn</a></dd></div>
+            </dl>
             <div>
-              <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Consulate+General+Istanbul+Tarabya" target="_blank" rel="noopener noreferrer">在地图中查看 ↗</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Chinese+Consulate+General+Istanbul+Tarabya&hl=zh-CN" target="_blank" rel="noopener noreferrer">在地图中查看 ↗</a>
               <a href="https://istanbul.china-consulate.gov.cn/lxfs/" target="_blank" rel="noopener noreferrer">官方联系方式 ↗</a>
             </div>
           </article>
@@ -389,10 +396,14 @@
               <span>BACKUP · ANKARA</span>
               <h3>中国驻土耳其使馆</h3>
             </div>
-            <address>Ferit Recai Ertuğrul Cad. No:18, Oran, Ankara, Türkiye</address>
-            <p>非紧急领事咨询：ankara@csm.mfa.gov.cn</p>
+            <dl>
+              <div><dt>地址</dt><dd><address>Ferit Recai Ertuğrul Cad. No:18, Oran, Ankara, Türkiye</address></dd></div>
+              <div><dt>证件咨询</dt><dd><a href="tel:+903124900660">+90 312 490 0660-1</a></dd></div>
+              <div><dt>紧急领保</dt><dd><a href="tel:+905388215530">+90 538 821 5530</a></dd></div>
+              <div><dt>领事邮箱</dt><dd><a href="mailto:ankara@csm.mfa.gov.cn">ankara@csm.mfa.gov.cn</a></dd></div>
+            </dl>
             <div>
-              <a href="https://www.google.com/maps/search/?api=1&query=Embassy+of+China+Ankara+Ferit+Recai+Ertugrul" target="_blank" rel="noopener noreferrer">在地图中查看 ↗</a>
+              <a href="https://www.google.com/maps/search/?api=1&query=Embassy+of+China+Ankara+Ferit+Recai+Ertugrul&hl=zh-CN" target="_blank" rel="noopener noreferrer">在地图中查看 ↗</a>
               <a href="https://tr.china-embassy.gov.cn/chn/lsfw/lxfs/202506/t20250604_11640924.htm" target="_blank" rel="noopener noreferrer">官方联系方式 ↗</a>
             </div>
           </article>

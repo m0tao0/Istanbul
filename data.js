@@ -22,13 +22,13 @@ const TRIP_DATA = {
       title: "历史半岛 · 帝国的层叠",
       area: "Taksim → Sultanahmet → Sirkeci",
       date: "OCT 31 · SAT",
-      summary: "09:00 出发；默认完整看托普卡帕宫，若团队兴趣一般则提前离开，改去蓝色清真寺拍照与简单参观。两个上午分支都在 13:00 汇合午餐。",
+      summary: "09:00 出发；默认完整看托普卡帕宫，若团队兴趣一般则提前离开，改去紧邻宫殿的伊斯坦布尔考古博物馆。两个上午分支都在 13:00 汇合午餐。",
       image: "assets/images/hagia-sophia.jpg",
       color: "blue",
       items: [
         { time: "09:00", title: "酒店出发前往老城", meta: "步行至 Taksim → F1 至 Kabataş → T1 至 Gülhane；09:50 左右抵达", type: "transfer" },
-        { time: "10:00", title: "托普卡帕宫", attraction: "topkapi", meta: "默认 10:00–12:45 完整参观；若选择蓝色清真寺分支，11:30 左右离开" },
-        { time: "", title: "备选分支 · 蓝色清真寺", attraction: "blue-mosque", meta: "仅替代托普卡帕后半程 · 外观拍照＋简单参观；正午礼拜期间暂停游客进入，以现场管控为准", optional: true },
+        { time: "10:00", title: "托普卡帕宫", attraction: "topkapi", meta: "默认 10:00–12:45 完整参观；若选择考古博物馆分支，11:30 左右离开" },
+        { time: "", title: "备选 · 伊斯坦布尔考古博物馆", attraction: "istanbul-archaeology-museums", meta: "仅替代托普卡帕后半程 · 精看亚历山大石棺、塔布尼特石棺与瓷砖亭", optional: true },
         { time: "13:00", title: "Deraliye 午餐", meta: "13:00–14:30 · 两个上午分支在此汇合；预留完整 90 分钟", type: "food" },
         { time: "14:40", title: "圣索菲亚大教堂", attraction: "hagia-sophia", meta: "14:40–15:50 · 上层回廊参观，含安检缓冲" },
         { time: "16:00", title: "地下水宫", attraction: "basilica-cistern", meta: "16:00–16:50 · 柱林倒影、美杜莎头像与艺术装置" },
@@ -45,14 +45,14 @@ const TRIP_DATA = {
       title: "现代伊斯坦布尔 · 海峡与艺术",
       area: "Dolmabahçe → Tophane → Eminönü → Pera",
       date: "NOV 01 · SUN",
-      summary: "宫殿与海峡游船是主线，伊斯坦布尔现代为当日唯一备选；Galataport 午餐前顺路留购物时间，两顿正餐均不压缩。",
+      summary: "宫殿与海峡游船是主线，伊斯坦布尔现代艺术博物馆为当日唯一备选；Galataport 午餐前顺路留购物时间，两顿正餐均不压缩。",
       image: "assets/images/karakoy.jpg",
       color: "gold",
       items: [
         { time: "09:00", title: "酒店出发前往宫殿", meta: "出租车直达多尔玛巴赫切宫 · 约 15 分钟", type: "transfer" },
         { time: "09:15", title: "多尔玛巴赫切宫", attraction: "dolmabahce", meta: "09:15–10:45 · 只看主宫精华与海峡宫门，不安排绘画博物馆" },
         { time: "10:45", title: "沿海前往 Tophane", meta: "天气适合时步行 25–35 分钟；下雨则从 Kabataş 乘 T1 至 Tophane", type: "transfer" },
-        { time: "", title: "备选 · 伊斯坦布尔现代", attraction: "istanbul-modern", meta: "当日唯一备选 · 若跳过，Paket Postanesi 购物可延长至约一小时", optional: true },
+        { time: "", title: "备选 · 伊斯坦布尔现代艺术博物馆", attraction: "istanbul-modern", meta: "当日唯一备选 · 若跳过，Paket Postanesi 购物可延长至约一小时", optional: true },
         { time: "12:20", title: "Paket Postanesi 选购＋午餐", attraction: "karakoy-galataport", meta: "12:20–13:45 · 先逛本土设计店，再用约 70 分钟午餐", type: "food" },
         { time: "13:45", title: "T1 前往 Eminönü 码头", meta: "Tophane → Eminönü；约 14:05 找到 Şehir Hatları 官方售票处", type: "transfer" },
         { time: "14:05", title: "购票与候船", meta: "当前 14:40 班次须在 10 月中旬按冬季时刻表再次确认", type: "note" },
@@ -97,7 +97,7 @@ const TRIP_DATA = {
       fee: "免费入场，捐赠自愿",
       hours: "每日作为清真寺开放；游客会在每日礼拜前后暂停进入，分钟级参观窗口以现场管控为准。",
       duration: "30–45 分钟",
-      bestTime: "备选分支 11:50–12:30；按现场礼拜管控进入",
+      bestTime: "避开每日礼拜前后；以现场游客开放时段为准",
       transit: "T1 电车至 Sultanahmet，步行约 3 分钟。",
       highlights: ["六座宣礼塔", "伊兹尼克瓷砖", "中央穹顶与彩窗", "面对圣索菲亚的庭院轴线"],
       photoSpots: [
@@ -105,9 +105,33 @@ const TRIP_DATA = {
         { title: "清真寺西侧庭院", text: "用拱廊框住穹顶与宣礼塔，是最有层次的对称构图。" },
         { title: "竞技场南端", text: "稍微拉远，可拍下六座宣礼塔完整展开的城市天际线。" }
       ],
-      tips: ["这一站只在团队决定缩短托普卡帕宫时启用；11:50 左右先拍外观，能入内再做简短参观。", "进入祈祷大厅前需脱鞋；肩膀和膝盖需遮盖，女性需戴头巾。", "禁止闪光灯，不要拍摄正在祈祷的人。", "2026 年 10 月 31 日正午礼拜为 12:53；实际暂停入场时间以现场管控为准。"],
+      tips: ["进入祈祷大厅前需脱鞋；肩膀和膝盖需遮盖，女性需戴头巾。", "禁止闪光灯，不要拍摄正在祈祷的人。", "礼拜前后会暂停游客进入，实际开放窗口以现场管控为准。"],
       official: "https://namazvakitleri.diyanet.gov.tr/tr-tr/9541/istanbul-icin-namaz-vakti",
       map: "https://www.google.com/maps/search/?api=1&query=Blue+Mosque+Istanbul"
+    },
+    "istanbul-archaeology-museums": {
+      name: "伊斯坦布尔考古博物馆",
+      localName: "İstanbul Arkeoloji Müzeleri",
+      kicker: "THE IMPERIAL MUSEUM",
+      district: "Gülhane · Fatih",
+      image: "assets/images/attractions/istanbul-archaeology-museum-exterior.jpg",
+      photoCredit: "David Berkowitz / Wikimedia Commons · CC BY 2.0",
+      intro: "这组博物馆从奥斯曼帝国的“帝国博物馆”发展而来，由考古博物馆、古代东方博物馆与瓷砖亭组成。它紧邻托普卡帕宫，在一小时内就能从希腊化石棺、腓尼基王室葬具走到十五世纪奥斯曼建筑，是缩短宫殿参观后最顺路的非宗教场所备选。",
+      quote: "离开奥斯曼皇宫几步，帝国收藏世界的另一面才刚刚展开。",
+      fee: "MuseumPass İstanbul 可用；外国游客单馆票价以官方售票页或现场为准",
+      hours: "每日 09:00–18:45；部分展厅当前关闭，出发前再次查看官方公告。",
+      duration: "备选精华 45–60 分钟",
+      bestTime: "托普卡帕宫短线结束后直接进入",
+      transit: "从托普卡帕宫第一庭院一侧步行约 3–5 分钟；T1 至 Gülhane 后也可步行到达。",
+      highlights: ["亚历山大石棺", "塔布尼特石棺", "瓷砖亭", "帝国博物馆建筑"],
+      photoSpots: [
+        { title: "主馆新古典主义立面", text: "在台阶下方居中拍摄，让四根立柱、三角山花和奥斯曼文题字保持对称。" },
+        { title: "瓷砖亭正面", text: "用横构图收进连续拱廊与蓝色瓷砖；等人物走入下方广场，可更直观地表现尺度。" },
+        { title: "亚历山大石棺展柜侧前方", text: "避开玻璃正面反光，从侧前方拍战斗浮雕与屋脊雕塑；室内不要使用闪光灯。" }
+      ],
+      tips: ["这是托普卡帕宫短线的备选，不与完整宫殿路线叠加；11:30 左右离开宫殿后再决定是否进入。", "只看亚历山大石棺、塔布尼特石棺和瓷砖亭，约 12:30 离馆前往午餐。", "官方当前注明主馆部分编号展厅、楼上展厅及部分附楼展厅关闭，现场开放范围可能继续调整。", "展品摄影规则以现场标识为准；隔着玻璃拍摄时关闭闪光灯并贴近玻璃减少反光。"],
+      official: "https://muze.gov.tr/muze-detay?DistId=IAR&SectionId=IAR01",
+      map: "https://www.google.com/maps/search/?api=1&query=Istanbul+Archaeological+Museums"
     },
     "hagia-sophia": {
       name: "圣索菲亚大教堂",
@@ -171,7 +195,7 @@ const TRIP_DATA = {
       fee: "外国游客联票 2,750 TL，含主宫、后宫与圣伊莲娜教堂",
       feeEquivalent: "约 ¥395 / US$58",
       hours: "09:00–17:00 售票；周二闭馆。",
-      duration: "默认 2 小时 45 分；蓝色清真寺分支约 1 小时 30 分",
+      duration: "默认 2 小时 45 分；考古博物馆分支约 1 小时 30 分",
       bestTime: "10:00 入场后优先后宫",
       transit: "T1 电车至 Gülhane 或 Sultanahmet，步行约 8–10 分钟。",
       highlights: ["帝国议事厅", "后宫瓷砖房间", "皇家宝库", "第四庭院海峡露台"],
@@ -180,7 +204,7 @@ const TRIP_DATA = {
         { title: "后宫瓷砖长廊", text: "用门框叠出纵深，注意室内通常禁止闪光。" },
         { title: "第四庭院 İftariye 凉亭", text: "金角湾与博斯普鲁斯同时入镜，是宫内最开阔的观景点。" }
       ],
-      tips: ["本次安排在周六，闭馆日没有冲突。", "默认路线：第二庭院 → 后宫 → 珍宝馆 → 圣物馆 → 第四庭院，12:45 离开。", "若团队兴趣一般，11:30 左右结束后宫与珍宝馆后离开，步行去蓝色清真寺；不要到了 12:00 才决定。", "联票当日有效；选择短线分支意味着主动放弃圣物馆、第四庭院和圣伊莲娜。"],
+      tips: ["本次安排在周六，闭馆日没有冲突。", "默认路线：第二庭院 → 后宫 → 珍宝馆 → 圣物馆 → 第四庭院，12:45 离开。", "若团队兴趣一般，11:30 左右结束后宫与珍宝馆后离开，步行去紧邻宫殿的伊斯坦布尔考古博物馆；不要到了 12:00 才决定。", "联票当日有效；选择短线分支意味着主动放弃圣物馆、第四庭院和圣伊莲娜。"],
       official: "https://www.millisaraylar.gov.tr/Lokasyon/2/topkapi-sarayi",
       map: "https://www.google.com/maps/search/?api=1&query=Topkapi+Palace+Istanbul"
     },
@@ -411,6 +435,12 @@ const commonsPhoto = (file) => ({
 
 const localPhoto = (image, credit) => ({ image, credit });
 
+const localCommonsPhoto = (image, file, credit) => ({
+  image,
+  source: `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(file)}`,
+  credit
+});
+
 const richAttractionMedia = {
   "blue-mosque": {
     heroImages: {
@@ -458,6 +488,91 @@ const richAttractionMedia = {
         title: "古竞技场一侧",
         text: "从土耳其与伊斯兰艺术博物馆附近回望，可把清真寺、广场与城市生活放进同一画面。",
         ...commonsPhoto("Blue Mosque from Turk ve Islam Museum in 2016 1443.jpg")
+      }
+    ]
+  },
+  "istanbul-archaeology-museums": {
+    heroImages: {
+      desktop: localCommonsPhoto(
+        "assets/images/attractions/istanbul-archaeology-museum-exterior.jpg",
+        "Istanbul Archaeology Museums - İstanbul Arkeoloji Müzeleri - Istanbul, Turkey (10582493406).jpg",
+        "David Berkowitz / Wikimedia Commons · CC BY 2.0"
+      ),
+      mobile: localCommonsPhoto(
+        "assets/images/attractions/istanbul-archaeology-museum-exterior.jpg",
+        "Istanbul Archaeology Museums - İstanbul Arkeoloji Müzeleri - Istanbul, Turkey (10582493406).jpg",
+        "David Berkowitz / Wikimedia Commons · CC BY 2.0"
+      )
+    },
+    highlights: [
+      {
+        title: "亚历山大石棺",
+        history: "这件公元前 4 世纪末的希腊化石棺出土于西顿王室墓地，并非亚历山大本人所用；浮雕描绘战斗与狩猎，可能属于西顿国王阿布达洛尼穆斯。",
+        lookFor: "先找戴狮皮头饰的亚历山大形象，再近看人物、马匹与武器的层次；石面仍保留少量古代彩绘痕迹。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/istanbul-archaeology-alexander-sarcophagus.jpg",
+          "Alexander Sarcophagus, Istanbul Archaeological Museums 2020.jpg",
+          "Kingbjelica / Wikimedia Commons · CC BY-SA 4.0"
+        )
+      },
+      {
+        title: "塔布尼特石棺",
+        history: "约公元前 6 世纪的拟人形石棺属于西顿国王塔布尼特。它沿用埃及石棺形式，并同时保留埃及象形文字与腓尼基铭文，是东地中海文化交流的直接证据。",
+        lookFor: "观察脸部和双手的埃及式造型，再寻找棺盖上的两种文字；腓尼基铭文还包含不要扰动墓葬的警告。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/istanbul-archaeology-tabnit-sarcophagus.jpg",
+          "Sarcophagi in the Istanbul Archaeological Museum.JPG",
+          "Homonihilis / Wikimedia Commons · 公有领域"
+        )
+      },
+      {
+        title: "瓷砖亭",
+        history: "瓷砖亭由苏丹穆罕默德二世于 1472 年建造，是伊斯坦布尔现存较早的奥斯曼世俗建筑之一，如今陈列塞尔柱与奥斯曼陶瓷。",
+        lookFor: "先看正面的连续拱廊、蓝白几何瓷砖与突出的中央入口，再进入馆内比较不同时期釉色和纹样的变化。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/istanbul-archaeology-tiled-kiosk.jpg",
+          "Tiled Kiosk exterior, Istanbul Archaeology Museum.jpg",
+          "Mustafa-trit20 / Wikimedia Commons · CC BY-SA 4.0"
+        )
+      },
+      {
+        title: "帝国博物馆建筑",
+        history: "奥斯曼帝国于 1869 年设立帝国博物馆；现主馆由建筑师亚历山大·瓦洛里设计，1891 年开放，以新古典主义立面为帝国考古收藏建立永久空间。",
+        lookFor: "站在台阶下看四根立柱、三角山花和入口题字，再比较立面与亚历山大石棺造型之间的呼应。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/istanbul-archaeology-museum-exterior.jpg",
+          "Istanbul Archaeology Museums - İstanbul Arkeoloji Müzeleri - Istanbul, Turkey (10582493406).jpg",
+          "David Berkowitz / Wikimedia Commons · CC BY 2.0"
+        )
+      }
+    ],
+    photoSpots: [
+      {
+        title: "主馆正面台阶",
+        text: "从台阶下方居中横拍，让立柱、山花和入口保持对称；稍等一位游客走入画面，更容易表现建筑尺度。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/istanbul-archaeology-museum-exterior.jpg",
+          "Istanbul Archaeology Museums - İstanbul Arkeoloji Müzeleri - Istanbul, Turkey (10582493406).jpg",
+          "David Berkowitz / Wikimedia Commons · CC BY 2.0"
+        )
+      },
+      {
+        title: "瓷砖亭拱廊",
+        text: "用横构图完整收进连续拱廊与蓝色瓷砖，避开正午硬光；若现场允许，可在入口一侧拍出拱门纵深。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/istanbul-archaeology-tiled-kiosk.jpg",
+          "Tiled Kiosk exterior, Istanbul Archaeology Museum.jpg",
+          "Mustafa-trit20 / Wikimedia Commons · CC BY-SA 4.0"
+        )
+      },
+      {
+        title: "亚历山大石棺侧前方",
+        text: "从展柜侧前方拍战斗浮雕与屋脊雕塑，手机贴近玻璃可减少反光；室内不要使用闪光灯。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/istanbul-archaeology-alexander-sarcophagus.jpg",
+          "Alexander Sarcophagus, Istanbul Archaeological Museums 2020.jpg",
+          "Kingbjelica / Wikimedia Commons · CC BY-SA 4.0"
+        )
       }
     ]
   },
@@ -1091,7 +1206,7 @@ TRIP_DATA.stopDetails = {
   "d1-3": {
     kind: "food",
     mapQuery: "Deraliye Restaurant Sultanahmet",
-    intro: "无论完整参观托普卡帕，还是启用蓝色清真寺分支，都在 13:00 到 Deraliye 汇合，午餐保留完整 90 分钟。",
+    intro: "无论完整参观托普卡帕，还是启用伊斯坦布尔考古博物馆分支，都在 13:00 到 Deraliye 汇合，午餐保留完整 90 分钟。",
     budget: "约 1,700–3,100 TL / 人",
     reservation: "建议预约 13:00；14:20 左右再提醒结账即可。",
     restaurants: [
@@ -1123,12 +1238,12 @@ TRIP_DATA.stopDetails = {
           },
           {
             label: "备选线 · 从备选地点出发",
-            origin: "Sultanahmet Camii, Istanbul",
+            origin: "Istanbul Archaeological Museums",
             destination: "Deraliye Restaurant, Sultanahmet",
             mode: "walking",
-            time: "步行约 5–8 分钟",
+            time: "步行约 10–15 分钟",
             cost: "免费",
-            summary: "从蓝色清真寺穿过 Sultanahmet 广场向北，沿 Divan Yolu 一侧进入 Ticarethane Sokak。"
+            summary: "从考古博物馆沿 Osman Hamdi Bey Yokuşu 上行，经圣索菲亚北侧转入 Alemdar 与 Ticarethane Sokak。"
           }
         ],
         official: "https://deraliyerestaurant.com/",

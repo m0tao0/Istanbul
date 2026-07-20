@@ -297,7 +297,7 @@
           <ul>${attraction.tips.map((tip) => `<li>${tip}</li>`).join("")}</ul>
         </div>
         ${appGuide}
-        <p class="data-note">票价与开放信息更新于 2026-07-18。等值换算按欧洲央行 ${TRIP_DATA.exchangeRates?.date || "2026-07-02"} 参考汇率估算，不含银行费用；现场价格以官网及售票处为准。</p>
+        <p class="data-note">票价与开放信息更新于 2026-07-20。等值换算按欧洲央行 ${TRIP_DATA.exchangeRates?.asOf || "2026-07-02"} 参考汇率估算，不含银行费用；现场价格以官网及售票处为准。</p>
       </aside>
     </section>
 

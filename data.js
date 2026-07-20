@@ -71,7 +71,7 @@ const TRIP_DATA = {
       title: "返程 · 13:30 飞往上海",
       area: "Lokalist Istanbul → IST",
       date: "NOV 02 · MON",
-      summary: "不再新增景点，08:30 准时离店，为周一早高峰、国际航班、安检和步行距离留足缓冲。",
+      summary: "不再新增景点，08:30 准时离店，为周一早高峰、国际航班、安检和步行距离留足缓冲；起飞时间以机票订单和航司通知为准。",
       image: "assets/images/istiklal.jpg",
       color: "sage",
       items: [
@@ -80,7 +80,7 @@ const TRIP_DATA = {
         { time: "08:10", title: "办理退房", meta: "08:25 前完成人员与行李确认", type: "stay" },
         { time: "08:30", title: "专车前往 IST 机场", meta: "周一早高峰按常态预留；下雨、事故或退税不再压缩缓冲", type: "transfer" },
         { time: "09:45", title: "目标抵达机场", meta: "预留入口安检、值机、退税、出境及前往远端登机口时间", type: "note" },
-        { time: "13:30", title: "起飞返回上海", meta: "国际航班至少提前 3 小时抵达机场", type: "transfer" }
+        { time: "13:30", title: "起飞返回上海", meta: "以机票订单和航司通知为准；国际航班至少提前 3 小时抵达机场", type: "transfer" }
       ]
     }
   ],
@@ -119,7 +119,8 @@ const TRIP_DATA = {
       photoCredit: "David Berkowitz / Wikimedia Commons · CC BY 2.0",
       intro: "这组博物馆从奥斯曼帝国的“帝国博物馆”发展而来，由考古博物馆、古代东方博物馆与瓷砖亭组成。它紧邻托普卡帕宫，在一小时内就能从希腊化石棺、腓尼基王室葬具走到十五世纪奥斯曼建筑，是缩短宫殿参观后最顺路的非宗教场所备选。",
       quote: "离开奥斯曼皇宫几步，帝国收藏世界的另一面才刚刚展开。",
-      fee: "MuseumPass İstanbul 可用；外国游客单馆票价以官方售票页或现场为准",
+      fee: "外国游客单馆票约 €15；MuseumPass İstanbul 可用",
+      feeEquivalent: "约 ¥116 / US$17",
       hours: "每日 09:00–18:45；部分展厅当前关闭，出发前再次查看官方公告。",
       duration: "备选精华 45–60 分钟",
       bestTime: "托普卡帕宫短线结束后直接进入",
@@ -155,7 +156,7 @@ const TRIP_DATA = {
       quote: "这里最动人的不是某一种文明，而是它们仍在同一空间里彼此凝视。",
       fee: "外国游客上层回廊约 €25；礼拜区域规则另计",
       feeEquivalent: "约 ¥194 / US$29",
-      hours: "每日开放，游客时段会随季节与祷告调整；夏季通常延长至 19:00 左右。",
+      hours: "每日开放；游客参观时段会随季节、祷告与现场管理调整，以官方当天信息为准。",
       duration: "60–75 分钟",
       bestTime: "开门后或傍晚",
       transit: "T1 电车至 Sultanahmet，穿过广场步行约 5 分钟。",
@@ -180,7 +181,7 @@ const TRIP_DATA = {
       intro: "六世纪的地下蓄水工程，由 336 根形态各异的石柱托起。修复后的步道、浅水反射和当代艺术装置，让它不只是遗迹，更像一段被精心编排的地下叙事。",
       quote: "城市在头顶喧闹，而这里的时间只沿着水面移动。",
       fee: "09:00–18:30 外国游客 1,950 TL；19:30–22:00 夜场 3,000 TL",
-      feeEquivalent: "日场约 ¥280 / US$41；夜场约 ¥431 / US$64",
+      feeEquivalent: "日场约 ¥284 / US$42；夜场约 ¥436 / US$64",
       hours: "每日 09:00–22:00；18:30–19:30 为场次切换。",
       duration: "45–60 分钟",
       bestTime: "09:00 开门即入场",
@@ -206,7 +207,7 @@ const TRIP_DATA = {
       intro: "它不是一栋孤立的大宫殿，而是由四重庭院、议政空间、宝库、圣物室与后宫组成的皇城。路线从礼制严谨的前朝逐步走向私密生活，最后抵达俯瞰博斯普鲁斯的露台。",
       quote: "越往宫殿深处走，帝国越从仪式变成日常。",
       fee: "外国游客联票 2,750 TL，含主宫、后宫与圣伊莲娜教堂",
-      feeEquivalent: "约 ¥395 / US$58",
+      feeEquivalent: "约 ¥400 / US$59",
       hours: "09:00–17:00 售票；周二闭馆。",
       duration: "默认 2 小时 45 分；考古博物馆分支约 1 小时 30 分",
       bestTime: "10:00 入场后优先后宫",
@@ -232,12 +233,12 @@ const TRIP_DATA = {
       intro: "十九世纪的奥斯曼帝国在海峡边建起一座面向欧洲的宫殿。巴洛克、洛可可和新古典装饰与传统宫廷格局并存，水晶阶梯和典礼大厅把晚期帝国的雄心推到极致。",
       quote: "一边是欧洲宫廷的华丽，一边是博斯普鲁斯最克制的蓝。",
       fee: "外国游客联票 2,000 TL，含 Selamlık、后宫与绘画博物馆",
-      feeEquivalent: "约 ¥288 / US$42",
+      feeEquivalent: "约 ¥291 / US$43",
       hours: "09:00–17:00 售票；周一闭馆。",
       duration: "本行程 90 分钟精华",
       bestTime: "09:15–10:45",
       transit: "T1 电车至 Kabataş 后沿海步行约 8 分钟。",
-      highlights: ["水晶阶梯", "典礼大厅巨型吊灯", "海峡门", "阿塔图尔克纪念房间"],
+      highlights: ["水晶阶梯", "典礼大厅巨型吊灯", "海峡门", "阿塔图尔克书房与纪念房间"],
       photoSpots: [
         { title: "宫殿海峡门", text: "庭院内向海拍，雕花石门会将水面和亚洲岸框成一幅画。" },
         { title: "钟楼广场", text: "从斜侧面拍钟楼与宫门，上午光线更干净。" },
@@ -283,7 +284,7 @@ const TRIP_DATA = {
       intro: "十四世纪的热那亚人把它建成城墙瞭望塔。如今电梯把游客送到高处，再沿展层向下，在 360 度观景台辨认金角湾、历史半岛、博斯普鲁斯与亚洲岸。",
       quote: "日落时整座城会变成一张地图，而海峡是最亮的那条线。",
       fee: "外国游客约 €30；Museum Pass İstanbul 可用于日间",
-      feeEquivalent: "约 ¥233 / US$34",
+      feeEquivalent: "约 ¥232 / US$34",
       hours: "日间 08:30–18:30；夜间博物馆 18:30–23:00，末次售票 22:00。",
       duration: "60–90 分钟",
       bestTime: "日落前 60 分钟",
@@ -291,7 +292,7 @@ const TRIP_DATA = {
       highlights: ["360° 环形观景台", "金角湾与历史半岛全景", "热那亚城墙历史", "逐层下行的城市展览"],
       photoSpots: [
         { title: "观景台南侧", text: "面向历史半岛，圣索菲亚与苏莱曼尼耶清真寺会在海面上展开。" },
-        { title: "Büyük Hendek Caddesi", text: "沿北侧街道稍微拉远，用两侧建筑夹出塔身，清晨最好拍。" },
+        { title: "观景台俯瞰 Büyük Hendek Caddesi", text: "从塔上向北俯拍街道几何与密集屋顶；镜头不要伸出护栏。" },
         { title: "Serdar-ı Ekrem 坡道", text: "石板路、旧公寓与塔顶共同入镜，适合街头感构图。" }
       ],
       tips: ["观景台狭窄且风大，帽子和轻物要收好。", "日落前常排长队，至少提前 45–60 分钟到达。", "Museum Pass 只适用于规定日间时段，夜场不适用。", "18 岁以下需由监护人陪同。"],
@@ -325,11 +326,11 @@ const TRIP_DATA = {
       transit: "T1 至 Eminönü，或轮渡 / 电车至 Karaköy 后前往码头。",
       highlights: ["多尔玛巴赫切宫水岸立面", "奥塔科伊清真寺与第一座大桥", "贝勒贝伊与 Küçüksu 一带", "欧亚两岸木屋与天际线"],
       photoSpots: [
-        { title: "船尾外侧甲板", text: "更少玻璃反光，也能拍下逐渐远去的历史半岛天际线。" },
+        { title: "Eminönü 码头登船前", text: "在不妨碍登船的位置拍市营渡轮与历史半岛天际线；上船后再寻找允许停留的外侧甲板。" },
         { title: "奥塔科伊段", text: "提前站在欧洲岸一侧，让清真寺与第一大桥在同一画面叠合。" },
         { title: "返航蓝色时刻", text: "提高快门保持船上清晰，利用城市灯光在水面的反射。" }
       ],
-      tips: ["只在 Şehir Hatları 官方售票处购票，不接受私人游船揽客。", "11 月海上体感温度可能比陆地低约 5℃，准备防风外套。", "去程优先欧洲岸一侧，返程换另一侧或船尾。", "正式冬季时刻表可能调整，10 月中旬必须再确认一次。"],
+      tips: ["只在 Şehir Hatları 官方售票处购票，不接受私人游船揽客。", "海上风通常更大、体感可能低于陆地，准备防风外套。", "去程优先欧洲岸一侧，返程换另一侧或船尾。", "正式冬季时刻表可能调整，10 月中旬必须再确认一次。"],
       official: "https://sehirhatlari.istanbul/en/timetables/bosphorus-tours/short-bosphorus-tour-181",
       officialLabel: "查询当天船班",
       map: "https://www.google.com/maps/search/?api=1&query=Eminonu+Bosphorus+Cruise+Pier"
@@ -339,12 +340,12 @@ const TRIP_DATA = {
       localName: "Kapalıçarşı",
       kicker: "A CITY UNDER ONE ROOF",
       district: "Beyazıt · Fatih",
-      image: "assets/images/grand-bazaar.jpg",
-      photoCredit: "Beyzanur / Pexels",
+      image: "assets/images/attractions/istanbul-grand-bazaar-55105990794-1lml2jn.jpg",
+      photoCredit: "Wikimedia Commons · 作者与许可见来源页",
       intro: "从十五世纪的核心商栈发展为覆盖数十条街巷的室内市场，拱顶下交织着珠宝、地毯、陶瓷、灯具与皮具店。这里最值得看的不仅是商品，还有仍在运转的商贸传统、院落和层层相接的街道结构。",
       quote: "把它当成一座有屋顶的城市，而不是一间巨大的纪念品商店。",
       fee: "免费进入，购物另计",
-      hours: "通常周一至周六 09:00–19:00；周日关闭。",
+      hours: "通常周一至周六 09:00–19:00、周日关闭；节假日与临时安排以现场和官方公告为准。",
       duration: "本行程约 70 分钟",
       bestTime: "17:10–18:20",
       transit: "T1 电车至 Beyazıt；从 Beyazıt 或 Nuruosmaniye 一侧进入。",
@@ -368,15 +369,15 @@ const TRIP_DATA = {
       photoCredit: "Emin Bozyokuş / Pexels",
       intro: "Hodjapasha 位于一座十五世纪浴室改建的文化中心。这里的 Sema 更接近一场带有宗教象征的静默仪式：音乐、吟诵与旋转共同表现从自我走向精神完善的旅程。",
       quote: "真正的观看方式不是追随旋转，而是在旋转中感受安静。",
-      fee: "官网成人票当前 1,900 TL；网页也可能按币种显示约 US$42.22",
-      feeEquivalent: "汇率与结算币种以购票页为准",
+      fee: "成人票价由官网购票页动态显示；以实际结算币种和金额为准",
+      feeEquivalent: "动态票价，不预先锁定换算金额",
       hours: "每日 19:00；仪式约 60 分钟，建议提前 30 分钟签到。",
       duration: "展览 30 分钟 + 仪式 60 分钟",
       bestTime: "仅在已购票且当天体力充足时参加",
       transit: "T1 至 Sirkeci，步行约 5 分钟；从 Olden 1772 一带步行约 5–8 分钟。",
-      highlights: ["Mevlevi Sema 仪式", "现场传统音乐", "鲁米诗歌与苏菲文化展", "十五世纪浴室穹顶空间"],
+      highlights: ["Mevlevi Sema 仪式", "旋转动作与服饰", "鲁米诗歌与苏菲文化展", "十五世纪浴室穹顶空间"],
       photoSpots: [
-        { title: "入口历史石墙", text: "仪式开始前拍摄建筑外观，避开狭窄街巷的人流。" },
+        { title: "展览区旋转舞人偶", text: "这不是建筑外观；仅在现场标识允许时拍摄展览区人偶和服饰。" },
         { title: "前厅展览区", text: "服饰、乐器和雕塑是否可拍以现场标识为准。" },
         { title: "把相机收起来", text: "仪式期间禁止拍照录像；这一小时更适合专心观看。" }
       ],
@@ -390,23 +391,23 @@ const TRIP_DATA = {
       localName: "İstanbul Modern",
       kicker: "ART ON THE WATERFRONT",
       district: "Tophane · Beyoğlu",
-      image: "assets/images/karakoy.jpg",
-      photoCredit: "Yaşar Başkurt / Pexels",
+      image: "assets/images/attractions/istanbul-museum-of-modern-art-exterior-in-2024-5624-wo49p5.jpg",
+      photoCredit: "Wikimedia Commons · 作者与许可见来源页",
       intro: "土耳其首座现代与当代艺术博物馆坐落在 Karaköy 海岸，由伦佐·皮亚诺设计。馆藏从 1945 年延伸至当代，建筑顶层的反射水池与观景平台又把博斯普鲁斯和历史半岛纳入参观体验。",
       quote: "从展厅走到屋顶，城市本身成为最后一件作品。",
       fee: "外国成人 900 TL；一张票可参观全部展览",
-      feeEquivalent: "约 ¥129 / US$19",
+      feeEquivalent: "约 ¥131 / US$19",
       hours: "周日 10:00–18:00；周一闭馆，周五延长至 20:00。",
-      duration: "备选 90 分钟",
+      duration: "本行程备选约 60 分钟",
       bestTime: "备选时段 11:20–12:20",
       transit: "T1 至 Tophane，步行约 3–5 分钟；入口位于 Galataport 内。",
-      highlights: ["土耳其现代艺术常设展", "摄影展厅", "伦佐·皮亚诺建筑", "屋顶反射水池与 360° 观景台"],
+      highlights: ["现代与当代艺术轮展", "摄影馆藏", "伦佐·皮亚诺建筑", "屋顶反射水池与观景平台"],
       photoSpots: [
-        { title: "屋顶反射水池", text: "利用水面拍历史半岛天际线倒影；大风时注意镜头水雾。" },
+        { title: "屋顶反射水池", text: "利用浅水面拍城市与天空倒影；开放范围受天气和现场管理影响，以当日指引为准。" },
         { title: "海滨步道", text: "从 Galataport 水边回望，最容易拍到博物馆鳞片般的立面。" },
         { title: "透明首层", text: "室内外视线贯通，可把人群、港口和建筑结构同时纳入。" }
       ],
-      tips: ["这是第二天唯一备选；宫殿延误、想购物或体力不足时可直接跳过。", "参加时只看常设展与当天最感兴趣的一个临时展。", "12:20 准时离馆，给 Paket Postanesi 和午餐留足时间。", "大型行李需寄存，展厅摄影规则以现场标识为准。"],
+      tips: ["这是第二天唯一备选；宫殿延误、想购物或体力不足时可直接跳过。", "参加时只看馆藏轮展与当天最感兴趣的一个临时展。", "12:20 准时离馆，给 Paket Postanesi 和午餐留足时间。", "大型行李需寄存，展厅摄影规则以现场标识为准。"],
       apps: [
         {
           name: "Connects: Arts+Culture",
@@ -492,7 +493,7 @@ const richAttractionMedia = {
         title: "六座宣礼塔",
         history: "苏丹艾哈迈德一世在 17 世纪初建造这座皇家清真寺，六座宣礼塔在当时极为罕见，也让它成为伊斯坦布尔天际线中最容易辨认的建筑之一。",
         lookFor: "退到庭院或竞技场一侧，看中央穹顶、层层半穹顶与六座宣礼塔如何组成向上收拢的轮廓。",
-        ...commonsPhoto("Blue Mosque (The Sultan Ahmed Mosque) (8395592135).jpg")
+        ...commonsPhoto("Blue Mosque from Turk ve Islam Museum in 2016 1443.jpg")
       },
       {
         title: "伊兹尼克蓝瓷砖",
@@ -788,9 +789,9 @@ const richAttractionMedia = {
         ...commonsPhoto("Gate of Dolmabahçe Palace, Istanbul, Turkey 001.jpg")
       },
       {
-        title: "阿塔图尔克纪念房间",
-        history: "土耳其共和国创立者穆斯塔法·凯末尔·阿塔图尔克晚年在宫中工作和居住，并于 1938 年 11 月 10 日在此去世。",
-        lookFor: "房间陈设比典礼空间克制；留意床榻、私人物品与停在 09:05 的时钟所形成的纪念氛围。",
+        title: "阿塔图尔克书房",
+        history: "土耳其共和国创立者穆斯塔法·凯末尔·阿塔图尔克晚年在宫中工作和居住，并于 1938 年 11 月 10 日在此去世。这张照片展示的是他的书房，而非陈列病榻的纪念卧室。",
+        lookFor: "留意书桌、座椅与相对克制的陈设；纪念卧室及停在 09:05 的时钟需在实际参观动线中另行辨认。",
         ...commonsPhoto("Ataturks study Dolmabahce March 2008pano.jpg")
       }
     ],
@@ -899,8 +900,8 @@ const richAttractionMedia = {
         ...commonsPhoto("Istanbul panorama from Galata tower - 1.jpg")
       },
       {
-        title: "Büyük Hendek Caddesi",
-        text: "沿北侧街道拉开距离，用两侧建筑夹出完整塔身；竖构图和清晨低人流最合适。",
+        title: "观景台俯瞰 Büyük Hendek Caddesi",
+        text: "这张照片是在塔上向北俯拍，而不是街面仰拍。用街道作引导线表现屋顶密度；镜头不要伸出护栏。",
         ...commonsPhoto("Büyü Hendek Street from the Galata tower (December 2013).jpg")
       },
       {
@@ -943,8 +944,8 @@ const richAttractionMedia = {
     ],
     photoSpots: [
       {
-        title: "船尾外侧甲板",
-        text: "站在不挡通道的位置，利用尾流做引导线，拍下逐渐远去的历史半岛天际线。",
+        title: "Eminönü 码头登船前",
+        text: "图片展示从岸边拍到的市营渡轮与历史半岛天际线。登船前可复现这一视角；上船后再按现场动线寻找允许停留的外侧甲板。",
         ...commonsPhoto("Sultanahmet ferry on the Bosphorus in Istanbul, Turkey 001.jpg")
       },
       {
@@ -962,7 +963,7 @@ const richAttractionMedia = {
   "grand-bazaar": {
     heroImages: {
       desktop: commonsPhoto("Istanbul - Grand Bazaar (55105990794).jpg"),
-      mobile: localPhoto("assets/images/grand-bazaar.jpg", TRIP_DATA.attractions["grand-bazaar"].photoCredit)
+      mobile: commonsPhoto("Istanbul - Grand Bazaar (55105990794).jpg")
     },
     highlights: [
       {
@@ -981,7 +982,7 @@ const richAttractionMedia = {
         title: "Zincirli Han",
         history: "这类 han 原本为商旅、仓储和手工作坊提供围合庭院。Zincirli Han 至今仍比市场主街安静，也保留了活跃工坊。",
         lookFor: "从拱门进入后先看两层廊道与中央庭院，再留意金属敲击声和仍在工作的匠人。",
-        ...commonsPhoto("Istanbul - Zincirli Han (55102383966).jpg")
+        ...commonsPhoto("Zincirli Han 1.jpg")
       },
       {
         title: "灯具与手工艺铺",
@@ -1021,9 +1022,9 @@ const richAttractionMedia = {
         ...commonsPhoto("Whirling Dervishes 2.JPG")
       },
       {
-        title: "现场传统音乐",
-        history: "仪式由 ney 芦笛、弦乐、鼓与人声共同引导。音乐不是背景，而是决定旋转段落、呼吸与情绪推进的核心结构。",
-        lookFor: "开场先听芦笛独奏的音色，再观察乐师与旋转者之间并不依靠语言的节奏配合。",
+        title: "旋转动作与服饰",
+        history: "Sema 的动作、白色长袍与高帽共同构成仪式视觉；现场同时由 ney 芦笛、弦乐、鼓与人声引导。",
+        lookFor: "观察交叉与展开的手臂、旋转时打开的裙摆和每段之间的鞠躬归位；图片展示的是旋转者，并非乐师。",
         ...commonsPhoto("Whirling Dervish (224083915).jpeg")
       },
       {
@@ -1041,8 +1042,8 @@ const richAttractionMedia = {
     ],
     photoSpots: [
       {
-        title: "历史建筑入口",
-        text: "在签到前从街巷斜侧拍入口与石墙，保留周边建筑作为尺度；不要堵住狭窄通道。",
+        title: "展览区旋转舞人偶",
+        text: "图片展示的是场馆展览区内的旋转舞人偶，并非建筑外立面。仅在现场标识允许时拍摄，正式仪式期间禁止摄影和录像。",
         ...commonsPhoto("Istanbul, Turkey (November 2023) - 537.jpg")
       },
       {
@@ -1059,16 +1060,16 @@ const richAttractionMedia = {
     },
     highlights: [
       {
-        title: "土耳其现代艺术馆藏",
-        history: "伊斯坦布尔现代的馆藏以 1945 年以来的土耳其现代与当代艺术为主，并通过轮换展陈把本地艺术放入更广泛的国际语境。",
-        lookFor: "先看作品年代与媒介，再比较同一时期艺术家如何回应城市化、身份和社会变化；具体展品会随轮展调整。",
-        ...commonsPhoto("Istanbul Modern Museum.jpg")
+        title: "摄影馆藏与轮展",
+        history: "伊斯坦布尔现代持续收藏、研究和展示土耳其摄影，并通过轮换展陈让城市、社会与视觉文化的变化形成时间线。",
+        lookFor: "留意作品的拍摄年代、系列顺序与展墙节奏；图片拍摄于 2024 年的新馆展厅，具体在展作品仍会更换。",
+        ...localCommonsPhoto("assets/images/attractions/istanbul-modern-gallery-2024.jpg", "İstanbul Modern.jpg", "Simal.alpar / Wikimedia Commons · CC0")
       },
       {
-        title: "摄影与影像展厅",
-        history: "博物馆设有专门的摄影空间，并持续收藏、研究和展示土耳其摄影及跨媒介影像，让城市记忆不只通过绘画被讲述。",
-        lookFor: "留意作品的拍摄年代、系列顺序与展墙节奏；连续观看一组作品，通常比只挑一张“最好看”的更有意义。",
-        ...commonsPhoto("Istanbul Modern Karakoy.jpg")
+        title: "多媒介临时展览",
+        history: "馆内展览会使用绘画、雕塑、装置、摄影与影像等多种媒介，具体展览和作品随档期轮换。",
+        lookFor: "先看作品说明与空间动线，再观察材料、光线和观众尺度如何共同构成体验；图片为 2024 年新馆内的装置展览。",
+        ...localCommonsPhoto("assets/images/attractions/istanbul-modern-art-gallery-2024.jpg", "İstanbul Modern Sanat.jpg", "İrmakyuksel / Wikimedia Commons · CC0")
       },
       {
         title: "伦佐·皮亚诺新馆",
@@ -1080,14 +1081,14 @@ const richAttractionMedia = {
         title: "顶层观景露台",
         history: "建筑顶层以浅水反射面和开阔露台结束参观动线，把博斯普鲁斯、加拉塔港与历史半岛变成博物馆体验的一部分。",
         lookFor: "先找风较小、水面较平的位置，再沿露台辨认加拉塔塔、旧城穹顶与不断移动的渡轮。",
-        ...commonsPhoto("Galataport from Istanbul Museum of Modern Art in 2024 5627.jpg")
+        ...localCommonsPhoto("assets/images/attractions/istanbul-modern-rooftop-reflection.jpg", "Yansımalar - Flickr - s gulfidan.jpg", "Sebnem Gulfidan / Wikimedia Commons · CC BY 2.0")
       }
     ],
     photoSpots: [
       {
         title: "顶层观景露台",
-        text: "用低机位让浅水反射面延伸到天际线；若风大水面不成镜，就改拍船只与旧城层次。",
-        ...commonsPhoto("Galataport from Istanbul Museum of Modern Art in 2024 5627.jpg")
+        text: "用低机位让浅水反射面延伸到努斯雷蒂耶清真寺与山坡城市景观；开放范围受天气和现场管理影响。",
+        ...localCommonsPhoto("assets/images/attractions/istanbul-modern-rooftop-reflection.jpg", "Yansımalar - Flickr - s gulfidan.jpg", "Sebnem Gulfidan / Wikimedia Commons · CC BY 2.0")
       },
       {
         title: "海滨步道",
@@ -1111,7 +1112,7 @@ const richAttractionMedia = {
         title: "Galataport 海滨",
         history: "旧邮轮码头更新后把部分岸线转为公共步道，并以地下邮轮设施尽量释放地面空间，重新连接城市与博斯普鲁斯。",
         lookFor: "沿水边比较邮轮靠港与无船时的空间变化，也留意历史建筑、商业体量和公共广场如何衔接。",
-        ...commonsPhoto("Galataport night.jpg")
+        ...commonsPhoto("Galataport from Istanbul Museum of Modern Art in 2024 5627.jpg")
       },
       {
         title: "伊斯坦布尔现代",
@@ -1189,7 +1190,7 @@ TRIP_DATA.stopDetails = {
     ride: {
       time: "约 50–90 分钟",
       cost: "普通出租车约 2,000–3,000 TL / 车",
-      summary: "黄色出租车或平台叫车直达；拥堵、过路费和平台服务费会使价格上浮。酒店官方预约接送当前另报 €120 单程。"
+      summary: "黄色出租车或平台叫车直达；拥堵、过路费和平台服务费会使价格上浮。酒店预约接送价格以书面确认单为准。"
     },
     tips: ["在官方上车区核对车牌，不接受揽客者的口头一口价。", "如果航班延误，优先通知酒店接送方，不要边走边临时改方案。"]
   },
@@ -1207,7 +1208,7 @@ TRIP_DATA.stopDetails = {
     },
     ride: {
       time: "约 50–90 分钟",
-      cost: "普通出租车约 2,000–3,000 TL / 车；酒店接送当前 €120 单程",
+      cost: "普通出租车约 2,000–3,000 TL / 车；酒店预约接送以确认单为准",
       summary: "让司机把你送到酒店门口；晚高峰和降雨会明显拉长时间。"
     },
     tips: ["把酒店土耳其语地址和电话离线保存。", "超过免费等待时间前主动联系司机。"]
@@ -1347,11 +1348,11 @@ TRIP_DATA.stopDetails = {
         environment: "餐厅位于修复后的十八世纪建筑内，石墙、中庭喷泉、旋转楼梯和水晶吊灯保留历史感，整体比传统老城餐馆更现代、正式。",
         address: "Mimar Vedat Sk. No:3, Sirkeci",
         budget: "约 2,000–3,500 TL / 人",
-        priceNote: "按一道主菜或前菜加主菜估算；官网旧版菜单曾列 10% 服务费及每人 190 TL cover fee，当前结算条款需预约时再次确认。",
+        priceNote: "按一道主菜或前菜加主菜估算；官网当前菜单注明价格于 2026 年 4 月更新、含增值税，服务费或 cover fee 仍需点单前确认。",
         dishes: [
-          { name: "Çıtır Mantı 脆皮曼特", price: "1,450 TL", text: "薄荷酸奶、牛里脊肉馅与番茄辣油。" },
-          { name: "Kuzu İncik 羊膝", price: "2,540 TL", text: "慢炖羊膝配 keşkek、香草碎与羊肉汁。" },
-          { name: "Çipura 海鲷", price: "1,940 TL", text: "配安塔基亚橄榄、酸豆、香茅与白葡萄酒。" }
+          { name: "Çıtır Mantı 脆皮曼特", price: "1,550 TL", text: "薄荷酸奶、牛里脊肉馅、番茄酱与辣油。" },
+          { name: "Kuzu İncik 羊膝", price: "2,550 TL", text: "慢炖羊膝配 keşkek、gremolata、辣油与羊肉汁。" },
+          { name: "Çipura 海鲷", price: "1,900 TL", text: "配安塔基亚碎橄榄、海蓬子、酸豆、柠檬草与白葡萄酒。" }
         ],
         route: {
           origin: "Sirkeci Tramvay Durağı",
@@ -1362,7 +1363,7 @@ TRIP_DATA.stopDetails = {
           summary: "从 Sirkeci T1 站沿 Mimar Vedat Sokak 步行；不要让车辆进入狭窄街巷接送。"
         },
         official: "https://olden1772.com/",
-        menu: "https://olden1772.com/newmenus/yemek.pdf",
+        menu: "https://olden1772.com/menu/",
         reviews: "https://www.tripadvisor.com/Restaurant_Review-g293974-d25065802-Reviews-Olden_1772-Istanbul.html"
       }
     ],
@@ -1445,7 +1446,7 @@ TRIP_DATA.stopDetails = {
       items: [
         { name: "Atelier Rebul · Istanbul 香氛", text: "古龙水、护手霜或小容量室内香氛比大瓶液体更适合旅行携带；先确认托运行李限制。" },
         { name: "Design Market · 本土设计小物", text: "优先看文具、家居小物与配饰，纪念性比国际连锁品牌更强，也不用承担高价大件风险。" },
-        { name: "土耳其设计师配饰", text: "Arzu Kaprol、Mehry Mu 等品牌适合有明确审美与预算时试逛；不因行程预留时间而强求购买。" }
+        { name: "土耳其设计师服饰与配饰", text: "可优先看 Arzu Kaprol 或当日仍在营业的本土设计师店；租户会调整，先查看现场目录，不因行程预留时间而强求购买。" }
       ]
     },
     restaurants: [
@@ -1457,7 +1458,7 @@ TRIP_DATA.stopDetails = {
         imageAlt: "Gizia Brasserie 的餐桌与室内环境",
         imageSource: "https://www.giziabrasserie.com/en/about-us/",
         environment: "Galataport 分店以白色餐桌、弧形软包座椅与暖色木饰构成精致但不拘谨的现代 brasserie 氛围；官网将其定位为融合世界风味的丰富菜单，午餐宜选择室内座位以控制出餐节奏。",
-        address: "Galataport, Kılıçali Paşa Mah., Beyoğlu",
+        address: "Kılıçali Paşa Mah., Meclis-i Mebusan Cd. No:12N, Galataport, Beyoğlu",
         budget: "约 1,400–2,800 TL / 人",
         priceNote: "按一道主菜加无酒精饮品估算；现场菜单、服务费和当日供应需在点单前确认。",
         dishes: [

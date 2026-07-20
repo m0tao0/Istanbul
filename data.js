@@ -13,7 +13,7 @@ const TRIP_DATA = {
         { time: "晚间", title: "抵达伊斯坦布尔 IST", meta: "入境、取行李与通信准备 · 预留约 60–90 分钟", type: "transfer" },
         { time: "落地 +90", title: "酒店预约接送", meta: "IST → Lokalist Istanbul，通常约 60–90 分钟", type: "transfer" },
         { time: "入住后", title: "办理入住 · Lokalist Istanbul", meta: "Taksim 附近连住三晚，不在短途旅行中搬酒店", type: "stay" },
-        { time: "睡前", title: "确认次日票券与天气", meta: "托普卡帕、地下水宫、Hodjapasha 电子票离线保存", type: "note" }
+        { time: "睡前", title: "确认次日票券与天气", meta: "圣索菲亚、地下水宫电子票离线保存；再次确认礼拜时间与天气", type: "note" }
       ]
     },
     {
@@ -22,23 +22,21 @@ const TRIP_DATA = {
       title: "历史半岛 · 帝国的层叠",
       area: "Taksim → Sultanahmet → Sirkeci",
       date: "OCT 31 · SAT",
-      summary: "从托普卡帕一路向西，再转向 Sirkeci；提前吃晚餐，19:00 安静观看旋转舞。",
+      summary: "09:00 出发；默认完整看托普卡帕宫，若团队兴趣一般则提前离开，改去蓝色清真寺拍照与简单参观。两个上午分支都在 13:00 汇合午餐。",
       image: "assets/images/hagia-sophia.jpg",
       color: "blue",
       items: [
-        { time: "09:00", title: "酒店出发前往老城", meta: "步行至 Taksim → F1 至 Kabataş → T1 至 Gülhane", type: "transfer" },
-        { time: "09:45", title: "托普卡帕宫", attraction: "topkapi", meta: "09:45–12:00 · 后宫、珍宝馆、圣物馆、第四庭院" },
-        { time: "12:10", title: "圣索菲亚大教堂", attraction: "hagia-sophia", meta: "12:10–13:00 · 游客参观层，重点看穹顶与回廊" },
-        { time: "13:05", title: "Deraliye 一带午餐", meta: "13:05–13:45 · 控制为 40 分钟奥斯曼菜简餐", type: "food" },
-        { time: "13:50", title: "蓝色清真寺", attraction: "blue-mosque", meta: "13:50–14:25 · 如遇礼拜暂停，与地下水宫对调" },
-        { time: "14:35", title: "地下水宫", attraction: "basilica-cistern", meta: "14:35–15:20 · 柱林倒影、美杜莎头像与艺术装置" },
-        { time: "15:20", title: "T1 前往 Beyazıt", meta: "Sultanahmet → Beyazıt · 比步行节省约 15–20 分钟", type: "transfer" },
-        { time: "15:35", title: "大奖集市", attraction: "grand-bazaar", meta: "15:35–16:40 · 主街、Zincirli Han、地毯与陶瓷区" },
-        { time: "16:40", title: "T1 前往 Sirkeci", meta: "Beyazıt → Sirkeci，再步行至餐厅", type: "transfer" },
-        { time: "17:05", title: "Olden 1772 提前晚餐", meta: "17:05–18:20 · 订位注明 18:20 前结账", type: "food" },
-        { time: "18:30", title: "Hodjapasha 展览与入场", attraction: "hodjapasha", meta: "提前 30 分钟签到，先看服饰、乐器与鲁米诗歌展" },
-        { time: "19:00", title: "苏菲旋转舞仪式", attraction: "hodjapasha", meta: "19:00–20:00 · 保持安静，仪式中禁止拍照录像" },
-        { time: "20:05", title: "返回 Lokalist Istanbul", meta: "T1 至 Kabataş → F1 至 Taksim → 步行，约 20:50 到店", type: "transfer" }
+        { time: "09:00", title: "酒店出发前往老城", meta: "步行至 Taksim → F1 至 Kabataş → T1 至 Gülhane；09:50 左右抵达", type: "transfer" },
+        { time: "10:00", title: "托普卡帕宫", attraction: "topkapi", meta: "默认 10:00–12:45 完整参观；若选择蓝色清真寺分支，11:30 左右离开" },
+        { time: "", title: "备选分支 · 蓝色清真寺", attraction: "blue-mosque", meta: "仅替代托普卡帕后半程 · 外观拍照＋简单参观；正午礼拜期间暂停游客进入，以现场管控为准", optional: true },
+        { time: "13:00", title: "Deraliye 午餐", meta: "13:00–14:30 · 两个上午分支在此汇合；预留完整 90 分钟", type: "food" },
+        { time: "14:40", title: "圣索菲亚大教堂", attraction: "hagia-sophia", meta: "14:40–15:50 · 上层回廊参观，含安检缓冲" },
+        { time: "16:00", title: "地下水宫", attraction: "basilica-cistern", meta: "16:00–16:50 · 柱林倒影、美杜莎头像与艺术装置" },
+        { time: "16:50", title: "步行前往大奖集市", meta: "经 Divan Yolu、Nuruosmaniye 一带步行约 15–20 分钟；不折返搭 T1", type: "walk" },
+        { time: "17:10", title: "大奖集市 · 购物时间", attraction: "grand-bazaar", meta: "17:10–18:20 · 重点看陶瓷、咖啡器具、浴巾与小皮具；若当天已买够可缩短停留" },
+        { time: "18:20", title: "T1 前往 Sirkeci", meta: "Beyazıt–Kapalıçarşı → Sirkeci；若缩短购物可提前前往餐厅附近休息", type: "transfer" },
+        { time: "18:45", title: "Olden 1772 晚餐", meta: "18:45–20:15 · 不赶演出，留足点菜、甜点与结账时间", type: "food" },
+        { time: "20:15", title: "返回 Lokalist Istanbul", meta: "Sirkeci 乘 T1 至 Kabataş，换 F1 至 Taksim；约 21:00 回到酒店", type: "transfer" }
       ]
     },
     {
@@ -47,24 +45,24 @@ const TRIP_DATA = {
       title: "现代伊斯坦布尔 · 海峡与艺术",
       area: "Dolmabahçe → Tophane → Eminönü → Pera",
       date: "NOV 01 · SUN",
-      summary: "宫殿只看 90 分钟精华；从当代艺术走向海峡，再经 Karaköy 与独立大街步行回酒店。",
+      summary: "宫殿与海峡游船是主线，伊斯坦布尔现代为当日唯一备选；Galataport 午餐前顺路留购物时间，两顿正餐均不压缩。",
       image: "assets/images/karakoy.jpg",
       color: "gold",
       items: [
         { time: "09:00", title: "酒店出发前往宫殿", meta: "出租车直达多尔玛巴赫切宫 · 约 15 分钟", type: "transfer" },
-        { time: "09:15", title: "多尔玛巴赫切宫", attraction: "dolmabahce", meta: "09:15–10:45 · 主宫、水晶楼梯、仪式大厅与海峡宫门" },
-        { time: "10:45", title: "前往 Tophane", meta: "步行至 Kabataş，乘 T1 至 Tophane", type: "transfer" },
-        { time: "11:10", title: "伊斯坦布尔现代艺术博物馆", attraction: "istanbul-modern", meta: "11:10–12:40 · 常设展、摄影展与顶层观景平台" },
-        { time: "12:40", title: "Galataport 午餐", attraction: "karakoy-galataport", meta: "12:40–13:35 · 选择出餐快的海滨餐厅", type: "food" },
-        { time: "13:35", title: "T1 前往 Eminönü 码头", meta: "Tophane → Eminönü；14:05 前找到 Şehir Hatları 官方售票处", type: "transfer" },
-        { time: "14:05", title: "购票与候船", meta: "只认 Şehir Hatları 官方售票窗口，避开私人游船揽客", type: "note" },
+        { time: "09:15", title: "多尔玛巴赫切宫", attraction: "dolmabahce", meta: "09:15–10:45 · 只看主宫精华与海峡宫门，不安排绘画博物馆" },
+        { time: "10:45", title: "沿海前往 Tophane", meta: "天气适合时步行 25–35 分钟；下雨则从 Kabataş 乘 T1 至 Tophane", type: "transfer" },
+        { time: "", title: "备选 · 伊斯坦布尔现代", attraction: "istanbul-modern", meta: "当日唯一备选 · 若跳过，Paket Postanesi 购物可延长至约一小时", optional: true },
+        { time: "12:20", title: "Paket Postanesi 选购＋午餐", attraction: "karakoy-galataport", meta: "12:20–13:45 · 先逛本土设计店，再用约 70 分钟午餐", type: "food" },
+        { time: "13:45", title: "T1 前往 Eminönü 码头", meta: "Tophane → Eminönü；约 14:05 找到 Şehir Hatları 官方售票处", type: "transfer" },
+        { time: "14:05", title: "购票与候船", meta: "当前 14:40 班次须在 10 月中旬按冬季时刻表再次确认", type: "note" },
         { time: "14:40", title: "博斯普鲁斯短线公共游船", attraction: "bosphorus-cruise", meta: "14:40–约 16:40 · 上层露天甲板靠船尾", type: "boat" },
         { time: "16:40", title: "加拉塔桥步行", attraction: "karakoy-galataport", meta: "16:40–17:05 · 把跨桥观景融入前往 Karaköy 的交通", type: "walk" },
-        { time: "17:05", title: "Karaköy 咖啡休息", attraction: "karakoy-galataport", meta: "17:05–17:35 · 不登加拉塔塔，不额外绕路", type: "leisure" },
-        { time: "17:35", title: "F2 地下缆车至 Tünel", meta: "避开陡坡，直接抵达独立大街南端", type: "transfer" },
-        { time: "17:50", title: "独立大街文化步行", attraction: "istiklal", meta: "17:50–19:10 · 从 Tünel 持续向 Taksim 推进" },
-        { time: "19:15", title: "Pera／独立大街晚餐", meta: "19:15–20:45 · 提前预约，可选屋顶景观餐厅", type: "food" },
-        { time: "20:45", title: "独立大街夜景与 AKM 外观", attraction: "istiklal", meta: "步行返回 Taksim 附近酒店，约 21:15 收尾", type: "walk" }
+        { time: "17:05", title: "Karaköy 咖啡休息", attraction: "karakoy-galataport", meta: "17:05–17:40 · 不登加拉塔塔，不额外绕路", type: "leisure" },
+        { time: "17:40", title: "F2 地下缆车至 Tünel", meta: "避开陡坡，约 17:55 抵达独立大街南端", type: "transfer" },
+        { time: "17:55", title: "独立大街南段慢走", attraction: "istiklal", meta: "17:55–18:35 · 只逛 Tünel、Asmalımescit 与南段支路，不先走到 Taksim" },
+        { time: "18:40", title: "Eleos Beyoğlu 晚餐", meta: "18:40–20:10 · 位于 İstiklal Cd. No.231；预约 Beyoğlu 店并留约 90 分钟", type: "food" },
+        { time: "20:10", title: "独立大街夜景与返程", attraction: "istiklal", meta: "由南向北步行至 Taksim；Hacı Bekir No.83/A 若仍营业可补买糖果，约 20:50–21:00 收尾", type: "walk" }
       ]
     },
     {
@@ -73,15 +71,15 @@ const TRIP_DATA = {
       title: "返程 · 13:30 飞往上海",
       area: "Lokalist Istanbul → IST",
       date: "NOV 02 · MON",
-      summary: "不再新增景点，09:00 准时离店，为国际航班、安检和步行距离留足缓冲。",
+      summary: "不再新增景点，08:30 准时离店，为周一早高峰、国际航班、安检和步行距离留足缓冲。",
       image: "assets/images/istiklal.jpg",
       color: "sage",
       items: [
-        { time: "07:30", title: "起床与整理行李", meta: "确认航站楼、退税材料与机场接送车辆", type: "stay" },
-        { time: "08:00", title: "酒店早餐", meta: "08:00–08:40 · 不再安排酒店范围外的散步", type: "food" },
-        { time: "08:40", title: "办理退房", meta: "08:55 前完成人员与行李确认", type: "stay" },
-        { time: "09:00", title: "专车前往 IST 机场", meta: "周一早高峰；若下雨或需要退税，可提前至 08:30", type: "transfer" },
-        { time: "10:15", title: "抵达机场", meta: "预留入口安检、值机、出境及前往远端登机口时间", type: "note" },
+        { time: "07:15", title: "起床与整理行李", meta: "确认航站楼、退税材料与机场接送车辆", type: "stay" },
+        { time: "07:40", title: "酒店早餐", meta: "07:40–08:10 · 前一晚确认餐厅是否能提前开放", type: "food" },
+        { time: "08:10", title: "办理退房", meta: "08:25 前完成人员与行李确认", type: "stay" },
+        { time: "08:30", title: "专车前往 IST 机场", meta: "周一早高峰按常态预留；下雨、事故或退税不再压缩缓冲", type: "transfer" },
+        { time: "09:45", title: "目标抵达机场", meta: "预留入口安检、值机、退税、出境及前往远端登机口时间", type: "note" },
         { time: "13:30", title: "起飞返回上海", meta: "国际航班至少提前 3 小时抵达机场", type: "transfer" }
       ]
     }
@@ -97,9 +95,9 @@ const TRIP_DATA = {
       intro: "六座宣礼塔与层层下降的穹顶，让它成为奥斯曼古典建筑最有辨识度的轮廓。真正走进内部，蓝色伊兹尼克瓷砖、彩绘穹顶与透过两百多扇窗的光，才是名字背后的答案。",
       quote: "不要只寻找蓝色；先抬头，看光如何让穹顶悬浮。",
       fee: "免费入场，捐赠自愿",
-      hours: "每日开放；通常 08:30–11:30、13:00–14:30、15:30–16:45。周五游客参观约 13:30 后开始。",
+      hours: "每日作为清真寺开放；游客会在每日礼拜前后暂停进入，分钟级参观窗口以现场管控为准。",
       duration: "30–45 分钟",
-      bestTime: "08:30 第一时段",
+      bestTime: "备选分支 11:50–12:30；按现场礼拜管控进入",
       transit: "T1 电车至 Sultanahmet，步行约 3 分钟。",
       highlights: ["六座宣礼塔", "伊兹尼克瓷砖", "中央穹顶与彩窗", "面对圣索菲亚的庭院轴线"],
       photoSpots: [
@@ -107,8 +105,8 @@ const TRIP_DATA = {
         { title: "清真寺西侧庭院", text: "用拱廊框住穹顶与宣礼塔，是最有层次的对称构图。" },
         { title: "竞技场南端", text: "稍微拉远，可拍下六座宣礼塔完整展开的城市天际线。" }
       ],
-      tips: ["进入祈祷大厅前需脱鞋，入口会提供鞋袋。", "肩膀和膝盖需遮盖；女性需戴头巾，入口通常可借用。", "禁止闪光灯，不要拍摄正在祈祷的人。", "祷告时段每日变化，前一晚再次查看官网。"],
-      official: "https://bluemosque.tr/visit/",
+      tips: ["这一站只在团队决定缩短托普卡帕宫时启用；11:50 左右先拍外观，能入内再做简短参观。", "进入祈祷大厅前需脱鞋；肩膀和膝盖需遮盖，女性需戴头巾。", "禁止闪光灯，不要拍摄正在祈祷的人。", "2026 年 10 月 31 日正午礼拜为 12:53；实际暂停入场时间以现场管控为准。"],
+      official: "https://namazvakitleri.diyanet.gov.tr/tr-tr/9541/istanbul-icin-namaz-vakti",
       map: "https://www.google.com/maps/search/?api=1&query=Blue+Mosque+Istanbul"
     },
     "hagia-sophia": {
@@ -173,8 +171,8 @@ const TRIP_DATA = {
       fee: "外国游客联票 2,750 TL，含主宫、后宫与圣伊莲娜教堂",
       feeEquivalent: "约 ¥395 / US$58",
       hours: "09:00–17:00 售票；周二闭馆。",
-      duration: "本行程 2 小时 15 分",
-      bestTime: "09:45 入场后优先后宫",
+      duration: "默认 2 小时 45 分；蓝色清真寺分支约 1 小时 30 分",
+      bestTime: "10:00 入场后优先后宫",
       transit: "T1 电车至 Gülhane 或 Sultanahmet，步行约 8–10 分钟。",
       highlights: ["帝国议事厅", "后宫瓷砖房间", "皇家宝库", "第四庭院海峡露台"],
       photoSpots: [
@@ -182,7 +180,7 @@ const TRIP_DATA = {
         { title: "后宫瓷砖长廊", text: "用门框叠出纵深，注意室内通常禁止闪光。" },
         { title: "第四庭院 İftariye 凉亭", text: "金角湾与博斯普鲁斯同时入镜，是宫内最开阔的观景点。" }
       ],
-      tips: ["本次安排在周六，闭馆日没有冲突。", "高效路线：第二庭院 → 后宫 → 珍宝馆 → 圣物馆 → 第四庭院。", "联票自购买日起仅 1 天有效，不适合拆成两天游览。", "12:00 必须离开前往圣索菲亚，普通瓷器展厅可略过。"],
+      tips: ["本次安排在周六，闭馆日没有冲突。", "默认路线：第二庭院 → 后宫 → 珍宝馆 → 圣物馆 → 第四庭院，12:45 离开。", "若团队兴趣一般，11:30 左右结束后宫与珍宝馆后离开，步行去蓝色清真寺；不要到了 12:00 才决定。", "联票当日有效；选择短线分支意味着主动放弃圣物馆、第四庭院和圣伊莲娜。"],
       official: "https://www.millisaraylar.gov.tr/Lokasyon/2/topkapi-sarayi",
       map: "https://www.google.com/maps/search/?api=1&query=Topkapi+Palace+Istanbul"
     },
@@ -208,7 +206,7 @@ const TRIP_DATA = {
         { title: "博斯普鲁斯轮渡上", text: "从水上才能看见宫殿沿海展开的完整立面。" }
       ],
       tips: ["本次安排在周日，周一闭馆不会影响行程。", "只走主宫、水晶楼梯、仪式大厅、阿塔图尔克房间与海峡宫门。", "跳过后宫大部分普通房间及绘画博物馆，10:45 准时离开。", "内部通常禁止摄影，按现场规定收起手机和相机。"],
-      official: "https://www.millisaraylar.gov.tr/Lokasyon/3/Dolmabahce-Palace",
+      official: "https://www.millisaraylar.gov.tr/Lokasyon/3/Dolmabahce-Sarayi",
       map: "https://www.google.com/maps/search/?api=1&query=Dolmabahce+Palace+Istanbul"
     },
     "istiklal": {
@@ -222,8 +220,8 @@ const TRIP_DATA = {
       quote: "别急着走完一条街；真正的惊喜通常藏在拱廊和支路里。",
       fee: "街区免费；怀旧电车按公共交通票价",
       hours: "全天开放；商店多为 10:00–22:00。",
-      duration: "本行程 1 小时 20 分",
-      bestTime: "17:50 从 Tünel 出发",
+      duration: "晚餐前南段 40 分钟 + 餐后北行约 40–50 分钟",
+      bestTime: "17:55 从 Tünel 分段游览",
       transit: "Karaköy 乘 F2 地下缆车至 Tünel，再从南向北步行回 Taksim。",
       highlights: ["怀旧红色电车", "圣安多尼教堂", "Çiçek Pasajı", "Salt Beyoğlu 与独立书店"],
       photoSpots: [
@@ -231,7 +229,7 @@ const TRIP_DATA = {
         { title: "圣安多尼教堂前院", text: "从大街门洞向内拍，喧闹街道与安静红砖形成反差。" },
         { title: "Tünel 广场", text: "傍晚灯光亮起时，老电车、坡道和街角咖啡馆最有城市感。" }
       ],
-      tips: ["周日晚人流密集，手机和钱包放在身体前侧。", "本次由 Tünel 向 Taksim 行进，终点就是酒店附近，不走回头路。", "19:15 前抵达 Pera／独立大街的预约餐厅。", "避开主动拉客且没有明码标价的酒吧。"],
+      tips: ["周日晚人流密集，手机和钱包放在身体前侧。", "晚餐前只逛 Tünel 与南段支路，不要提前走到 Taksim。", "18:40 在靠近 Tünel 的 Eleos 用餐，餐后再一路向北回酒店。", "Hacı Bekir Beyoğlu 店位于 İstiklal Cd. No.83/A；若仍营业，可买密封 lokum、akide 硬糖或杏仁糖，若已关门不另绕路。"],
       official: "https://visit.istanbul/istiklal-street",
       map: "https://www.google.com/maps/search/?api=1&query=Istiklal+Avenue+Istanbul"
     },
@@ -267,7 +265,7 @@ const TRIP_DATA = {
       district: "Eminönü / Karaköy",
       image: "assets/images/bosphorus.jpg",
       photoCredit: "Umut Izgi / Pexels",
-      intro: "伊斯坦布尔最好的城市视角在水上。短线游船会从历史半岛与加拉塔之间出发，经过多尔玛巴赫切宫、奥塔科伊、两座跨海大桥与亚洲岸木屋，在海鸥和渡轮声里理解这座城市的尺度。",
+      intro: "伊斯坦布尔最好的城市视角在水上。短线游船从历史半岛与加拉塔之间出发，沿途可见多尔玛巴赫切宫、奥塔科伊、第一座博斯普鲁斯大桥与亚洲岸景观；具体航程以当日官方线路为准。",
       quote: "这不是离开城市，而是终于看见城市的全貌。",
       fee: "Şehir Hatları 短线：外国游客 340 TL",
       feeEquivalent: "约 ¥49 / US$7",
@@ -275,7 +273,7 @@ const TRIP_DATA = {
       duration: "约 2 小时",
       bestTime: "14:05 到码头，14:40 开船",
       transit: "T1 至 Eminönü，或轮渡 / 电车至 Karaköy 后前往码头。",
-      highlights: ["多尔玛巴赫切宫水岸立面", "奥塔科伊清真寺与大桥", "鲁梅利堡", "欧亚两岸木屋与天际线"],
+      highlights: ["多尔玛巴赫切宫水岸立面", "奥塔科伊清真寺与第一座大桥", "贝勒贝伊与 Küçüksu 一带", "欧亚两岸木屋与天际线"],
       photoSpots: [
         { title: "船尾外侧甲板", text: "更少玻璃反光，也能拍下逐渐远去的历史半岛天际线。" },
         { title: "奥塔科伊段", text: "提前站在欧洲岸一侧，让清真寺与第一大桥在同一画面叠合。" },
@@ -296,8 +294,8 @@ const TRIP_DATA = {
       quote: "把它当成一座有屋顶的城市，而不是一间巨大的纪念品商店。",
       fee: "免费进入，购物另计",
       hours: "通常周一至周六 09:00–19:00；周日关闭。",
-      duration: "本行程 65 分钟",
-      bestTime: "15:35–16:40",
+      duration: "本行程约 70 分钟",
+      bestTime: "17:10–18:20",
       transit: "T1 电车至 Beyazıt；从 Beyazıt 或 Nuruosmaniye 一侧进入。",
       highlights: ["Kalpakçılar 珠宝主街", "Old Bedesten", "Zincirli Han 红色庭院", "地毯与伊兹尼克陶瓷区"],
       photoSpots: [
@@ -305,7 +303,7 @@ const TRIP_DATA = {
         { title: "珠宝主街拱顶中央", text: "站在不妨碍人流的位置，利用连续拱顶制造对称消失点。" },
         { title: "Old Bedesten 门洞", text: "用厚重石门框住内部摊位，能表现市场最古老的建筑层次。" }
       ],
-      tips: ["本次必须周六游览，周日大量商户关闭。", "预设路线行进，不深入外围小巷，16:40 准时离开。", "高价商品要求发票与材质证明，不仓促购买地毯或珠宝。", "T1 和市场内人流密集，手机与钱包放在身体前侧。"],
+      tips: ["本次只能周六游览，周日市场关闭；若前段延误，可把购物缩短到约 30 分钟。", "70 分钟内重点看小件伊兹尼克风格陶瓷、咖啡器具、浴巾或小皮具，不为购买地毯和珠宝做仓促决定。", "高价商品要求发票、产地与材质证明，并至少比较三家价格。", "18:20 准时从 Beyazıt 一侧离开；市场内手机与钱包放在身体前侧。"],
       official: "https://visit.istanbul/grand-bazaar",
       map: "https://www.google.com/maps/search/?api=1&query=Grand+Bazaar+Istanbul"
     },
@@ -318,11 +316,11 @@ const TRIP_DATA = {
       photoCredit: "Emin Bozyokuş / Pexels",
       intro: "Hodjapasha 位于一座十五世纪浴室改建的文化中心。这里的 Sema 更接近一场带有宗教象征的静默仪式：音乐、吟诵与旋转共同表现从自我走向精神完善的旅程。",
       quote: "真正的观看方式不是追随旋转，而是在旋转中感受安静。",
-      fee: "官网当前 19:00 场约 US$42.22 起",
-      feeEquivalent: "约 ¥286",
+      fee: "官网成人票当前 1,900 TL；网页也可能按币种显示约 US$42.22",
+      feeEquivalent: "汇率与结算币种以购票页为准",
       hours: "每日 19:00；仪式约 60 分钟，建议提前 30 分钟签到。",
       duration: "展览 30 分钟 + 仪式 60 分钟",
-      bestTime: "18:30 入场，19:00 开始",
+      bestTime: "仅在已购票且当天体力充足时参加",
       transit: "T1 至 Sirkeci，步行约 5 分钟；从 Olden 1772 一带步行约 5–8 分钟。",
       highlights: ["Mevlevi Sema 仪式", "现场传统音乐", "鲁米诗歌与苏菲文化展", "十五世纪浴室穹顶空间"],
       photoSpots: [
@@ -330,7 +328,7 @@ const TRIP_DATA = {
         { title: "前厅展览区", text: "服饰、乐器和雕塑是否可拍以现场标识为准。" },
         { title: "把相机收起来", text: "仪式期间禁止拍照录像；这一小时更适合专心观看。" }
       ],
-      tips: ["18:30 前签到，迟到可能无法入场。", "仪式中禁止摄影、录像和交谈，手机全程静音。", "7 岁以下儿童不适合参加；场地对轮椅并不友好。", "座位通常按订票先后安排，建议提前购买。"],
+      tips: ["当前两日宽松版未排入演出；若临时想看，需要另行压缩晚餐并提前购票。", "参加时须在 18:30 前签到，迟到可能无法入场。", "仪式中禁止摄影、录像和交谈，手机全程静音。", "7 岁以下儿童不得入场；场地不适合轮椅。"],
       official: "https://hodjapasha.com/en/",
       map: "https://www.google.com/maps/search/?api=1&query=Hodjapasha+Culture+Center+Istanbul"
     },
@@ -346,8 +344,8 @@ const TRIP_DATA = {
       fee: "外国成人 900 TL；一张票可参观全部展览",
       feeEquivalent: "约 ¥129 / US$19",
       hours: "周日 10:00–18:00；周一闭馆，周五延长至 20:00。",
-      duration: "本行程 90 分钟",
-      bestTime: "11:10–12:40",
+      duration: "备选 90 分钟",
+      bestTime: "备选时段 11:20–12:20",
       transit: "T1 至 Tophane，步行约 3–5 分钟；入口位于 Galataport 内。",
       highlights: ["土耳其现代艺术常设展", "摄影展厅", "伦佐·皮亚诺建筑", "屋顶反射水池与 360° 观景台"],
       photoSpots: [
@@ -355,7 +353,7 @@ const TRIP_DATA = {
         { title: "海滨步道", text: "从 Galataport 水边回望，最容易拍到博物馆鳞片般的立面。" },
         { title: "透明首层", text: "室内外视线贯通，可把人群、港口和建筑结构同时纳入。" }
       ],
-      tips: ["路线固定为常设展 → 临时展 → 摄影展 → 顶层平台。", "12:40 准时离馆去午餐，避免影响 14:40 游船。", "当天票不可退换，官网当日线上售票通常在 17:00 关闭。", "大型行李需寄存，展厅摄影规则以现场标识为准。"],
+      tips: ["这是第二天唯一备选；宫殿延误、想购物或体力不足时可直接跳过。", "参加时只看常设展与当天最感兴趣的一个临时展。", "12:20 准时离馆，给 Paket Postanesi 和午餐留足时间。", "大型行李需寄存，展厅摄影规则以现场标识为准。"],
       official: "https://www.istanbulmodern.org/en/visit/museum",
       map: "https://www.google.com/maps/search/?api=1&query=Istanbul+Modern"
     },
@@ -370,8 +368,8 @@ const TRIP_DATA = {
       quote: "一座港口如何更新，可以从海边走进一条旧街慢慢看。",
       fee: "公共街区与海滨步道免费；餐饮另计",
       hours: "公共空间通常全天可达；商铺及餐厅各自营业。",
-      duration: "午餐 55 分钟 + 傍晚 55 分钟",
-      bestTime: "12:40 午餐 / 16:40 后街区散步",
+      duration: "购物与午餐 85 分钟 + 傍晚约 60 分钟",
+      bestTime: "12:20 购物与午餐 / 16:40 后街区散步",
       transit: "T1 至 Tophane 或 Karaköy；前往独立大街可乘 F2 Karaköy–Tünel。",
       highlights: ["Galataport 海滨", "伊斯坦布尔现代", "加拉塔桥", "Karaköy 咖啡馆与旧建筑"],
       photoSpots: [
@@ -379,7 +377,7 @@ const TRIP_DATA = {
         { title: "Tophane 钟楼广场", text: "把历史钟楼、现代港口建筑与行人放入同一画面。" },
         { title: "Karaköy 后街", text: "银行街、涂鸦、咖啡馆和坡道最能表现街区日常。" }
       ],
-      tips: ["游船后直接步行过加拉塔桥，不返回 Eminönü 乘车。", "17:35 前抵达 F2 入口，避免步行爬坡消耗体力。", "海滨餐厅需选择出餐快的店，13:35 必须离开。", "邮轮靠港时 Galataport 安检与人流可能增加。"],
+      tips: ["游船后直接步行过加拉塔桥，不返回 Eminönü 乘车。", "17:40 左右抵达 F2 入口，避免步行爬坡消耗体力。", "13:45 离开 Galataport，为前往官方码头留出约 20 分钟缓冲。", "邮轮靠港时 Galataport 安检与人流可能增加。"],
       official: "https://galataport.com/en/",
       map: "https://www.google.com/maps/search/?api=1&query=Galataport+Istanbul"
     }
@@ -1004,10 +1002,10 @@ Object.entries(richAttractionMedia).forEach(([id, media]) => {
 });
 
 TRIP_DATA.fareReference = {
-  transit: "匿名 Istanbulkart 市内轨道交通按每次刷卡 42 TL（约 ¥6 / US$1）估算；换乘通常需要再次刷卡。",
-  taxi: "黄色出租车按 2026-02-16 官方基准估算：起步 65.40 TL（约 ¥9 / US$1）、43.56 TL/公里（约 ¥6 / US$1）、短途最低 210 TL（约 ¥30 / US$4）；网约车平台费、拥堵等待和过路费另计。",
-  transitSource: "https://www.metro.istanbul/SeferDurumlari/BiletUcretleri",
-  taxiSource: "https://tuhim.ibb.gov.tr/media/27431/taksi-ta%C5%9F%C4%B1mac%C4%B1l%C4%B1%C4%9F%C4%B1-%C3%BCcret-tarifesi.pdf"
+  transit: "按 2026-07-20 起生效的新标准，普通电子车票每次刷卡 46.20 TL；换乘通常需要再次刷卡。M11 等特殊或按距离计费线路以出行时公布的专项票价为准。",
+  taxi: "按 2026-07-20 起生效的新标准，黄色出租车起步 71.94 TL、47.92 TL/公里、短途最低 230 TL；网约车平台费、拥堵等待和过路费另计。",
+  transitSource: "https://www.trthaber.com/haber/turkiye/istanbulda-toplu-ulasima-yuzde-10-zam-951494.html",
+  taxiSource: "https://tuhim.ibb.gov.tr/ucret-tarifeler/"
 };
 
 TRIP_DATA.exchangeRates = {
@@ -1029,14 +1027,14 @@ TRIP_DATA.stopDetails = {
     route: ["IST 到达层", "M11 Gayrettepe", "M2 Taksim", "Lokalist Istanbul"],
     public: {
       time: "约 70–90 分钟",
-      cost: "约 84 TL / 人",
-      summary: "M11 至 Gayrettepe，换乘 M2 至 Taksim，再步行到酒店。",
+      cost: "至少约 92.40 TL / 人；M11 专项票价需临近复核",
+      summary: "M11 至 Gayrettepe，换乘 M2 至 Taksim，再步行到酒店；不能再按旧价 84 TL 锁定预算。",
       steps: ["在机场地铁层购买或充值 Istanbulkart", "M11 往 Gayrettepe 方向", "换乘 M2 往 Yenikapı，Taksim 下车", "携大件行李时预留较长换乘距离"]
     },
     ride: {
       time: "约 50–90 分钟",
-      cost: "约 1,800–2,600 TL / 车",
-      summary: "黄色出租车或平台叫车直达；拥堵、过路费和平台服务费会使价格上浮。"
+      cost: "普通出租车约 2,000–3,000 TL / 车",
+      summary: "黄色出租车或平台叫车直达；拥堵、过路费和平台服务费会使价格上浮。酒店官方预约接送当前另报 €120 单程。"
     },
     tips: ["在官方上车区核对车牌，不接受揽客者的口头一口价。", "如果航班延误，优先通知酒店接送方，不要边走边临时改方案。"]
   },
@@ -1049,12 +1047,12 @@ TRIP_DATA.stopDetails = {
     route: ["到达大厅会合点", "机场高速", "Taksim", "酒店前台"],
     public: {
       time: "约 70–90 分钟",
-      cost: "约 84 TL / 人",
+      cost: "至少约 92.40 TL / 人；M11 专项票价需临近复核",
       summary: "备选方案为 M11 → Gayrettepe → M2 → Taksim。"
     },
     ride: {
       time: "约 50–90 分钟",
-      cost: "预约车约 1,800–2,600 TL / 车",
+      cost: "普通出租车约 2,000–3,000 TL / 车；酒店接送当前 €120 单程",
       summary: "让司机把你送到酒店门口；晚高峰和降雨会明显拉长时间。"
     },
     tips: ["把酒店土耳其语地址和电话离线保存。", "超过免费等待时间前主动联系司机。"]
@@ -1068,7 +1066,7 @@ TRIP_DATA.stopDetails = {
   "d0-3": {
     kind: "checklist",
     intro: "睡前只做会影响第二天执行的检查，不再临时增加景点。",
-    checklist: ["托普卡帕宫、地下水宫与 Hodjapasha 二维码离线保存", "确认次日礼拜时段、降雨和体感温度", "Istanbulkart 余额至少覆盖 4–6 次刷卡", "设置 07:30 与 07:40 两个闹钟"]
+    checklist: ["托普卡帕宫、圣索菲亚与地下水宫二维码离线保存", "确认托普卡帕宫当日临时关闭展厅与天气", "Istanbulkart 余额至少覆盖 4–6 次刷卡", "设置 07:45 与 08:00 两个闹钟"]
   },
   "d1-0": {
     kind: "transport",
@@ -1079,13 +1077,13 @@ TRIP_DATA.stopDetails = {
     route: ["酒店", "Taksim F1", "Kabataş T1", "Gülhane", "托普卡帕宫"],
     public: {
       time: "约 45–55 分钟",
-      cost: "约 84 TL / 人",
+      cost: "约 92.40 TL / 人",
       summary: "步行至 Taksim，F1 到 Kabataş，换乘 T1 至 Gülhane。",
-      steps: ["08:55 前离开酒店", "F1 下车后跟随 Tramvay 指示", "T1 乘往 Bağcılar 方向", "Gülhane 下车后步行约 8 分钟"]
+      steps: ["09:00 离开酒店", "F1 下车后跟随 Tramvay 指示", "T1 乘往 Bağcılar 方向", "Gülhane 下车后步行约 8 分钟"]
     },
     ride: {
       time: "约 25–45 分钟",
-      cost: "约 500–900 TL / 车",
+      cost: "约 550–1,000 TL / 车",
       summary: "适合降雨或行李较多时；老城限行和拥堵可能使最后一段变慢。"
     },
     tips: ["早高峰不要把打车当成一定更快。", "电车车厢拥挤时把背包放在身前。"]
@@ -1093,9 +1091,9 @@ TRIP_DATA.stopDetails = {
   "d1-3": {
     kind: "food",
     mapQuery: "Deraliye Restaurant Sultanahmet",
-    intro: "午餐只有约 40 分钟，重点是上菜稳定、距离近，不安排完整品鉴套餐。",
+    intro: "无论完整参观托普卡帕，还是启用蓝色清真寺分支，都在 13:00 到 Deraliye 汇合，午餐保留完整 90 分钟。",
     budget: "约 1,700–3,100 TL / 人",
-    reservation: "建议预约 13:05，并注明需要在 13:45 前离席。",
+    reservation: "建议预约 13:00；14:20 左右再提醒结账即可。",
     restaurants: [
       {
         name: "Deraliye Restaurant",
@@ -1113,14 +1111,26 @@ TRIP_DATA.stopDetails = {
           { name: "Lamb Shank 羊膝", price: "2,300 TL", text: "肉桂与黑胡椒调味，搭配烤茄泥。" },
           { name: "Terkib-i Mutancana", price: "2,300 TL", text: "蜂蜜、醋、杏干和葡萄烹制的经典奥斯曼羊肉菜。" }
         ],
-        route: {
-          origin: "Hagia Sophia, Sultanahmet",
-          destination: "Deraliye Restaurant, Sultanahmet",
-          mode: "walking",
-          time: "步行约 6–8 分钟",
-          cost: "免费",
-          summary: "从圣索菲亚西侧沿 Divan Yolu 方向步行，餐厅位于 Ticarethane Sokak。"
-        },
+        routes: [
+          {
+            label: "主线 · 从上一站出发",
+            origin: "Topkapı Sarayı, Istanbul",
+            destination: "Deraliye Restaurant, Sultanahmet",
+            mode: "walking",
+            time: "步行约 10–15 分钟",
+            cost: "免费",
+            summary: "从托普卡帕宫出口经圣索菲亚北侧向 Sultanahmet 步行，再转入 Ticarethane Sokak。"
+          },
+          {
+            label: "备选线 · 从备选地点出发",
+            origin: "Sultanahmet Camii, Istanbul",
+            destination: "Deraliye Restaurant, Sultanahmet",
+            mode: "walking",
+            time: "步行约 5–8 分钟",
+            cost: "免费",
+            summary: "从蓝色清真寺穿过 Sultanahmet 广场向北，沿 Divan Yolu 一侧进入 Ticarethane Sokak。"
+          }
+        ],
         official: "https://deraliyerestaurant.com/",
         menu: "https://deraliyerestaurant.com/wp-content/uploads/2026/02/deraliye-menu-2026.pdf",
         reviews: "https://www.tripadvisor.com/Restaurant_Review-g293974-d7042346-Reviews-Deraliye_Restaurant-Istanbul.html"
@@ -1131,55 +1141,46 @@ TRIP_DATA.stopDetails = {
       { name: "İç Pilavlı Tavuk", text: "香料米饭与鸡肉，出餐通常比炖锅和套餐更快。" },
       { name: "Şerbet 或 Ayran", text: "选择一杯即可，不点耗时的多轮甜品与咖啡服务。" }
     ],
-    tips: ["入座即说明结账时间。", "下午仍有大量步行，避免酒精和过量甜点。"]
+    tips: ["午餐不需要一入座就催单；14:20 左右主动索取账单即可。", "下午仍有步行，避免酒精和过量甜点。"]
   },
   "d1-6": {
     kind: "transport",
-    origin: "Sultanahmet 站",
-    destination: "Beyazıt–Kapalıçarşı 站",
-    mapQuery: "Beyazit Kapalicarsi Tram Station",
-    intro: "这段只有两站，乘 T1 比步行节省体力；下车后从 Beyazıt 一侧进入大奖集市。",
-    route: ["Sultanahmet T1", "Çemberlitaş", "Beyazıt–Kapalıçarşı", "大奖集市"],
-    public: {
-      time: "约 8–12 分钟",
-      cost: "约 42 TL / 人",
-      summary: "T1 往 Bağcılar 方向，Beyazıt–Kapalıçarşı 下车。"
-    },
-    ride: {
-      time: "约 8–18 分钟",
-      cost: "约 210–320 TL / 车",
-      summary: "距离很短，通常会触发出租车最低消费；遇拥堵不一定比电车快。"
-    },
+    origin: "地下水宫",
+    destination: "大奖集市 Nuruosmaniye 入口",
+    mapQuery: "Nuruosmaniye Gate Grand Bazaar",
+    intro: "从地下水宫直接向西步行更顺，不再折返 Sultanahmet 站搭两站 T1。",
+    route: ["地下水宫", "Divan Yolu", "Nuruosmaniye", "大奖集市"],
     walk: {
-      time: "约 22–28 分钟",
+      time: "约 12–18 分钟",
       cost: "免费",
-      summary: "沿 Divan Yolu 向西，路线简单但会消耗后续逛市场的体力。"
-    }
+      summary: "经 Divan Yolu 与 Nuruosmaniye 一带向西，路线连续，也避免候车和重复进出车站。"
+    },
+    tips: ["下雨或步行困难时再考虑 T1。", "Nuruosmaniye 一侧进入后，按主街向 Beyazıt 方向单向游览。"]
   },
   "d1-8": {
     kind: "transport",
     origin: "Beyazıt–Kapalıçarşı 站",
     destination: "Sirkeci 站 / Olden 1772",
     mapQuery: "Sirkeci Tram Station Istanbul",
-    intro: "从大奖集市返回 T1 后向东前往 Sirkeci，避免在晚餐和演出前继续长距离步行。",
+    intro: "从大奖集市返回 T1 后向东前往 Sirkeci，避免在晚餐前继续长距离步行。",
     route: ["Beyazıt T1", "Sultanahmet", "Gülhane", "Sirkeci", "Olden 1772"],
     public: {
       time: "约 15–20 分钟",
-      cost: "约 42 TL / 人",
+      cost: "约 46.20 TL / 人",
       summary: "T1 往 Kabataş 方向，Sirkeci 下车后步行至餐厅。"
     },
     ride: {
       time: "约 12–25 分钟",
-      cost: "约 280–480 TL / 车",
+      cost: "约 310–530 TL / 车",
       summary: "市场周边上车点混乱，建议走到主路再叫车。"
     }
   },
   "d1-9": {
     kind: "food",
     mapQuery: "Olden 1772 Istanbul",
-    intro: "这是演出前的提前晚餐，核心要求是 18:20 前结账离席。",
+    intro: "晚餐不再衔接演出，按完整 90 分钟安排；是否点甜点只看当天食欲，不需要为下一站赶时间。",
     budget: "约 2,000–3,500 TL / 人",
-    reservation: "必须预约 17:05，并在备注中写明 18:30 前需要到 Hodjapasha。",
+    reservation: "建议预约 18:45，并保留至约 20:15。",
     restaurants: [
       {
         name: "Olden 1772",
@@ -1191,7 +1192,7 @@ TRIP_DATA.stopDetails = {
         environment: "餐厅位于修复后的十八世纪建筑内，石墙、中庭喷泉、旋转楼梯和水晶吊灯保留历史感，整体比传统老城餐馆更现代、正式。",
         address: "Mimar Vedat Sk. No:3, Sirkeci",
         budget: "约 2,000–3,500 TL / 人",
-        priceNote: "按一道主菜或前菜加主菜估算；菜单另收 10% 服务费及每人 190 TL（约 ¥28 / US$4）cover fee。",
+        priceNote: "按一道主菜或前菜加主菜估算；官网旧版菜单曾列 10% 服务费及每人 190 TL cover fee，当前结算条款需预约时再次确认。",
         dishes: [
           { name: "Çıtır Mantı 脆皮曼特", price: "1,450 TL", text: "薄荷酸奶、牛里脊肉馅与番茄辣油。" },
           { name: "Kuzu İncik 羊膝", price: "2,540 TL", text: "慢炖羊膝配 keşkek、香草碎与羊肉汁。" },
@@ -1215,23 +1216,23 @@ TRIP_DATA.stopDetails = {
       { name: "烤鱼或烤羊肉主菜", text: "每人只点一道主菜，避免需要长时间烹制的套餐。" },
       { name: "土耳其茶", text: "甜点视出餐速度决定，17:55 后不要再加单。" }
     ],
-    tips: ["入座时再次提醒服务员离席时间。", "18:10 主动索取账单。"]
+    tips: ["用餐时间已经留足，不需要选择快速出餐套餐。", "20:05 左右主动索取账单，之后从 Sirkeci 返回酒店。"]
   },
-  "d1-12": {
+  "d1-10": {
     kind: "transport",
-    origin: "Hodjapasha / Sirkeci",
+    origin: "Olden 1772 / Sirkeci",
     destination: "Lokalist Istanbul · Taksim",
     mapQuery: "Lokalist Istanbul Taksim",
-    intro: "演出结束后原路返回最稳妥。若明显疲劳或下雨，可直接在主路通过平台叫车。",
+    intro: "晚餐后直接返回。若明显疲劳或下雨，可在主路通过平台叫车。",
     route: ["Sirkeci T1", "Kabataş", "F1 Taksim", "酒店"],
     public: {
       time: "约 35–45 分钟",
-      cost: "约 84 TL / 人",
+      cost: "约 92.40 TL / 人",
       summary: "T1 至 Kabataş，换乘 F1 至 Taksim，再步行回酒店。"
     },
     ride: {
       time: "约 20–35 分钟",
-      cost: "约 450–750 TL / 车",
+      cost: "约 500–830 TL / 车",
       summary: "从 Sirkeci 主路上车，避免司机进入狭窄街巷寻找。"
     }
   },
@@ -1244,12 +1245,12 @@ TRIP_DATA.stopDetails = {
     route: ["酒店", "Taksim F1", "Kabataş", "多尔玛巴赫切宫"],
     public: {
       time: "约 25–35 分钟",
-      cost: "约 42 TL / 人",
+      cost: "约 46.20 TL / 人",
       summary: "步行至 Taksim，乘 F1 到 Kabataş，再沿海步行约 8 分钟。"
     },
     ride: {
       time: "约 10–20 分钟",
-      cost: "约 210–350 TL / 车",
+      cost: "约 230–390 TL / 车",
       summary: "短途通常按最低消费起计；目的地填写 Dolmabahçe Sarayı Saat Kulesi。"
     }
   },
@@ -1262,12 +1263,12 @@ TRIP_DATA.stopDetails = {
     route: ["宫殿出口", "Kabataş T1", "Tophane", "Istanbul Modern"],
     public: {
       time: "约 20–30 分钟",
-      cost: "约 42 TL / 人",
+      cost: "约 46.20 TL / 人",
       summary: "Kabataş 乘 T1 至 Tophane，步行进入 Galataport。"
     },
     ride: {
       time: "约 8–18 分钟",
-      cost: "约 210–330 TL / 车",
+      cost: "约 230–370 TL / 车",
       summary: "路程短且沿海常堵，只有下雨时明显更有价值。"
     },
     walk: {
@@ -1279,9 +1280,19 @@ TRIP_DATA.stopDetails = {
   "d2-4": {
     kind: "food",
     mapQuery: "Gizia Brasserie Galataport",
-    intro: "午餐控制在 55 分钟，首选靠近 Istanbul Modern、路线不绕行且可以提前点单的海滨餐厅。",
+    intro: "先在历史建筑 Paket Postanesi 看土耳其本土设计，再安排约 70 分钟海滨午餐；选择博物馆时购物控制在 15 分钟，跳过博物馆则可延长到约一小时。",
     budget: "约 1,400–2,800 TL / 人",
-    reservation: "周日中午建议预约 12:40；备注需要在 13:25 前结账。",
+    reservation: "周日中午建议预约 12:35；13:35 左右提醒结账，13:45 离开。",
+    shopping: {
+      time: "12:20–12:35；跳过博物馆可延长至约 60 分钟",
+      rule: "只买易携带、本土特色明确的商品",
+      source: "https://galataport.com/tr/blog/paket-postanesinde-turk-tasarimcilar",
+      items: [
+        { name: "Atelier Rebul · Istanbul 香氛", text: "古龙水、护手霜或小容量室内香氛比大瓶液体更适合旅行携带；先确认托运行李限制。" },
+        { name: "Design Market · 本土设计小物", text: "优先看文具、家居小物与配饰，纪念性比国际连锁品牌更强，也不用承担高价大件风险。" },
+        { name: "土耳其设计师配饰", text: "Arzu Kaprol、Mehry Mu 等品牌适合有明确审美与预算时试逛；不因行程预留时间而强求购买。" }
+      ]
+    },
     restaurants: [
       {
         name: "Gizia Brasserie Galataport",
@@ -1299,14 +1310,26 @@ TRIP_DATA.stopDetails = {
           { name: "烤鱼或鸡肉主菜", price: "约 1,200–2,000 TL", text: "下单时直接询问出餐最快的当日主菜，并确认配菜。" },
           { name: "沙拉或共享前菜", price: "约 550–950 TL", text: "两人共享一份即可，避免多轮上菜拖慢行程。" }
         ],
-        route: {
-          origin: "Istanbul Modern",
-          destination: "Gizia Brasserie Galataport",
-          mode: "walking",
-          time: "步行约 5–8 分钟",
-          cost: "免费",
-          summary: "从 Istanbul Modern 出口进入 Galataport，沿海滨商业区向 Karaköy 方向步行即可到达。"
-        },
+        routes: [
+          {
+            label: "主线 · 从上一站出发",
+            origin: "Tophane Tramvay Durağı, Istanbul",
+            destination: "Paket Postanesi, Galataport",
+            mode: "walking",
+            time: "步行约 5–10 分钟",
+            cost: "免费",
+            summary: "从 Tophane T1 站进入 Galataport，先到 Paket Postanesi；购物后继续在港区内步行前往 Gizia Brasserie。"
+          },
+          {
+            label: "备选线 · 从备选地点出发",
+            origin: "Istanbul Modern",
+            destination: "Paket Postanesi, Galataport",
+            mode: "walking",
+            time: "步行约 5–8 分钟",
+            cost: "免费",
+            summary: "从 Istanbul Modern 出口沿 Galataport 海滨商业区向 Karaköy 方向步行，先到 Paket Postanesi，再前往餐厅。"
+          }
+        ],
         official: "https://www.giziabrasserie.com/en/about-us/",
         reviews: "https://www.tripadvisor.com/Restaurant_Review-g293974-d24165297-Reviews-Gizia_Brasserie-Istanbul.html"
       }
@@ -1316,7 +1339,7 @@ TRIP_DATA.stopDetails = {
       { name: "烤鱼或鸡肉", text: "预约时询问当天出餐最快的主菜，不等候复杂慢烤菜。" },
       { name: "沙拉或共享前菜", text: "2–3 人共享一份即可，不安排完整多道式套餐。" }
     ],
-    tips: ["13:25 前结账，给前往码头留出缓冲。", "不要选择需要排队的网红甜品店。"]
+    tips: ["13:45 离开，给前往官方码头和候船留出约 20 分钟缓冲。", "购物优先小件和本土设计；不要为退税、排队或比较高价商品拖延午餐。"]
   },
   "d2-5": {
     kind: "transport",
@@ -1327,12 +1350,12 @@ TRIP_DATA.stopDetails = {
     route: ["Tophane T1", "Karaköy", "Eminönü", "Şehir Hatları 售票处"],
     public: {
       time: "约 15–20 分钟",
-      cost: "约 42 TL / 人",
+      cost: "约 46.20 TL / 人",
       summary: "T1 往 Bağcılar 方向，Eminönü 下车后步行到官方码头。"
     },
     ride: {
       time: "约 10–25 分钟",
-      cost: "约 250–450 TL / 车",
+      cost: "约 280–500 TL / 车",
       summary: "加拉塔桥经常拥堵，通常不比电车更快。"
     }
   },
@@ -1382,7 +1405,7 @@ TRIP_DATA.stopDetails = {
       { name: "过滤咖啡", text: "对土耳其咖啡不适应时更稳妥。" },
       { name: "轻量甜点", text: "可共享一份 San Sebastian cheesecake 或本地烘焙点心。" }
     ],
-    tips: ["17:30 前离店。", "避免酒精饮品，后面仍有坡道和长距离步行。"]
+    tips: ["17:40 前离店。", "避免酒精饮品，后面仍有较长步行。"]
   },
   "d2-10": {
     kind: "transport",
@@ -1393,12 +1416,12 @@ TRIP_DATA.stopDetails = {
     route: ["Karaköy F2", "地下缆车", "Tünel", "独立大街南端"],
     public: {
       time: "乘车约 3 分钟；含等候约 8–12 分钟",
-      cost: "约 42 TL / 人",
+      cost: "约 46.20 TL / 人",
       summary: "进站刷 Istanbulkart，Tünel 站出站即到独立大街南端。"
     },
     ride: {
       time: "约 8–20 分钟",
-      cost: "约 210–320 TL / 车",
+      cost: "约 230–360 TL / 车",
       summary: "不推荐：距离短、坡道拥堵且会触发最低消费。"
     },
     walk: {
@@ -1412,7 +1435,7 @@ TRIP_DATA.stopDetails = {
     mapQuery: "Eleos Restaurant Beyoglu",
     intro: "这是两天完整行程的最后一顿正餐。Eleos 位于 İstiklal 大街南段，能够在不额外折返的情况下安排海景晚餐。",
     budget: "约 1,800–3,200 TL / 人",
-    reservation: "建议预约 19:15，并明确需要 Beyoğlu 店、室内靠窗座位。",
+    reservation: "建议预约 18:40，并明确需要 Beyoğlu 店、室内靠窗座位；用餐按约 90 分钟安排。",
     restaurants: [
       {
         name: "Eleos Restaurant Beyoğlu",
@@ -1448,7 +1471,7 @@ TRIP_DATA.stopDetails = {
       { name: "时令鱼类", text: "秋季可询问当天鱼获与按重量计价方式。" },
       { name: "Rakı 或本地葡萄酒", text: "若饮酒只点一轮，餐后仍需步行回酒店。" }
     ],
-    tips: ["确认账单是否已含服务费。", "保留步行回 Taksim 的体力。"]
+    tips: ["确认账单是否已含服务费。", "餐后沿独立大街由南向北步行至 Taksim，不再折返。"]
   },
   "d3-0": {
     kind: "checklist",
@@ -1483,13 +1506,13 @@ TRIP_DATA.stopDetails = {
     route: ["酒店", "机场高速", "IST 出发层", "入口安检"],
     public: {
       time: "约 70–90 分钟",
-      cost: "约 84 TL / 人",
-      summary: "M2 Taksim 至 Gayrettepe，换乘 M11 至 Istanbul Airport；携大件行李不优先。"
+      cost: "至少约 92.40 TL / 人；M11 专项票价需临近复核",
+      summary: "M2 Taksim 至 Gayrettepe，换乘 M11 至 Istanbul Airport；携大件行李不优先，不能再按旧价 84 TL 锁定预算。"
     },
     ride: {
       time: "约 55–90 分钟",
-      cost: "约 1,800–2,600 TL / 车",
-      summary: "08:55 前上车；下雨、事故或早高峰时应提前到 08:30。"
+      cost: "普通出租车约 2,000–3,000 TL / 车；预约车以确认单为准",
+      summary: "08:30 上车；把周一早高峰、下雨和事故当作常态预留。"
     },
     tips: ["目的地明确填写 International Departures。", "过路费和平台服务费可能另计。"]
   },

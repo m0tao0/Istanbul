@@ -46,7 +46,7 @@
     const kind = getItemKind(item);
     const title = `<a class="attraction-link" href="${stopUrl(dayId, index, item)}">${item.title}<span aria-hidden="true">↗</span></a>`;
     return `
-      <li class="timeline-item ${checked ? "completed" : ""}">
+      <li class="timeline-item ${item.optional ? "optional" : ""} ${checked ? "completed" : ""}">
         <label class="check-wrap" aria-label="标记 ${item.title} 为已完成">
           <input type="checkbox" data-check="${key}" ${checked ? "checked" : ""} />
           <span class="timeline-marker marker-${kind}">${icons[kind]}</span>

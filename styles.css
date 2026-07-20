@@ -701,6 +701,16 @@ button { color: inherit; }
 .timeline-item.completed { opacity: .42; }
 .timeline-item.completed .plain-title,
 .timeline-item.completed .attraction-link { text-decoration: line-through; }
+.timeline-item.optional {
+  opacity: .4;
+  filter: saturate(.45);
+}
+.timeline-item.optional time {
+  visibility: hidden;
+}
+.timeline-item.optional .timeline-marker {
+  border-style: dashed;
+}
 
 .notes-section {
   position: relative;
@@ -1762,32 +1772,50 @@ blockquote::after { content: "”"; right: 20px; bottom: 4px; }
   border-top: 1px solid var(--line-strong);
   background: rgba(243, 234, 219, .52);
 }
-.restaurant-route-copy h3 {
+.restaurant-route-variants {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+.restaurant-route-variant {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: rgba(251, 246, 236, .56);
+}
+.route-variant-label {
+  margin: 0 0 12px;
+  color: var(--oxblood);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .12em;
+}
+.restaurant-route-variant h3 {
   margin: 0 0 17px;
   color: var(--oxblood-dark);
   font-family: var(--serif);
-  font-size: 22px;
+  font-size: 19px;
   font-weight: 500;
 }
-.restaurant-route-copy h3 span {
+.restaurant-route-variant h3 span {
   color: var(--gold);
 }
-.restaurant-route-copy > div {
+.restaurant-route-variant > div {
   display: flex;
   gap: 20px;
 }
-.restaurant-route-copy > div strong {
+.restaurant-route-variant > div strong {
   color: var(--blue);
   font-family: var(--serif);
   font-size: 13px;
 }
-.restaurant-route-copy > p:not(.eyebrow) {
+.restaurant-route-variant > p:not(.route-variant-label) {
   margin: 11px 0;
   color: var(--muted);
   font-family: var(--serif);
   font-size: 11px;
 }
-.restaurant-route-copy > a {
+.restaurant-route-variant > a {
   color: var(--blue);
   font-size: 10px;
   font-weight: 600;
@@ -2046,8 +2074,10 @@ blockquote::after { content: "”"; right: 20px; bottom: 4px; }
   .dish-list strong { display: block; margin-top: 5px; text-align: left; }
   .restaurant-links { flex-direction: column; gap: 9px; }
   .restaurant-route-copy { padding: 29px 22px; }
-  .restaurant-route-copy h3 { font-size: 19px; }
-  .restaurant-route-copy > div { flex-direction: column; gap: 6px; }
+  .restaurant-route-variants { grid-template-columns: 1fr; }
+  .restaurant-route-variant { padding: 19px; }
+  .restaurant-route-variant h3 { font-size: 18px; }
+  .restaurant-route-variant > div { flex-direction: column; gap: 6px; }
   .restaurant-route-map,
   .restaurant-route-map iframe { min-height: 300px; }
   .execution-board { padding: 70px 17px; }

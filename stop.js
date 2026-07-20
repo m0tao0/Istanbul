@@ -112,12 +112,12 @@
         route: [previous?.item.title || "上一站", entry.title],
         public: {
           time: "约 20–45 分钟",
-          cost: "约 42–84 TL / 人",
+          cost: "约 46.20–92.40 TL / 人",
           summary: entry.meta
         },
         ride: {
           time: "约 15–40 分钟",
-          cost: "约 210–900 TL / 车",
+          cost: "约 230–1,000 TL / 车",
           summary: "按实时路况和出租车计价器结算。"
         }
       };
@@ -152,14 +152,17 @@
     const origin = detailData.origin || previous?.item.title || "上一站";
     const destination = detailData.destination || item.title;
     const route = detailData.route || [origin, destination];
-    const directionsUrl = liveDirectionsUrl(origin, destination, "transit");
+    const mapMode = detailData.mapMode ||
+      (!detailData.public && !detailData.ride && detailData.walk ? "walking" : "transit");
+    const directionsUrl = liveDirectionsUrl(origin, destination, mapMode);
+    const mapTitle = mapMode === "walking" ? "步行路线" : "公共交通路线";
 
     return `
       <section class="stop-map-section">
         <div class="stop-map-frame">
           <iframe
-            title="${origin}到${destination}的公共交通路线"
-            src="${routeMapUrl(origin, destination, "transit")}"
+            title="${origin}到${destination}的${mapTitle}"
+            src="${routeMapUrl(origin, destination, mapMode)}"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
           ></iframe>
@@ -187,7 +190,7 @@
         <p>${TRIP_DATA.fareReference.transit}</p>
         <p>${TRIP_DATA.fareReference.taxi}</p>
         <div>
-          <a href="${TRIP_DATA.fareReference.transitSource}" target="_blank" rel="noreferrer">公共交通官方票价 ↗</a>
+          <a href="${TRIP_DATA.fareReference.transitSource}" target="_blank" rel="noreferrer">公共交通新票价说明 ↗</a>
           <a href="${TRIP_DATA.fareReference.taxiSource}" target="_blank" rel="noreferrer">出租车官方基准 ↗</a>
         </div>
       </div>
@@ -195,11 +198,12 @@
   }
 
   function renderRestaurant(restaurant, index) {
-    const route = restaurant.route || {};
-    const routeOrigin = route.origin || previous?.item.title || "上一站";
-    const routeDestination = route.destination || restaurant.name;
-    const routeMode = route.mode || "walking";
-    const liveRoute = liveDirectionsUrl(routeOrigin, routeDestination, routeMode);
+    const routeFallback = restaurant.route || {};
+    const routes = restaurant.routes?.length ? restaurant.routes : [routeFallback];
+    const primaryRoute = routes[0];
+    const routeOrigin = primaryRoute.origin || previous?.item.title || "上一站";
+    const routeDestination = primaryRoute.destination || restaurant.name;
+    const routeMode = primaryRoute.mode || "walking";
     const fallbackAttribute = restaurant.imageFallback
       ? ` onerror="this.onerror=null;this.src='${restaurant.imageFallback}'"`
       : "";
@@ -244,18 +248,31 @@
         </div>
 
         <div class="restaurant-route-copy">
-          <p class="eyebrow">从上一站前往 · ROUTE</p>
-          <h3>${routeOrigin} <span>→</span> ${restaurant.name}</h3>
-          <div>
-            <strong>${route.time}</strong>
-            <strong>${withEquivalents(route.cost)}</strong>
+          <p class="eyebrow">分别从主线与备选地点前往 · ROUTES</p>
+          <div class="restaurant-route-variants">
+            ${routes.map((route) => {
+              const origin = route.origin || previous?.item.title || "上一站";
+              const destination = route.destination || restaurant.name;
+              const mode = route.mode || "walking";
+              const liveRoute = liveDirectionsUrl(origin, destination, mode);
+              return `
+                <article class="restaurant-route-variant">
+                  <p class="route-variant-label">${route.label || "从上一站出发"}</p>
+                  <h3>${origin} <span>→</span> ${destination}</h3>
+                  <div>
+                    <strong>${route.time}</strong>
+                    <strong>${withEquivalents(route.cost)}</strong>
+                  </div>
+                  <p>${route.summary}</p>
+                  <a href="${liveRoute}" target="_blank" rel="noreferrer">打开这条实时路线 <span>↗</span></a>
+                </article>
+              `;
+            }).join("")}
           </div>
-          <p>${route.summary}</p>
-          <a href="${liveRoute}" target="_blank" rel="noreferrer">打开实时路线 <span>↗</span></a>
         </div>
         <div class="restaurant-route-map">
           <iframe
-            title="${routeOrigin}到${restaurant.name}的路线"
+            title="${routeOrigin}到${routeDestination}的主线路线"
             src="${routeMapUrl(routeOrigin, routeDestination, routeMode)}"
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
@@ -265,9 +282,32 @@
     `;
   }
 
+  function renderShopping(shopping) {
+    if (!shopping?.items?.length) return "";
+    return `
+      <section class="food-guide">
+        <div class="food-facts">
+          <article><span>购物时间</span><strong>${shopping.time}</strong></article>
+          <article><span>购物原则</span><strong>${shopping.rule}</strong></article>
+        </div>
+        <div class="recommendation-grid">
+          ${shopping.items.map((entry, index) => `
+            <article>
+              <span class="note-number">${String(index + 1).padStart(2, "0")}</span>
+              <h2>${entry.name}</h2>
+              <p>${entry.text}</p>
+            </article>
+          `).join("")}
+        </div>
+        ${shopping.source ? `<a class="exchange-source" href="${shopping.source}" target="_blank" rel="noreferrer">查看购物点官方信息 ↗</a>` : ""}
+      </section>
+    `;
+  }
+
   function renderFood(detailData) {
     if (detailData.restaurants?.length) {
       return `
+        ${renderShopping(detailData.shopping)}
         <section class="food-guide restaurant-guide">
           <div class="food-facts">
             <article><span>预订建议</span><strong>${detailData.reservation}</strong></article>

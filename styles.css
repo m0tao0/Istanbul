@@ -1040,20 +1040,6 @@ button { color: inherit; }
   text-decoration: none;
 }
 .notes-inline-links a:hover { color: var(--oxblood); }
-.notes-app-pair {
-  margin-top: 15px;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-.notes-app-download {
-  margin-top: 15px;
-  padding: 17px 18px;
-  border: 1px solid var(--line);
-  background: rgba(243, 234, 219, .5);
-}
-.notes-app-pair .notes-app-download { margin-top: 0; }
-.notes-app-download > span,
 .attraction-app-list article > span {
   display: block;
   color: var(--oxblood);
@@ -1062,13 +1048,6 @@ button { color: inherit; }
   letter-spacing: .1em;
   line-height: 1.5;
 }
-.notes-app-download > strong {
-  display: block;
-  margin: 7px 0 5px;
-  font-family: var(--serif);
-  font-size: 15px;
-}
-.notes-app-download > p { font-size: 11px !important; }
 .app-store-links {
   margin-top: 11px;
   display: flex;
@@ -2601,9 +2580,6 @@ blockquote::after { content: "”"; right: 20px; bottom: 4px; }
   .notes-chapter h3 { font-size: 17.5px; }
   .notes-chapter article p { font-size: 14px; }
   .notes-inline-links a { font-size: 12px; }
-  .notes-app-download > span { font-size: 9px; }
-  .notes-app-download > strong { font-size: 17px; }
-  .notes-app-download > p { font-size: 12.5px !important; }
   .app-store-links a { font-size: 11px; }
   .notes-chapter aside strong { font-size: 13px; }
   .notes-chapter aside span { font-size: 11.5px; }
@@ -2847,7 +2823,6 @@ blockquote::after { content: "”"; right: 20px; bottom: 4px; }
     border-left: 0;
     border-top: 1px solid var(--line);
   }
-  .notes-app-pair { grid-template-columns: 1fr; }
   .official-links { grid-template-columns: 1fr; }
   .official-links > a { min-height: 210px; }
   .emergency-intro,

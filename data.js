@@ -19,10 +19,10 @@ const TRIP_DATA = {
     {
       id: 1,
       label: "Day 1",
-      title: "现代伊斯坦布尔 · 海峡与艺术",
-      area: "Dolmabahçe → Tophane → Eminönü → Pera",
+      title: "现代伊斯坦布尔 · 海峡与设计",
+      area: "Dolmabahçe → Galataport → Bosphorus → Galata",
       date: "OCT 31 · SAT",
-      summary: "10:00 出发；宫殿与海峡游船是主线。伊斯坦布尔现代艺术博物馆仅在提前离开宫殿并取消购物时启用，否则直接跳过；两顿正餐和 14:40 游船均不压缩。",
+      summary: "10:00 出发；宫殿与海峡游船后，乘 T1＋F2 前往 Serdar-ı Ekrem 设计小街购物拍照。现代艺术博物馆只作条件备选，两顿正餐和 14:40 游船均不压缩。",
       image: "assets/images/karakoy.jpg",
       color: "gold",
       items: [
@@ -34,12 +34,11 @@ const TRIP_DATA = {
         { time: "13:45", title: "T1 前往 Eminönü 码头", meta: "Tophane → Eminönü；约 14:05 找到 Şehir Hatları 官方售票处", type: "transfer" },
         { time: "14:05", title: "购票与候船", meta: "当前 14:40 班次须在 10 月中旬按冬季时刻表再次确认", type: "note" },
         { time: "14:40", title: "博斯普鲁斯短线公共游船", attraction: "bosphorus-cruise", meta: "14:40–约 16:40 · 上层露天甲板靠船尾", type: "boat" },
-        { time: "16:40", title: "加拉塔桥步行", attraction: "karakoy-galataport", meta: "16:40–17:05 · 把跨桥观景融入前往 Karaköy 的交通", type: "walk" },
-        { time: "17:05", title: "Karaköy 咖啡休息", attraction: "karakoy-galataport", meta: "17:05–17:40 · 不登加拉塔塔，不额外绕路", type: "leisure" },
-        { time: "17:40", title: "F2 地下缆车至 Tünel", meta: "避开陡坡，约 17:55 抵达独立大街南端", type: "transfer" },
-        { time: "17:55", title: "独立大街南段慢走", attraction: "istiklal", meta: "17:55–18:35 · 只逛 Tünel、Asmalımescit 与南段支路，不先走到 Taksim" },
+        { time: "16:40", title: "T1＋F2 前往 Tünel", meta: "Eminönü → Karaköy → Tünel；不步行过桥，以公共交通节省体力，约 17:10 抵达", type: "transfer" },
+        { time: "17:10", title: "Serdar-ı Ekrem 设计小街", attraction: "serdar-ekrem", meta: "17:10–18:15 · 逛本土设计、首饰与复古小店，拍 Doğan Apartment 和加拉塔塔街景；不登塔" },
+        { time: "18:15", title: "返回 Tünel 前往晚餐", meta: "沿 Serdar-ı Ekrem 上行至 Tünel，再步行至 Eleos；18:35 前抵达", type: "transfer" },
         { time: "18:40", title: "Eleos Beyoğlu 晚餐", meta: "18:40–20:10 · 位于 İstiklal Cd. No.231；预约 Beyoğlu 店并留约 90 分钟", type: "food" },
-        { time: "20:10", title: "独立大街夜景与返程", attraction: "istiklal", meta: "由南向北步行至 Taksim；Hacı Bekir No.83/A 若仍营业可补买糖果，约 20:50–21:00 收尾", type: "walk" }
+        { time: "20:10", title: "独立大街短逛或直接返程", attraction: "istiklal", meta: "不再默认走完整段到 Taksim；体力好时短逛 20–30 分钟，累了从 Şişhane 乘 M2 或打车返回", type: "walk" }
       ]
     },
     {
@@ -260,16 +259,16 @@ const TRIP_DATA = {
       quote: "别急着走完一条街；真正的惊喜通常藏在拱廊和支路里。",
       fee: "街区免费；怀旧电车按公共交通票价",
       hours: "全天开放；商店多为 10:00–22:00。",
-      duration: "晚餐前南段 40 分钟 + 餐后北行约 40–50 分钟",
-      bestTime: "17:55 从 Tünel 分段游览",
-      transit: "Karaköy 乘 F2 地下缆车至 Tünel，再从南向北步行回 Taksim。",
+      duration: "晚餐后按体力短逛 20–30 分钟",
+      bestTime: "20:10 晚餐后；只走想看的短段",
+      transit: "从 Eleos 所在的独立大街南段出发；不想继续步行时前往 Şişhane 乘 M2 一站回 Taksim。",
       highlights: ["怀旧红色电车", "圣安多尼教堂", "Çiçek Pasajı", "Salt Beyoğlu 与独立书店"],
       photoSpots: [
         { title: "电车转弯处", text: "在安全距离外用长焦压缩街景，红色电车和建筑立面会更集中。" },
         { title: "圣安多尼教堂前院", text: "从大街门洞向内拍，喧闹街道与安静红砖形成反差。" },
         { title: "Tünel 广场", text: "傍晚灯光亮起时，老电车、坡道和街角咖啡馆最有城市感。" }
       ],
-      tips: ["周六晚人流密集，手机和钱包放在身体前侧。", "晚餐前只逛 Tünel 与南段支路，不要提前走到 Taksim。", "18:40 在靠近 Tünel 的 Eleos 用餐，餐后再一路向北回酒店。", "Hacı Bekir Beyoğlu 店位于 İstiklal Cd. No.83/A；若仍营业，可买密封 lokum、akide 硬糖或杏仁糖，若已关门不另绕路。"],
+      tips: ["周六晚人流密集，手机和钱包放在身体前侧。", "晚餐前的购物拍照已放在 Serdar-ı Ekrem，不再额外走独立大街南段。", "餐后只按体力短逛；不需要为了走到 Taksim 完成打卡。", "Hacı Bekir Beyoğlu 店位于 İstiklal Cd. No.83/A；若仍营业且顺路，可买密封 lokum、akide 硬糖或杏仁糖，若已关门不另绕路。"],
       official: "https://visit.istanbul/istiklal-street",
       officialLabel: "查看官方信息",
       map: "https://www.google.com/maps/search/?api=1&query=Istiklal+Avenue+Istanbul"
@@ -308,6 +307,31 @@ const TRIP_DATA = {
       official: "https://www.muze.gov.tr/muze-detay?DistId=MRK&SectionId=GLT04",
       officialLabel: "查询开放时间",
       map: "https://www.google.com/maps/search/?api=1&query=Galata+Tower+Istanbul"
+    },
+    "serdar-ekrem": {
+      name: "Serdar-ı Ekrem 设计小街",
+      localName: "Serdar-ı Ekrem Caddesi",
+      kicker: "DESIGN ON THE COBBLES",
+      district: "Galata · Beyoğlu",
+      image: "assets/images/attractions/galata-tower-serdar-ekrem-street-1t5v3n.jpg",
+      photoCredit: "Wikimedia Commons · 作者与许可",
+      intro: "加拉塔塔旁的短街把十九世纪公寓、石板坡道和当代小店压缩在几百米内。这里适合寻找土耳其设计师配饰、陶瓷、家居小物与复古陈设，也能在不登塔的情况下拍到最有层次的加拉塔街景。",
+      quote: "这不是为了走完一条街，而是在一段坡道里挑到属于自己的伊斯坦布尔。",
+      fee: "街区免费；购物按实际消费",
+      hours: "街区全天开放；独立店多在白天至傍晚营业，周六到店时间以各店现场为准。",
+      duration: "主线 65 分钟",
+      bestTime: "17:10–18:15；天色转暗前",
+      transit: "游船返回 Eminönü 后乘 T1 一站至 Karaköy，再换 F2 至 Tünel；从 Tünel 步行进入街道上段。",
+      highlights: ["本土设计与配饰小店", "Doğan Apartment 外立面", "加拉塔塔街景", "石板坡道与旧公寓"],
+      photoSpots: [
+        { title: "街道望向加拉塔塔", text: "沿坡道寻找塔顶露出的位置，用石板路和两侧旧公寓作为引导线；不要站在车行路径中央。" },
+        { title: "Doğan Apartment 外立面", text: "只在公共街道拍摄黄色立面、百叶窗与铁艺阳台，不进入住宅或打扰住户。" },
+        { title: "设计店铺橱窗", text: "用中近景拍橱窗、招牌和街道纹理；拍摄店内与店员前先征得同意。" }
+      ],
+      tips: ["主线从街道上段逛到塔脚附近再原路返回；18:15 无论是否买到东西都开始回程。", "可把 Bobo Marché（No.42）的当代设计与 El Dorado Galata（No.9）的复古陈设作为两个定位点；租户和营业时间临近出发再核对。", "石板路有坡度且可能湿滑，穿防滑鞋，不拖拉杆箱。", "优先购买首饰、丝巾、陶瓷小件、文具和轻量家居物件；高价古董不在时间紧张时决定。", "加拉塔塔只拍外观，不排队登塔；如果体力不足，在街道中段折返。"],
+      official: "https://goturkiye.com/istanbul/shopping-in-istanbul-is-the-new-cool",
+      officialLabel: "查看官方购物介绍",
+      map: "https://www.google.com/maps/search/?api=1&query=Serdar-i+Ekrem+Street+Istanbul"
     },
     "bosphorus-cruise": {
       name: "博斯普鲁斯海峡游船",
@@ -453,7 +477,7 @@ const TRIP_DATA = {
       district: "Karaköy · Beyoğlu",
       image: "assets/images/karakoy.jpg",
       photoCredit: "Yaşar Başkurt / Pexels",
-      intro: "旧港口、金融街、咖啡馆和全新的海滨公共空间在这里叠合。白天的 Galataport 适合沿海午餐，游船返程后则从加拉塔桥步行进入 Karaköy，在街区喝杯咖啡，再用 F2 缆车避开陡坡。",
+      intro: "旧港口、金融街和全新的海滨公共空间在这里叠合。Day 1 白天只安排 Paket Postanesi 的本土设计选购与海滨午餐；游船返程后不再步行过桥或固定停留咖啡馆，而是乘 T1＋F2 把体力留给 Serdar-ı Ekrem。",
       quote: "一座港口如何更新，可以从海边走进一条旧街慢慢看。",
       fee: "公共街区与海滨步道免费；餐饮另计",
       hours: "公共空间通常全天可达；商铺及餐厅各自营业。",
@@ -466,7 +490,7 @@ const TRIP_DATA = {
         { title: "Tophane 钟楼广场", text: "把历史钟楼、现代港口建筑与行人放入同一画面。" },
         { title: "Karaköy 后街", text: "银行街、涂鸦、咖啡馆和坡道最能表现街区日常。" }
       ],
-      tips: ["游船后直接步行过加拉塔桥，不返回 Eminönü 乘车。", "17:40 左右抵达 F2 入口，避免步行爬坡消耗体力。", "13:45 离开 Galataport，为前往官方码头留出约 20 分钟缓冲。", "邮轮靠港时 Galataport 安检与人流可能增加。"],
+      tips: ["Paket Postanesi 购物控制在约 15 分钟，主购物时间留给傍晚的 Serdar-ı Ekrem。", "游船返回后从 Eminönü 乘 T1 至 Karaköy，再换 F2 上坡，不固定安排咖啡休息。", "13:45 离开 Galataport，为前往官方码头留出约 20 分钟缓冲。", "邮轮靠港时 Galataport 安检与人流可能增加。"],
       official: "https://galataport.com/en/",
       officialLabel: "查看官方信息",
       map: "https://www.google.com/maps/search/?api=1&query=Galataport+Istanbul"
@@ -933,6 +957,69 @@ const richAttractionMedia = {
         title: "Serdar-ı Ekrem 坡道",
         text: "将石板坡道、旧公寓和塔顶放在同一条视线上，稍低机位能强化街道的上升感。",
         ...commonsPhoto("Galata Tower, Serdar-ı Ekrem Street.jpg")
+      }
+    ]
+  },
+  "serdar-ekrem": {
+    heroImages: {
+      desktop: commonsPhoto("Galata Tower, Serdar-ı Ekrem Street.jpg"),
+      mobile: localCommonsPhoto(
+        "assets/images/attractions/serdar-ekrem-street-detail.jpg",
+        "Istanbul photos by J.Lubbock 2018 1032.jpg",
+        "John Lubbock / Wikimedia Commons · CC BY-SA 3.0"
+      )
+    },
+    highlights: [
+      {
+        title: "设计小店与街道尺度",
+        history: "Serdar-ı Ekrem 从住宅街逐渐形成当地设计师、首饰、家居与复古店铺集中的短街。店铺分散在旧公寓底层，比大型商场更适合慢慢观察材料、手工和土耳其当代设计。",
+        lookFor: "先看橱窗和标价，再决定是否进入；重点关注易携带的首饰、丝巾、陶瓷小件、文具和家居物件，不为“必须买到”而拖延。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/serdar-ekrem-dogan-apartment.jpg",
+          "Beyoğlu-Istanbul - panoramio (3).jpg",
+          "qwesy qwesy / Wikimedia Commons · CC BY 3.0"
+        )
+      },
+      {
+        title: "Doğan Apartment",
+        history: "十九世纪末建成的 Doğan Apartment 以浅黄色立面、连续铁艺阳台和百叶窗成为街区最醒目的住宅建筑之一，也经常出现在土耳其电影与城市影像中。",
+        lookFor: "从公共街道观察立面比例、转角和阳台细节；它仍是私人住宅，只拍外观，不进入院门或长时间堵住入口。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/serdar-ekrem-street-detail.jpg",
+          "Istanbul photos by J.Lubbock 2018 1032.jpg",
+          "John Lubbock / Wikimedia Commons · CC BY-SA 3.0"
+        )
+      },
+      {
+        title: "加拉塔塔街景",
+        history: "街道顺着加拉塔山坡接近十四世纪的城塔，住宅、店铺与塔身在同一条视线上叠合。这种近距离的城市关系，比单独拍塔更能表现 Galata 的密度。",
+        lookFor: "在不妨碍车辆和行人的位置，等塔顶从两侧建筑之间完整露出；到塔脚只拍外观，不加入登塔队伍。",
+        ...commonsPhoto("Galata Tower, Serdar-ı Ekrem Street.jpg")
+      }
+    ],
+    photoSpots: [
+      {
+        title: "石板坡道望塔",
+        text: "用坡道作为引导线，保留两侧店铺招牌和公寓阳台，让加拉塔塔落在画面上方；注意来车。",
+        ...commonsPhoto("Galata Tower, Serdar-ı Ekrem Street.jpg")
+      },
+      {
+        title: "Doğan Apartment 转角",
+        text: "使用竖构图收进浅黄色立面、铁艺阳台与石板路；住宅入口保持畅通，不拍摄住户近景。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/serdar-ekrem-street-detail.jpg",
+          "Istanbul photos by J.Lubbock 2018 1032.jpg",
+          "John Lubbock / Wikimedia Commons · CC BY-SA 3.0"
+        )
+      },
+      {
+        title: "旧公寓与店铺橱窗",
+        text: "从街道斜侧拍摄底层店铺与上方住宅的叠合，优先记录材质、招牌和灯光；进入店内拍摄前先询问。",
+        ...localCommonsPhoto(
+          "assets/images/attractions/serdar-ekrem-dogan-apartment.jpg",
+          "Beyoğlu-Istanbul - panoramio (3).jpg",
+          "qwesy qwesy / Wikimedia Commons · CC BY 3.0"
+        )
       }
     ]
   },
@@ -1631,75 +1718,44 @@ TRIP_DATA.stopDetails = {
     intro: "候船阶段只做三件事：确认官方窗口、确认船名与返航时间、提前选择上层甲板位置。",
     checklist: ["只在 Şehir Hatları 官方窗口或官方渠道购票", "确认是短线 Bosphorus Tour 而非单程渡轮", "保留返航时间和下船码头截图", "14:25 前完成洗手间和饮水准备"]
   },
-  "d1-9": {
-    kind: "food",
-    mapQuery: "Coffee Sapiens Karakoy",
-    intro: "这里只安排 30 分钟咖啡休息。Coffee Sapiens 位于前往 F2 Karaköy 站的街区内，路线顺、专业咖啡选择清晰。",
-    budget: "约 250–550 TL / 人",
-    reservation: "无需预约；若座位已满，直接外带，不为等位压缩后续行程。",
-    restaurants: [
-      {
-        name: "Coffee Sapiens Karaköy",
-        localName: "Independent Coffee Roasters · Est. 2014",
-        badge: "咖啡休息 · 顺路",
-        image: "assets/images/restaurants/coffee-sapiens.jpg",
-        imageAlt: "Coffee Sapiens Karaköy 街边座位与门店",
-        imageSource: "https://www.coffeesapiens.com/pages/karakoy",
-        environment: "小型街角咖啡馆，开放式咖啡吧能直接看到冲煮过程；空间紧凑、街边座位较多，适合短暂停留而非长时间用餐。",
-        address: "Kılıç Ali Paşa Mescidi Sokak, Karaköy",
-        budget: "约 250–550 TL / 人",
-        priceNote: "咖啡加一份轻甜点的计划估算，现场菜单与豆种会变化。",
-        dishes: [
-          { name: "Espresso 系列", price: "约 180–300 TL", text: "适合时间紧时选择，点单和出杯都较快。" },
-          { name: "手冲 / 过滤咖啡", price: "约 220–350 TL", text: "可询问当日豆单与风味，预留约 8–10 分钟制作。" },
-          { name: "当日蛋糕", price: "约 220–350 TL", text: "两人共享一份即可，避免影响晚餐。" }
-        ],
-        route: {
-          origin: "Karaköy Sahil Parkı",
-          destination: "Coffee Sapiens Karaköy",
-          mode: "walking",
-          time: "步行约 5–8 分钟",
-          cost: "免费",
-          summary: "从海滨穿过 Karaköy 街区前往 Kılıç Ali Paşa Mescidi Sokak，之后继续步行至 F2 站。"
-        },
-        official: "https://www.coffeesapiens.com/pages/karakoy",
-        reviews: "https://www.tripadvisor.com.tr/Restaurant_Review-g293974-d7045355-Reviews-Coffee_Sapiens-Istanbul.html"
-      }
-    ],
-    recommendations: [
-      { name: "Türk Kahvesi", text: "份量小、节奏快，适合作为后半程提神。" },
-      { name: "过滤咖啡", text: "对土耳其咖啡不适应时更稳妥。" },
-      { name: "轻量甜点", text: "可共享一份 San Sebastian cheesecake 或本地烘焙点心。" }
-    ],
-    tips: ["17:40 前离店。", "避免酒精饮品，后面仍有较长步行。"]
+  "d1-8": {
+    kind: "transport",
+    origin: "Eminönü Şehir Hatları 码头",
+    destination: "Tünel / Serdar-ı Ekrem Caddesi",
+    mapQuery: "Serdar-i Ekrem Street Istanbul",
+    intro: "游船下船后不再步行过加拉塔桥。乘 T1 一站跨过金角湾，再换 F2 上到 Tünel，把坡道体力留给设计小街。",
+    route: ["Eminönü T1", "Karaköy", "F2 地下缆车", "Tünel", "Serdar-ı Ekrem 上段"],
+    public: {
+      time: "约 25–30 分钟",
+      cost: "约 92.40 TL / 人",
+      summary: "T1 往 Kabataş 方向乘一站至 Karaköy，步行换乘 F2 至 Tünel；两段交通分别刷 Istanbulkart。",
+      steps: ["游船下船后直接前往 Eminönü T1 站", "乘往 Kabataş 方向列车，Karaköy 下车", "跟随 Tünel / F2 指示步行换乘", "Tünel 出站后从 Galip Dede 一侧进入街区"]
+    },
+    walk: {
+      time: "约 35–45 分钟",
+      cost: "免费",
+      summary: "需要步行过桥并持续爬坡，不作为主线；只有 T1 或 F2 临时停运时再考虑。"
+    },
+    tips: ["T1 经过桥上时即可从车窗看金角湾，不另设桥中段拍照停留。", "F2 车程很短但能避开最陡的一段坡。", "约 17:10 抵达即可，不为错过一班车焦虑。"]
   },
   "d1-10": {
     kind: "transport",
-    origin: "Karaköy F2 站",
-    destination: "Tünel 广场",
-    mapQuery: "Tunel Funicular Beyoglu",
-    intro: "F2 地下缆车是避开加拉塔陡坡的最佳方式，车程很短但能明显节省体力。",
-    route: ["Karaköy F2", "地下缆车", "Tünel", "独立大街南端"],
-    public: {
-      time: "乘车约 3 分钟；含等候约 8–12 分钟",
-      cost: "约 46.20 TL / 人",
-      summary: "进站刷 Istanbulkart，Tünel 站出站即到独立大街南端。"
-    },
-    ride: {
-      time: "约 8–20 分钟",
-      cost: "约 230–360 TL / 车",
-      summary: "不推荐：距离短、坡道拥堵且会触发最低消费。"
-    },
+    origin: "Serdar-ı Ekrem Caddesi / 加拉塔塔外侧",
+    destination: "Eleos Restaurant Beyoğlu",
+    mapQuery: "Eleos Restaurant Beyoglu",
+    intro: "18:15 无论是否买到东西都开始回程。沿原街道上行回到 Tünel，再进入独立大街南段前往 Eleos，不再增加咖啡或其他支路。",
+    route: ["Serdar-ı Ekrem", "Tünel", "İstiklal Caddesi 南段", "Hıdivyal Palas", "Eleos"],
     walk: {
-      time: "约 18–25 分钟",
+      time: "约 15–20 分钟",
       cost: "免费",
-      summary: "持续陡坡上行，只建议体力充足且天气凉爽时选择。"
-    }
+      summary: "从街道中下段沿原路上行至 Tünel，再沿 İstiklal Caddesi 步行至 No.231；18:35 前抵达并寻找二层入口。"
+    },
+    tips: ["返程是上坡，最后一家店最迟 18:10 结账。", "如果逛街时已经疲劳，不走到塔脚，在 Doğan Apartment 附近直接折返。", "Eleos 入口不显眼，预留 5 分钟确认 Hıdivyal Palas 楼层指示。"]
   },
-  "d1-12": {
+  "d1-11": {
     kind: "food",
     mapQuery: "Eleos Restaurant Beyoglu",
-    intro: "这是两天完整行程的最后一顿正餐。Eleos 位于 İstiklal 大街南段，能够在不额外折返的情况下安排海景晚餐。",
+    intro: "这是两天完整行程的最后一顿正餐。Serdar-ı Ekrem 购物结束后返回 Tünel，再步行到独立大街南段的 Eleos，18:40 预约时间保持不变。",
     budget: "约 1,800–3,200 TL / 人",
     reservation: "建议预约 18:40，并明确需要 Beyoğlu 店、室内靠窗座位；用餐按约 90 分钟安排。",
     restaurants: [
@@ -1720,12 +1776,12 @@ TRIP_DATA.stopDetails = {
           { name: "章鱼与海鲜", price: "约 1,000–1,700 TL", text: "适合作为共享热前菜，避免同时点过多主菜。" }
         ],
         route: {
-          origin: "Tünel Meydanı, Beyoğlu",
+          origin: "Serdar-ı Ekrem Caddesi, Beyoğlu",
           destination: "Eleos Restaurant Beyoglu",
           mode: "walking",
-          time: "步行约 10–15 分钟",
+          time: "步行约 15–20 分钟",
           cost: "免费",
-          summary: "从 Tünel 沿 İstiklal Caddesi 向北步行，餐厅入口位于 Hıdivyal Palas 内。"
+          summary: "沿 Serdar-ı Ekrem 返回 Tünel，再进入 İstiklal Caddesi 南段；餐厅入口位于 Hıdivyal Palas 二层。"
         },
         official: "https://www.eleosrestaurant.com/beyoglu/",
         menu: "https://www.eleosrestaurant.com/beyoglu/menu/",
@@ -1737,7 +1793,7 @@ TRIP_DATA.stopDetails = {
       { name: "时令鱼类", text: "秋季可询问当天鱼获与按重量计价方式。" },
       { name: "Rakı 或本地葡萄酒", text: "若饮酒只点一轮，餐后仍需步行回酒店。" }
     ],
-    tips: ["确认账单是否已含服务费。", "餐后沿独立大街由南向北步行至 Taksim，不再折返。"]
+    tips: ["确认账单是否已含服务费。", "餐后独立大街只作可选短逛；不想继续步行时，从 Şişhane 乘 M2 或打车返回。"]
   },
   "d3-0": {
     kind: "checklist",
